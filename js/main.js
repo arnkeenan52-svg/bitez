@@ -56,7 +56,7 @@ function showSuccess(form) {
     status.innerHTML = `
       <p class="rounded-2xl border-[3px] ${onDark ? "border-apple/60 bg-white/10 text-cream" : "border-apple bg-white/70 text-forest"} px-5 py-4 font-display text-xl font-bold lowercase">
         you're on the list 🍏
-        <span class="mt-1 block font-body text-sm font-semibold ${onDark ? "text-cream/80" : "text-forest/70"}">we'll email you when the first drop lands.</span>
+        <span class="mt-1 block font-body text-sm font-semibold ${onDark ? "text-cream/80" : "text-forest-soft"}">we'll email you when the first drop lands.</span>
       </p>`;
   }
   gummyConfetti();
@@ -64,9 +64,11 @@ function showSuccess(form) {
 
 function showError(form, message) {
   const status = form.parentElement.querySelector(".js-form-status");
-  if (status) {
-    status.innerHTML = `<p class="px-2 pt-1 text-sm font-bold text-berry">${message}</p>`;
-  }
+  if (!status) return;
+  // white chip keeps the error legible on both the cream hero and the dark footer
+  status.innerHTML = message
+    ? `<p class="inline-block rounded-full bg-white px-4 py-2 text-sm font-bold text-berry-deep">${message}</p>`
+    : "";
 }
 
 function initWaitlistForms() {
@@ -121,7 +123,7 @@ function initPineappleVote() {
       button.disabled = true;
       button.classList.add("opacity-60", "pointer-events-none");
       button.textContent = "vote counted 🍍";
-      note.classList.remove("hidden");
+      note.textContent = "vote counted 🍍 — join the waitlist to hear who wins.";
       gummyConfetti(10);
     },
     { once: true }

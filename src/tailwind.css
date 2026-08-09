@@ -9,8 +9,12 @@
   --color-cream: #faf5e8;
   --color-forest: #225e30;
   --color-forest-deep: #1a4a26;
+  /* muted body text that still passes WCAG AA on cream/white/tint backgrounds */
+  --color-forest-soft: #4a7354;
   --color-apple: #a4d65e;
   --color-berry: #e63950;
+  /* darker urgency red for small error text (AA on cream/white) */
+  --color-berry-deep: #c21f37;
   --color-mango: #f5c242;
   --color-white: #ffffff;
 
@@ -81,7 +85,7 @@
 
   /* ---------- tags / pills ---------- */
   .tag {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-body text-xs font-bold uppercase tracking-[0.12em];
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1 font-body text-xs font-bold uppercase tracking-[0.12em];
   }
   .tag-urgent {
     @apply bg-berry text-white;
@@ -95,7 +99,7 @@
 
   /* ---------- wordmark fallback (if assets/bitez-logo.png is missing) ---------- */
   .wordmark {
-    @apply relative inline-block font-display font-extrabold lowercase leading-none text-white;
+    @apply isolate relative inline-block font-display font-extrabold lowercase leading-none text-white;
     -webkit-text-stroke: 2px var(--color-forest);
     paint-order: stroke fill;
     text-shadow:
@@ -180,10 +184,18 @@
     @apply fixed inset-x-0 bottom-0 z-40 p-3 md:hidden;
     padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
     transform: translateY(120%);
-    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0.35, 1.1);
+    /* visibility keeps the hidden bar out of the tab order / a11y tree */
+    visibility: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.32, 0.72, 0.35, 1.1),
+      visibility 0s linear 0.35s;
   }
   .sticky-cta.is-visible {
     transform: translateY(0);
+    visibility: visible;
+    transition:
+      transform 0.35s cubic-bezier(0.32, 0.72, 0.35, 1.1),
+      visibility 0s;
   }
 
   /* ---------- confetti ---------- */
