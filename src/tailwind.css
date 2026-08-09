@@ -76,7 +76,7 @@
 @layer components {
   /* ---------- buttons (clay: squish on press, spring back) ---------- */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full font-display font-bold no-underline select-none cursor-pointer;
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl font-display font-bold no-underline select-none cursor-pointer;
     transition:
       transform 0.2s var(--ease-spring),
       background-color 0.2s ease-out,
@@ -125,7 +125,7 @@
     @apply bg-forest text-cream;
   }
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border-2 border-white/70 bg-white/60 px-4 py-2 text-sm font-bold text-forest;
+    @apply inline-flex items-center gap-2 rounded-xl border-2 border-white/70 bg-white/60 px-4 py-2 text-sm font-bold text-forest;
     box-shadow:
       0 3px 8px -3px rgba(34, 94, 48, 0.18),
       inset 0 2px 4px rgba(255, 255, 255, 0.7);
@@ -244,7 +244,7 @@
     @apply size-4 accent-forest;
   }
   .qty-btn {
-    @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;
+    @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;
   }
   .qty-btn:hover {
     @apply border-forest;
@@ -267,10 +267,80 @@
     scroll-snap-align: center;
   }
   .nutri-tab {
-    @apply inline-flex cursor-pointer items-center rounded-full border-2 border-forest/25 bg-white/60 px-4 py-2 font-display text-sm font-bold lowercase text-forest transition-colors duration-200;
+    @apply inline-flex cursor-pointer items-center rounded-xl border-2 border-forest/25 bg-white/60 px-4 py-2 font-display text-sm font-bold lowercase text-forest transition-colors duration-200;
   }
   .nutri-tab[aria-current="true"] {
     @apply border-forest bg-forest text-cream;
+  }
+
+  /* ---------- cart ---------- */
+  .cart-btn {
+    @apply relative grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 text-forest transition-colors duration-150;
+  }
+  .cart-btn:hover {
+    @apply border-forest;
+  }
+  .cart-badge {
+    @apply absolute -right-1.5 -top-1.5 grid min-w-5 place-items-center rounded-full bg-berry px-1 font-body text-xs font-extrabold leading-5 text-white;
+  }
+  .cart-badge[hidden] {
+    display: none;
+  }
+  .cart-overlay {
+    @apply pointer-events-none fixed inset-0 z-40 bg-forest-deep/50 opacity-0 transition-opacity duration-300;
+  }
+  .cart-drawer {
+    @apply fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream shadow-2xl;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.3s ease-out,
+      visibility 0s linear 0.3s;
+  }
+  .cart-open .cart-overlay {
+    @apply pointer-events-auto opacity-100;
+  }
+  .cart-open .cart-drawer {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.3s ease-out,
+      visibility 0s;
+  }
+
+  /* ---------- product gallery ---------- */
+  .thumb-btn {
+    @apply w-20 cursor-pointer overflow-hidden rounded-xl border-[3px] border-white/70 bg-white/60 p-0 transition-colors duration-150;
+  }
+  .thumb-btn:hover {
+    @apply border-forest/40;
+  }
+  .thumb-btn[aria-current="true"] {
+    @apply border-forest;
+  }
+  .cart-item {
+    @apply flex items-center justify-between gap-3 rounded-2xl border-2 border-white/70 bg-white/70 p-3;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cart-drawer,
+    .cart-overlay {
+      transition: none;
+    }
+  }
+
+  /* ---------- comparison table ---------- */
+  .compare-card {
+    @apply overflow-hidden rounded-3xl border-[3px] border-forest bg-white;
+    box-shadow: var(--shadow-clay);
+  }
+  .compare-row {
+    @apply grid grid-cols-[1.2fr_1fr_1fr] items-center gap-2 border-b-2 border-forest/10 px-4 py-3 text-sm font-semibold last:border-b-0 sm:px-6 sm:text-base;
+  }
+  .compare-row > :nth-child(2) {
+    @apply bg-tint-apple/60 -my-3 self-stretch py-3 text-center font-extrabold;
+  }
+  .compare-row > :nth-child(3) {
+    @apply text-center text-forest-soft;
   }
 
   /* ---------- sticky mobile CTA ---------- */

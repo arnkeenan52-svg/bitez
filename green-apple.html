@@ -36,7 +36,7 @@
       <a href="index.html#nutrition" class="text-forest no-underline hover:underline hover:underline-offset-4">nutrition</a>
       <a href="index.html#faq" class="text-forest no-underline hover:underline hover:underline-offset-4">faq</a>
     </nav>
-    <a href="#preorder" class="btn btn-primary px-5 py-2.5 text-base lowercase">pre-order</a>
+    <a href="#preorder" class="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm lowercase sm:px-5 sm:text-base">pre-order</a>
   </header>
 
   <main>
@@ -45,11 +45,21 @@
       <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
 
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div class="clay overflow-hidden bg-tint-apple p-3 sm:p-4">
-          <picture>
-            <source type="image/webp" srcset="assets/greenapple-500.webp 500w, assets/greenapple.webp 1000w" sizes="(min-width: 1024px) 540px, 92vw" />
-            <img src="assets/greenapple.jpg" srcset="assets/greenapple-500.jpg 500w, assets/greenapple.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="green apple bitez bag with translucent green gummy bears spilling out" class="w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" />
-          </picture>
+        <div>
+          <div class="clay overflow-hidden bg-tint-apple p-3 sm:p-4">
+            <picture>
+              <source type="image/webp" srcset="assets/greenapple.webp" />
+              <img src="assets/greenapple.jpg" alt="green apple bitez bag with translucent green gummy bears spilling out" class="js-pdp-main w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" />
+            </picture>
+          </div>
+          <div class="mt-3 flex gap-3" role="group" aria-label="product photos">
+            <button type="button" class="js-thumb thumb-btn" aria-current="true" data-full="assets/greenapple.jpg" data-webp="assets/greenapple.webp" data-alt="green apple bitez bag with translucent green gummy bears spilling out">
+              <img src="assets/greenapple-500.jpg" alt="bag photo" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" />
+            </button>
+            <button type="button" class="js-thumb thumb-btn" aria-current="false" data-full="assets/greenapple-macro.jpg" data-webp="assets/greenapple-macro.webp" data-alt="macro close-up of translucent green apple gummy bears, backlit">
+              <img src="assets/greenapple-macro-500.jpg" alt="gummy close-up photo" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" />
+            </button>
+          </div>
         </div>
 
         <div>
@@ -65,27 +75,27 @@
           </ul>
 
           <div id="preorder" class="mt-8 max-w-md scroll-mt-28">
-            <form class="js-preorder" novalidate>
+            <form class="js-preorder" data-flavor="green apple" novalidate>
               <fieldset>
                 <legend class="font-display text-lg font-bold lowercase">pick your bag</legend>
                 <div class="mt-3 grid gap-2">
                   <label class="size-option">
                     <span class="flex items-center gap-3">
-                      <input type="radio" name="size" value="small-48g" data-price="2.90" />
+                      <input type="radio" name="size" value="small-48g" data-price="2.90" data-label="small · 48g" />
                       <span>small · 48g · 10g protein</span>
                     </span>
                     <span class="font-display font-bold">€2.90</span>
                   </label>
                   <label class="size-option">
                     <span class="flex items-center gap-3">
-                      <input type="radio" name="size" value="big-96g" data-price="4.90" checked />
+                      <input type="radio" name="size" value="big-96g" data-price="4.90" data-label="big · 96g" checked />
                       <span>big · 96g · 20g protein</span>
                     </span>
                     <span class="font-display font-bold">€4.90</span>
                   </label>
                   <label class="size-option">
                     <span class="flex items-center gap-3">
-                      <input type="radio" name="size" value="share-144g" data-price="6.90" />
+                      <input type="radio" name="size" value="share-144g" data-price="6.90" data-label="share · 144g" />
                       <span>share · 144g · 30g protein</span>
                     </span>
                     <span class="font-display font-bold">€6.90</span>
@@ -101,78 +111,79 @@
                 <button type="button" class="js-qty-plus qty-btn" aria-label="one bag more">+</button>
               </div>
 
-              <div class="mt-4 flex flex-col gap-3 sm:flex-row">
-                <label for="email-order" class="sr-only">email address</label>
-                <input id="email-order" name="email" type="email" required autocomplete="email" placeholder="your email"
-                  class="min-h-[56px] w-full flex-1 rounded-full border-[3px] border-forest/25 bg-white px-6 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-forest" />
-                <button type="submit" class="btn btn-primary min-h-[56px] shrink-0 px-7 text-lg lowercase">pre-order · €4.90</button>
-              </div>
+              <button type="submit" class="mt-4 btn btn-primary min-h-[56px] w-full px-7 text-lg lowercase">add to bag · €4.90</button>
             </form>
-            <div class="js-form-status mt-3" role="status" aria-live="polite"></div>
-            <p class="mt-3 text-sm font-semibold text-forest-soft">nothing charged today. we email you a payment link when your order is ready to ship, 8–12 weeks out.</p>
+            <p class="mt-3 text-sm font-semibold text-forest-soft">pre-order: nothing charged today. checkout is in your bag, top right.</p>
+          </div>
+          <!-- product facts -->
+          <div class="mt-8 flex flex-col gap-3">
+            <details class="faq-item" name="pdp">
+              <summary>nutrition facts<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
+              <div class="faq-body">
+              <div class="mb-4 flex flex-wrap gap-2" role="group" aria-label="pick a bag size">
+                <button type="button" class="js-nutri-tab nutri-tab" data-slide="0" aria-current="true">small · 48g</button>
+                <button type="button" class="js-nutri-tab nutri-tab" data-slide="1" aria-current="false">big · 96g</button>
+                <button type="button" class="js-nutri-tab nutri-tab" data-slide="2" aria-current="false">share · 144g</button>
+              </div>
+              <div class="nutri-track js-nutri-track" tabindex="0" aria-label="nutrition facts per bag size — swipe or use the size buttons">
+                <div class="nutri-slide">
+                  <div class="label-card">
+                    <p class="font-display text-2xl font-extrabold lowercase">nutrition facts</p>
+                    <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">small bag · 48g</p>
+                    <div class="label-rule" role="presentation"></div>
+                    <dl>
+                      <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~100 kcal</dd></div>
+                      <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">10 g</dd></div>
+                      <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~4 g</dd></div>
+                    </dl>
+                    <div class="label-rule" role="presentation"></div>
+                    <p class="pt-2 text-sm font-semibold text-forest-soft">the snack size. verified by independent lab testing, batch by batch.</p>
+                  </div>
+                </div>
+                <div class="nutri-slide">
+                  <div class="label-card">
+                    <p class="font-display text-2xl font-extrabold lowercase">nutrition facts</p>
+                    <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">big bag · 96g</p>
+                    <div class="label-rule" role="presentation"></div>
+                    <dl>
+                      <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~200 kcal</dd></div>
+                      <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">20 g</dd></div>
+                      <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~8 g</dd></div>
+                    </dl>
+                    <div class="label-rule" role="presentation"></div>
+                    <p class="pt-2 text-sm font-semibold text-forest-soft">the launch size, the bag in the photos. verified by independent lab testing, batch by batch.</p>
+                  </div>
+                </div>
+                <div class="nutri-slide">
+                  <div class="label-card">
+                    <p class="font-display text-2xl font-extrabold lowercase">nutrition facts</p>
+                    <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">share bag · 144g</p>
+                    <div class="label-rule" role="presentation"></div>
+                    <dl>
+                      <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~300 kcal</dd></div>
+                      <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">30 g</dd></div>
+                      <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~12 g</dd></div>
+                    </dl>
+                    <div class="label-rule" role="presentation"></div>
+                    <p class="pt-2 text-sm font-semibold text-forest-soft">for sharing. technically. verified by independent lab testing, batch by batch.</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </details>
+            <details class="faq-item" name="pdp">
+              <summary>what's inside<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
+              <p class="faq-body">vegan pea protein for the numbers, pectin for the chew. no gelatin, nothing from animals. the full ingredient list goes on the printed label and on this page before launch. an independent lab in denmark tests every batch and we publish the reports.</p>
+            </details>
+            <details class="faq-item" name="pdp">
+              <summary>shipping &amp; pre-order<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
+              <p class="faq-body">pre-orders ship in 8–12 weeks, EU first. nothing is charged today: when your order is ready, we email you a payment link. pay then, and it ships. change your mind? ignore the email and the order lapses.</p>
+            </details>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- nutrition -->
-    <section class="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6" aria-labelledby="nutrition-heading">
-      <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">full transparency</p>
-      <h2 id="nutrition-heading" class="mt-2 text-[clamp(2rem,6vw,3rem)] lowercase">the numbers<span class="text-apple">.</span></h2>
-
-      <div class="mt-8 w-full max-w-md">
-        <div class="mb-4 flex flex-wrap gap-2" role="group" aria-label="pick a bag size">
-          <button type="button" class="js-nutri-tab nutri-tab" data-slide="0" aria-current="true">small · 48g</button>
-          <button type="button" class="js-nutri-tab nutri-tab" data-slide="1" aria-current="false">big · 96g</button>
-          <button type="button" class="js-nutri-tab nutri-tab" data-slide="2" aria-current="false">share · 144g</button>
-        </div>
-        <div class="nutri-track js-nutri-track" tabindex="0" aria-label="nutrition facts per bag size — swipe or use the size buttons">
-          <div class="nutri-slide">
-            <div class="label-card">
-              <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
-              <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">small bag · 48g</p>
-              <div class="label-rule" role="presentation"></div>
-              <dl>
-                <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~100 kcal</dd></div>
-                <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">10 g</dd></div>
-                <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~4 g</dd></div>
-              </dl>
-              <div class="label-rule" role="presentation"></div>
-              <p class="pt-2 text-sm font-semibold text-forest-soft">the snack size. verified by independent lab testing, batch by batch.</p>
-            </div>
-          </div>
-          <div class="nutri-slide">
-            <div class="label-card">
-              <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
-              <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">big bag · 96g</p>
-              <div class="label-rule" role="presentation"></div>
-              <dl>
-                <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~200 kcal</dd></div>
-                <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">20 g</dd></div>
-                <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~8 g</dd></div>
-              </dl>
-              <div class="label-rule" role="presentation"></div>
-              <p class="pt-2 text-sm font-semibold text-forest-soft">the launch size, the bag in the photos. verified by independent lab testing, batch by batch.</p>
-            </div>
-          </div>
-          <div class="nutri-slide">
-            <div class="label-card">
-              <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
-              <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">share bag · 144g</p>
-              <div class="label-rule" role="presentation"></div>
-              <dl>
-                <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~300 kcal</dd></div>
-                <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">30 g</dd></div>
-                <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~12 g</dd></div>
-              </dl>
-              <div class="label-rule" role="presentation"></div>
-              <p class="pt-2 text-sm font-semibold text-forest-soft">for sharing. technically. verified by independent lab testing, batch by batch.</p>
-            </div>
-          </div>
-        </div>
-        <p class="mt-4 font-bold lowercase text-forest-soft">the boring numbers, front and center. that's the point.</p>
-      </div>
-    </section>
   </main>
 
   <!-- wave: cream → forest-deep -->

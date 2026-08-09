@@ -59,7 +59,7 @@
       <a href="#nutrition" class="text-forest no-underline hover:underline hover:underline-offset-4">nutrition</a>
       <a href="#faq" class="text-forest no-underline hover:underline hover:underline-offset-4">faq</a>
     </nav>
-    <a href="green-apple.html#preorder" class="btn btn-primary px-5 py-2.5 text-base lowercase">pre-order</a>
+    <a href="green-apple.html#preorder" class="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm lowercase sm:px-5 sm:text-base">pre-order</a>
   </header>
 
   <main>
@@ -75,9 +75,9 @@
           </p>
 
           <!-- pre-order CTAs -->
-          <div id="cta" class="mt-8 flex flex-wrap items-center gap-3 scroll-mt-28">
-            <a href="green-apple.html#preorder" class="btn btn-primary min-h-[56px] px-8 text-lg lowercase">pre-order now</a>
-            <a href="#flavors" class="btn btn-ghost min-h-[56px] px-6 text-lg lowercase">see the flavors</a>
+          <div id="cta" class="mt-8 grid max-w-md grid-cols-2 items-center gap-3 scroll-mt-28">
+            <a href="green-apple.html#preorder" class="btn btn-primary min-h-[56px] whitespace-nowrap px-3 text-sm lowercase sm:px-4 sm:text-lg">pre-order now</a>
+            <a href="#flavors" class="btn btn-ghost min-h-[56px] whitespace-nowrap px-3 text-sm lowercase sm:px-4 sm:text-lg">see the flavors</a>
           </div>
           <p class="mt-3 text-sm font-semibold text-forest-soft">first drop ships in 8–12 weeks. you pay when it ships.</p>
 
@@ -265,6 +265,47 @@
     <svg class="block w-full rotate-180 text-tint-apple" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
       <path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" />
     </svg>
+
+    <!-- ============ comparison ============ -->
+    <section id="compare" class="mx-auto w-full max-w-3xl scroll-mt-24 px-4 pt-16 sm:px-6" aria-labelledby="compare-heading">
+      <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">side by side</p>
+      <h2 id="compare-heading" class="mt-2 text-[clamp(2rem,6vw,3rem)] lowercase">bitez vs the candy aisle<span class="text-apple">.</span></h2>
+      <p class="mt-4 max-w-xl text-lg font-semibold leading-relaxed">same chew, different label. per 100g:</p>
+
+      <div class="compare-card mt-6">
+        <div class="compare-row bg-forest text-cream">
+          <span class="font-bold uppercase tracking-[0.1em] text-xs sm:text-sm">per 100g</span>
+          <span class="!bg-transparent text-center font-display text-lg font-extrabold lowercase !text-cream">bitez</span>
+          <span class="text-center font-bold lowercase !text-cream/80">sugar gummies*</span>
+        </div>
+        <div class="compare-row">
+          <span>protein</span>
+          <span>~21 g</span>
+          <span>~7 g</span>
+        </div>
+        <div class="compare-row">
+          <span>sugar</span>
+          <span>~8 g</span>
+          <span>~46 g</span>
+        </div>
+        <div class="compare-row">
+          <span>energy</span>
+          <span>~210 kcal</span>
+          <span>~340 kcal</span>
+        </div>
+        <div class="compare-row">
+          <span>gummy base</span>
+          <span>pectin · vegan</span>
+          <span>gelatin</span>
+        </div>
+        <div class="compare-row">
+          <span>lab reports published</span>
+          <span>yes</span>
+          <span>no</span>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
+    </section>
 
     <!-- ============ nutrition transparency ============ -->
     <section id="nutrition" class="mx-auto grid w-full max-w-6xl scroll-mt-24 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24" aria-labelledby="nutrition-heading">
