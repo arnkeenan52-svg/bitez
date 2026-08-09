@@ -83,37 +83,23 @@ function showError(form, message) {
 
 function initPreorderForms() {
   document.querySelectorAll("form.js-preorder").forEach((form) => {
-    const qtyInput = form.querySelector('input[name="qty"]');
     const button = form.querySelector('button[type="submit"]');
 
     const selection = () => {
-      const size = form.querySelector('input[name="size"]:checked');
-      const qty = Math.min(10, Math.max(1, parseInt(qtyInput.value, 10) || 1));
-      qtyInput.value = qty;
+      const pack = form.querySelector('input[name="pack"]:checked');
       return {
         flavor: form.dataset.flavor || "green apple",
-        size: size.value,
-        sizeLabel: size.dataset.label || size.value,
-        price: parseFloat(size.dataset.price),
-        qty,
+        size: pack.value,
+        sizeLabel: pack.dataset.label || pack.value,
+        price: parseFloat(pack.dataset.price),
+        qty: 1,
       };
     };
     const updateTotal = () => {
-      const s = selection();
-      button.textContent = `add to bag · €${(s.price * s.qty).toFixed(2)}`;
-      const unit = form.querySelector(".js-unit-price");
-      if (unit) unit.textContent = `€${s.price.toFixed(2)}`;
+      button.textContent = `add to bag · €${selection().price.toFixed(2)}`;
     };
 
-    form.querySelectorAll('input[name="size"]').forEach((radio) => radio.addEventListener("change", updateTotal));
-    form.querySelector(".js-qty-plus").addEventListener("click", () => {
-      qtyInput.value = Math.min(10, (parseInt(qtyInput.value, 10) || 1) + 1);
-      updateTotal();
-    });
-    form.querySelector(".js-qty-minus").addEventListener("click", () => {
-      qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
-      updateTotal();
-    });
+    form.querySelectorAll('input[name="pack"]').forEach((radio) => radio.addEventListener("change", updateTotal));
     updateTotal();
 
     form.addEventListener("submit", (event) => {

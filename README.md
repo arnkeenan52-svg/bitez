@@ -9,9 +9,11 @@ emails a payment link when the order ships, 8–12 weeks out. No payment
 processing on the site — swap the reservation form for Shopify/Stripe
 checkout when ready.
 
-⚠️ **Placeholder prices** in `green-apple.html`: €2.90 / €4.90 / €6.90 for
-48g / 96g / 144g. Confirm or change before launch. The share-bag size (144g)
-is an assumption too.
+⚠️ **Placeholder offer** in `green-apple.html`: the buy box sells the 96g
+bag in packs — 1 bag €4.90 · 3-pack €12.90 (save 12%, free EU shipping) ·
+6-pack €22.90 (save 22%). Prices, discounts and the free-shipping promise
+are placeholders — confirm before launch. Small/share bag sizes (48g/144g,
+144g itself an assumption) appear in nutrition info only.
 
 ## Stack
 
