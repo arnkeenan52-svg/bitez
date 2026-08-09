@@ -114,10 +114,6 @@
                       </span>
                     </span>
                     <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">€4.30 per bag</span>
-                    <span class="mt-3 flex flex-col gap-1.5 pl-9 text-sm font-semibold">
-                      <span class="flex items-center gap-2"><svg viewBox="0 0 16 16" class="size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>free shipping in the EU</span>
-                      <span class="flex items-center gap-2"><svg viewBox="0 0 16 16" class="size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>cancel anytime before it ships</span>
-                    </span>
                   </label>
 
                   <label class="pack-option">
@@ -136,6 +132,11 @@
 
                 </div>
               </fieldset>
+
+              <div class="mt-3 flex flex-col gap-1.5 text-sm font-semibold">
+                <span class="flex items-center gap-2"><svg viewBox="0 0 16 16" class="size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>3-packs and up ship free in the EU</span>
+                <span class="flex items-center gap-2"><svg viewBox="0 0 16 16" class="size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>cancel anytime before it ships</span>
+              </div>
 
               <p class="mt-4 flex flex-wrap items-center gap-2 text-sm font-semibold">
                 <span class="inline-block size-2.5 rounded-full bg-apple" aria-hidden="true"></span>
@@ -220,6 +221,21 @@
     <!-- product story -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6" aria-labelledby="story-heading">
       <h2 id="story-heading" class="text-[clamp(2rem,6vw,3rem)] lowercase">what you're getting<span class="text-apple">.</span></h2>
+
+      <div class="mt-6 grid grid-cols-3 gap-3">
+        <div class="rounded-2xl border-[3px] border-white bg-tint-apple p-4 text-center">
+          <p class="font-display text-3xl font-extrabold sm:text-4xl">20g</p>
+          <p class="mt-1 text-xs font-bold lowercase text-forest-soft sm:text-sm">protein per big bag</p>
+        </div>
+        <div class="rounded-2xl border-[3px] border-white bg-tint-mango p-4 text-center">
+          <p class="font-display text-3xl font-extrabold sm:text-4xl">~8g</p>
+          <p class="mt-1 text-xs font-bold lowercase text-forest-soft sm:text-sm">sugar per big bag</p>
+        </div>
+        <div class="rounded-2xl border-[3px] border-white bg-white p-4 text-center">
+          <p class="font-display text-3xl font-extrabold sm:text-4xl">100%</p>
+          <p class="mt-1 text-xs font-bold lowercase text-forest-soft sm:text-sm">vegan · pectin base</p>
+        </div>
+      </div>
       <div class="mt-8 flex flex-col gap-10">
         <div class="grid items-center gap-6 md:grid-cols-2 md:gap-10">
           <div class="overflow-hidden rounded-3xl border-[3px] border-white bg-white p-2">
@@ -271,11 +287,11 @@
           <span class="!bg-transparent text-center font-display text-lg font-extrabold lowercase !text-cream">bitez</span>
           <span class="text-center font-bold lowercase !text-cream/80">sugar gummies*</span>
         </div>
-        <div class="compare-row"><span>protein</span><span>~21 g</span><span>~7 g</span></div>
-        <div class="compare-row"><span>sugar</span><span>~8 g</span><span>~46 g</span></div>
-        <div class="compare-row"><span>energy</span><span>~210 kcal</span><span>~340 kcal</span></div>
-        <div class="compare-row"><span>gummy base</span><span>pectin · vegan</span><span>gelatin</span></div>
-        <div class="compare-row"><span>lab reports published</span><span>yes</span><span>no</span></div>
+        <div class="compare-row"><span class="flex items-center gap-2.5"><img src="assets/chip-peas.webp" class="size-9 shrink-0 rounded-lg object-cover" alt="" width="160" height="160" loading="lazy" decoding="async" />protein</span><span>~21 g</span><span>~7 g</span></div>
+        <div class="compare-row"><span class="flex items-center gap-2.5"><img src="assets/chip-sugar.webp" class="size-9 shrink-0 rounded-lg object-cover" alt="" width="160" height="160" loading="lazy" decoding="async" />sugar</span><span>~8 g</span><span>~46 g</span></div>
+        <div class="compare-row"><span class="flex items-center gap-2.5"><span class="grid size-9 shrink-0 place-items-center rounded-lg bg-tint-mango" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-5 text-forest"><path d="M13 2 5 14h6l-1 8 8-12h-6z" fill="currentColor"/></svg></span>energy</span><span>~210 kcal</span><span>~340 kcal</span></div>
+        <div class="compare-row"><span class="flex items-center gap-2.5"><img src="assets/chip-bear.webp" class="size-9 shrink-0 rounded-lg object-cover" alt="" width="160" height="160" loading="lazy" decoding="async" />gummy base</span><span>pectin · vegan</span><span>gelatin</span></div>
+        <div class="compare-row"><span class="flex items-center gap-2.5"><span class="grid size-9 shrink-0 place-items-center rounded-lg bg-tint-apple" aria-hidden="true"><svg viewBox="0 0 100 100" class="size-7"><circle cx="50" cy="50" r="46" fill="#225e30"/><circle cx="50" cy="50" r="36" fill="none" stroke="#faf5e8" stroke-width="4"/><path d="M35 52 l11 11 l20 -24" fill="none" stroke="#a4d65e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>lab reports published</span><span>yes</span><span>no</span></div>
       </div>
       <p class="mt-3 max-w-3xl text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
     </section>
