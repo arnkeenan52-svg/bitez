@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bitez — vegan protein gummies | candy that counts</title>
+  <meta name="description" content="vegan protein gummies that taste like actual candy. 10g protein per bag, ~100 kcal, no artificial colours or flavours. lab tested in denmark. join the waitlist for the first drop." />
+  <meta name="theme-color" content="#faf5e8" />
+
+  <!-- open graph / social. TODO at deploy: replace og:image + og:url with absolute production URLs -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="bitez" />
+  <meta property="og:title" content="bitez — vegan protein gummies | candy that counts" />
+  <meta property="og:description" content="vegan protein gummies that taste like actual candy. 10g protein per bag. no artificial anything. join the waitlist for the first drop." />
+  <meta property="og:image" content="assets/greenapple.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="bitez — vegan protein gummies | candy that counts" />
+  <meta name="twitter:description" content="vegan protein gummies that taste like actual candy. 10g protein per bag. no artificial anything." />
+  <meta name="twitter:image" content="assets/greenapple.png" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "bitez",
+    "slogan": "Candy that counts.",
+    "description": "Vegan protein gummies that taste like real candy. 10g protein per 48g bag, pectin base, no artificial colours or flavours, lab tested.",
+    "sameAs": [
+      "https://www.instagram.com/bitezprotein",
+      "https://www.tiktok.com/@bitezprotein"
+    ]
+  }
+  </script>
+</head>
+
+<body id="top">
+  <a href="#waitlist" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-forest focus:px-5 focus:py-3 focus:text-white">skip to waitlist</a>
+
+  <!-- ============ announcement bar ============ -->
+  <a href="#waitlist" class="block bg-berry px-4 py-2.5 text-center font-bold text-cream no-underline transition-colors hover:bg-berry/90">
+    <span class="text-[15px] leading-snug sm:text-base">launching soon — <span class="underline underline-offset-4">join the waitlist</span> for first drop</span>
+  </a>
+
+  <!-- ============ header ============ -->
+  <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+    <a href="#top" class="flex items-center no-underline" aria-label="bitez — home">
+      <span class="asset-frame flex items-center">
+        <img src="assets/bitez-logo.png" alt="bitez" class="h-11 w-auto sm:h-12" width="132" height="48" />
+        <span class="asset-fallback wordmark pl-2 text-4xl sm:text-[2.6rem]">bitez</span>
+      </span>
+    </a>
+    <nav class="hidden items-center gap-7 font-bold lowercase md:flex" aria-label="main">
+      <a href="#flavors" class="text-forest no-underline hover:underline hover:underline-offset-4">flavors</a>
+      <a href="#why" class="text-forest no-underline hover:underline hover:underline-offset-4">why bitez</a>
+      <a href="#nutrition" class="text-forest no-underline hover:underline hover:underline-offset-4">nutrition</a>
+      <a href="#faq" class="text-forest no-underline hover:underline hover:underline-offset-4">faq</a>
+    </nav>
+    <a href="#waitlist" class="btn btn-primary px-5 py-2.5 text-base lowercase">join waitlist</a>
+  </header>
+
+  <main>
+    <!-- ============ hero ============ -->
+    <section class="relative overflow-hidden" aria-labelledby="hero-heading">
+      <!-- decorative background blobs -->
+      <div class="pointer-events-none absolute -left-24 top-16 size-64 rounded-[42%_58%_55%_45%/45%_42%_58%_55%] bg-apple/20" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-28 bottom-8 size-80 rotate-12 rounded-[58%_42%_45%_55%/42%_55%_45%_58%] bg-mango/20" aria-hidden="true"></div>
+
+      <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-6 lg:pb-24 lg:pt-14">
+        <div class="relative z-10">
+          <h1 id="hero-heading" class="text-[clamp(3.3rem,12vw,6.2rem)] lowercase">
+            candy that<br />counts<span class="text-apple">.</span>
+          </h1>
+          <p class="mt-5 max-w-md text-lg font-semibold leading-relaxed sm:text-xl">
+            vegan protein gummies that taste like actual candy. 10g protein per bag. no artificial anything.
+          </p>
+
+          <!-- waitlist form -->
+          <div id="waitlist" class="mt-8 scroll-mt-28">
+            <form class="js-waitlist flex max-w-md flex-col gap-3 sm:flex-row" novalidate>
+              <label for="email-hero" class="sr-only">email address</label>
+              <input
+                id="email-hero"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder="your email"
+                class="min-h-[56px] w-full flex-1 rounded-full border-[3px] border-forest/25 bg-white px-6 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-forest"
+              />
+              <button type="submit" class="btn btn-primary min-h-[56px] shrink-0 px-7 text-lg lowercase">join the waitlist</button>
+            </form>
+            <div class="js-form-status mt-3 max-w-md" role="status" aria-live="polite"></div>
+            <p class="mt-3 text-sm font-semibold text-forest/60">no spam. just the drop date and first access.</p>
+          </div>
+
+          <!-- trust row -->
+          <ul class="mt-7 flex max-w-lg flex-wrap gap-2" role="list">
+            <li class="pill">100% vegan</li>
+            <li class="pill">pectin, no gelatin</li>
+            <li class="pill">no artificial colours</li>
+            <li class="pill">lab tested, always</li>
+          </ul>
+
+          <a href="https://www.instagram.com/bitezprotein" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 font-bold lowercase text-forest no-underline hover:underline hover:underline-offset-4">
+            <svg class="size-5" aria-hidden="true"><use href="#icon-instagram" /></svg>
+            follow @bitezprotein
+          </a>
+        </div>
+
+        <!-- hero product media -->
+        <div class="asset-frame relative mx-auto w-full max-w-md lg:max-w-none">
+          <img src="assets/greenapple.png" alt="green apple bitez — bag with translucent green protein gummy bears spilling out" class="relative z-10 mx-auto w-full max-w-md drop-shadow-xl" width="520" height="520" />
+          <div class="asset-fallback relative aspect-square w-full">
+            <div class="absolute inset-[6%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
+            <svg viewBox="0 0 120 140" class="float-slow absolute left-1/2 top-1/2 z-10 w-[52%] -translate-x-1/2 -translate-y-[54%] text-apple" style="--tilt:-3deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="float-slower absolute left-[10%] top-[62%] w-[20%] text-apple" style="--tilt:-16deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="float-slow absolute right-[8%] top-[16%] w-[16%] text-apple" style="--tilt:22deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span class="sr-only">green apple bitez — translucent green protein gummy bears (product photo coming soon)</span>
+          </div>
+
+          <!-- protein sticker -->
+          <div class="absolute right-2 top-2 z-20 grid size-28 place-items-center sm:size-32" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="sticker-spin absolute inset-0 size-full">
+              <circle cx="50" cy="50" r="48" fill="#225e30" />
+              <circle cx="50" cy="50" r="41" fill="none" stroke="#faf5e8" stroke-width="2" stroke-dasharray="1 3" stroke-linecap="round" />
+              <path id="sticker-arc" d="M50,50 m-33,0 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0" fill="none" />
+              <text class="font-body" fill="#faf5e8" font-size="10.5" font-weight="800" letter-spacing="2.5">
+                <textPath href="#sticker-arc">10g protein · per bag ·</textPath>
+              </text>
+            </svg>
+            <span class="relative font-display text-2xl font-extrabold text-cream sm:text-[1.7rem]">10g</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ flavor showcase ============ -->
+    <section id="flavors" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 lg:py-24" aria-labelledby="flavors-heading">
+      <p class="font-bold uppercase tracking-[0.18em] text-forest/55">the lineup</p>
+      <h2 id="flavors-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">sour. chewy. loaded<span class="text-apple">.</span></h2>
+      <p class="mt-4 max-w-xl text-lg font-semibold leading-relaxed">
+        three flavors, one honest spec: vegan pea protein, pectin base, nothing artificial, every batch lab tested.
+      </p>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <!-- green apple -->
+        <article id="green-apple" class="flex flex-col rounded-3xl bg-tint-apple p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+          <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
+            <img src="assets/greenapple.png" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <div class="asset-fallback absolute inset-0">
+              <div class="absolute inset-[12%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-apple/25" aria-hidden="true"></div>
+              <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="absolute left-[12%] top-[58%] w-[18%] rotate-[-18deg] text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            </div>
+          </div>
+          <span class="tag tag-status mt-5 self-start">launch flavor</span>
+          <h3 class="mt-3 text-3xl lowercase">green apple</h3>
+          <p class="mt-2 font-semibold leading-relaxed">the hero. sharp, sour and translucent green — 10g of protein hiding in plain sight.</p>
+        </article>
+
+        <!-- strawberry -->
+        <article id="strawberry" class="flex flex-col rounded-3xl bg-tint-berry p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+          <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
+            <img src="assets/strawberry.png" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <div class="asset-fallback absolute inset-0">
+              <div class="absolute inset-[12%] rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-berry/15" aria-hidden="true"></div>
+              <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-berry" aria-hidden="true"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="absolute right-[12%] top-[60%] w-[18%] rotate-[16deg] text-berry" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            </div>
+          </div>
+          <span class="tag tag-status mt-5 self-start">launch flavor</span>
+          <h3 class="mt-3 text-3xl lowercase">strawberry</h3>
+          <p class="mt-2 font-semibold leading-relaxed">sweet, a little sour, very red. the classic — rebuilt with 10g protein per bag.</p>
+        </article>
+
+        <!-- pineapple -->
+        <article id="pineapple" class="flex flex-col rounded-3xl bg-tint-mango p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+          <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
+            <img src="assets/pineapple.png" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <div class="asset-fallback absolute inset-0">
+              <div class="absolute inset-[12%] rounded-[48%_52%_55%_45%/55%_48%_52%_45%] bg-mango/25" aria-hidden="true"></div>
+              <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="absolute left-[14%] top-[16%] w-[16%] rotate-[20deg] text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            </div>
+          </div>
+          <span class="tag tag-urgent mt-5 self-start">coming soon — vote</span>
+          <h3 class="mt-3 text-3xl lowercase">pineapple</h3>
+          <p class="mt-2 font-semibold leading-relaxed">help us pick flavor #3. tropical, golden, a little wild — if you vote it in.</p>
+          <div class="mt-4">
+            <button type="button" id="vote-pineapple" class="btn btn-ghost px-5 py-2.5 text-base lowercase">vote pineapple 🍍</button>
+            <p id="vote-note" class="mt-3 hidden font-bold text-forest" role="status" aria-live="polite">vote counted 🍍 — join the waitlist to hear who wins.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- wave: cream → tint-apple -->
+    <svg class="block w-full text-tint-apple" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" />
+    </svg>
+
+    <!-- ============ why bitez ============ -->
+    <section id="why" class="scroll-mt-24 bg-tint-apple" aria-labelledby="why-heading">
+      <div class="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
+        <p class="font-bold uppercase tracking-[0.18em] text-forest/55">the honest part</p>
+        <h2 id="why-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">why bitez<span class="text-apple">.</span></h2>
+
+        <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
+          <div>
+            <div class="flex h-24 items-end gap-1" aria-hidden="true">
+              <svg viewBox="0 0 120 140" class="w-14 rotate-[-14deg] text-apple"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="w-16 -translate-y-2 text-berry"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="w-14 rotate-[14deg] text-mango"><use href="#gummy-bear" /></svg>
+            </div>
+            <h3 class="mt-4 text-2xl lowercase">tastes like candy</h3>
+            <p class="mt-2 font-semibold leading-relaxed">translucent, sour, properly chewy. pectin base — like the candy you grew up with, because that's what it is.</p>
+          </div>
+
+          <div>
+            <div class="flex h-24 items-end" aria-hidden="true">
+              <svg viewBox="0 0 96 96" class="w-[76px] text-forest">
+                <rect x="14" y="6" width="68" height="84" rx="10" fill="none" stroke="currentColor" stroke-width="6" />
+                <line x1="28" y1="28" x2="68" y2="28" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                <line x1="28" y1="46" x2="68" y2="46" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                <line x1="28" y1="64" x2="52" y2="64" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-2xl lowercase">honest label</h3>
+            <p class="mt-2 font-semibold leading-relaxed">real numbers, nothing hidden. the protein on the bag is the protein in the bag — no blends, no asterisks.</p>
+          </div>
+
+          <div>
+            <div class="flex h-24 items-end" aria-hidden="true">
+              <!-- round lab badge: dark green circle, cream ring -->
+              <svg viewBox="0 0 100 100" class="w-[92px]">
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="badge-arc" d="M50,50 m-31,0 a31,31 0 1,1 62,0 a31,31 0 1,1 -62,0" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="9" font-weight="800" letter-spacing="1.6">
+                  <textPath href="#badge-arc">lab tested · every batch · denmark ·</textPath>
+                </text>
+                <path d="M40 50 l8 8 l14 -16" fill="none" stroke="#a4d65e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-2xl lowercase">every batch lab tested</h3>
+            <p class="mt-2 font-semibold leading-relaxed">an independent lab in denmark tests every single batch. reports published, always.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- wave: tint-apple → cream -->
+    <svg class="block w-full rotate-180 text-tint-apple" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" />
+    </svg>
+
+    <!-- ============ nutrition transparency ============ -->
+    <section id="nutrition" class="mx-auto grid w-full max-w-6xl scroll-mt-24 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24" aria-labelledby="nutrition-heading">
+      <div>
+        <p class="font-bold uppercase tracking-[0.18em] text-forest/55">full transparency</p>
+        <h2 id="nutrition-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">no small print<span class="text-apple">.</span></h2>
+        <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed">
+          we put the label on the website, not just the bag. honest protein, honest kcal, honest sugar — the numbers other brands make you squint for.
+        </p>
+        <p class="mt-4 max-w-lg font-semibold leading-relaxed text-forest/70">
+          bitez is a protein snack — a candy replacement, not a meal replacement.
+        </p>
+        <ul class="mt-6 flex max-w-lg flex-wrap gap-2" role="list">
+          <li class="pill">hydrolyzed pea protein</li>
+          <li class="pill">pectin base — no gelatin</li>
+          <li class="pill">no artificial colours or flavours</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="label-card mx-auto w-full max-w-md">
+          <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
+          <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest/60">small bag · 48g</p>
+          <div class="label-rule" role="presentation"></div>
+          <dl>
+            <div class="label-row">
+              <dt>energy</dt>
+              <dd class="font-extrabold">~100 kcal</dd>
+            </div>
+            <div class="label-row text-lg">
+              <dt class="font-extrabold">protein</dt>
+              <dd class="font-display text-2xl font-extrabold">10 g</dd>
+            </div>
+            <div class="label-row">
+              <dt>sugars</dt>
+              <dd class="font-extrabold">~4 g</dd>
+            </div>
+          </dl>
+          <div class="label-rule-thin" role="presentation"></div>
+          <p class="py-1 text-[15px] font-semibold">
+            <span class="font-extrabold">big bag · 96g:</span> 20 g protein · ~200 kcal — same gummies, twice the bag.
+          </p>
+          <div class="label-rule" role="presentation"></div>
+          <p class="pt-2 text-sm font-semibold text-forest/60">verified by independent lab testing, batch by batch.</p>
+        </div>
+        <p class="mx-auto mt-4 max-w-md text-center font-bold lowercase text-forest/70">the boring numbers, front and center. that's the point.</p>
+
+        <div class="asset-frame mt-6">
+          <img src="assets/nutrition-flatlay.png" alt="bitez nutrition label flatlay" class="mx-auto w-full max-w-md rounded-2xl shadow-soft" loading="lazy" />
+          <span class="asset-fallback hidden" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ faq ============ -->
+    <section id="faq" class="mx-auto w-full max-w-3xl scroll-mt-24 px-4 pb-20 pt-4 sm:px-6 lg:pb-28" aria-labelledby="faq-heading">
+      <p class="font-bold uppercase tracking-[0.18em] text-forest/55">faq</p>
+      <h2 id="faq-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">fair questions<span class="text-apple">.</span></h2>
+
+      <div class="mt-8 flex flex-col gap-3">
+        <details class="faq-item" name="faq">
+          <summary>
+            is it really vegan?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
+          </summary>
+          <p class="faq-body">yes. really. the protein is hydrolyzed pea protein and the gummy base is pectin, a fruit fibre — no gelatin, nothing from animals. 100% vegan, no fine print.</p>
+        </details>
+
+        <details class="faq-item" name="faq">
+          <summary>
+            how much protein is in a bag?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
+          </summary>
+          <p class="faq-body">10g in the small bag (48g), 20g in the big bag (96g). that's the tested number, not a marketing number.</p>
+        </details>
+
+        <details class="faq-item" name="faq">
+          <summary>
+            when can i buy bitez?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
+          </summary>
+          <p class="faq-body">soon — the first drop is on its way. the waitlist gets first access before anyone else, so <a href="#waitlist" class="font-bold text-forest underline underline-offset-4">join it here</a>.</p>
+        </details>
+
+        <details class="faq-item" name="faq">
+          <summary>
+            where do you ship?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
+          </summary>
+          <p class="faq-body">we launch in the EU first. more countries after that.</p>
+        </details>
+
+        <details class="faq-item" name="faq">
+          <summary>
+            why should i trust the label?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
+          </summary>
+          <p class="faq-body">because you don't have to take our word for it: an independent lab tests every batch, and we publish the reports. check the numbers yourself.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- wave: cream → forest-deep -->
+  <svg class="-mb-px block w-full text-forest-deep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="currentColor" d="M0,46 C220,72 420,14 680,28 C940,42 1140,70 1300,50 C1370,42 1410,38 1440,34 L1440,70 L0,70 Z" />
+  </svg>
+
+  <!-- ============ footer ============ -->
+  <footer class="bg-forest-deep text-cream">
+    <div class="mx-auto w-full max-w-6xl px-4 pb-10 pt-12 sm:px-6 lg:pt-16">
+      <div class="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">get the first drop<span class="text-apple">.</span></h2>
+          <p class="mt-3 max-w-md text-lg font-semibold text-cream/85">first batches will be small. the waitlist gets them first.</p>
+        </div>
+        <div>
+          <form class="js-waitlist flex max-w-md flex-col gap-3 sm:flex-row" novalidate>
+            <label for="email-footer" class="sr-only">email address</label>
+            <input
+              id="email-footer"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="your email"
+              class="min-h-[56px] w-full flex-1 rounded-full border-[3px] border-transparent bg-white px-6 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-apple"
+            />
+            <button type="submit" class="btn min-h-[56px] shrink-0 bg-apple px-7 text-lg lowercase text-forest hover:bg-cream">join the waitlist</button>
+          </form>
+          <div class="js-form-status mt-3 max-w-md" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t-2 border-cream/15 pt-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <span class="asset-frame flex items-center">
+            <img src="assets/bitez-logo.png" alt="bitez" class="h-10 w-auto" width="110" height="40" />
+            <span class="asset-fallback wordmark pl-2 text-3xl">bitez</span>
+          </span>
+          <div class="flex items-center gap-5">
+            <a href="https://www.instagram.com/bitezprotein" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-bold lowercase text-cream no-underline hover:text-apple">
+              <svg class="size-5" aria-hidden="true"><use href="#icon-instagram" /></svg>
+              instagram
+            </a>
+            <a href="https://www.tiktok.com/@bitezprotein" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-bold lowercase text-cream no-underline hover:text-apple">
+              <svg class="size-5" aria-hidden="true"><use href="#icon-tiktok" /></svg>
+              tiktok
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col gap-2 text-sm font-semibold text-cream/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>[legal company details placeholder] · based in denmark</p>
+          <p>© 2026 bitez — candy that counts.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- sticky mobile CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="#waitlist" class="btn btn-primary min-h-[56px] w-full text-lg lowercase shadow-pop">join the waitlist 🍏</a>
+  </div>
+
+  <!-- ============ svg defs ============ -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true">
+    <defs>
+      <!-- translucent candy-style gummy bear, tinted via currentColor -->
+      <symbol id="gummy-bear" viewBox="0 0 120 140">
+        <g fill="currentColor">
+          <circle cx="34" cy="26" r="13" opacity="0.82" />
+          <circle cx="86" cy="26" r="13" opacity="0.82" />
+          <ellipse cx="60" cy="42" rx="30" ry="26" opacity="0.85" />
+          <ellipse cx="26" cy="80" rx="10" ry="18" transform="rotate(24 26 80)" opacity="0.82" />
+          <ellipse cx="94" cy="80" rx="10" ry="18" transform="rotate(-24 94 80)" opacity="0.82" />
+          <ellipse cx="60" cy="94" rx="31" ry="36" opacity="0.85" />
+          <ellipse cx="44" cy="125" rx="11" ry="13" opacity="0.82" />
+          <ellipse cx="76" cy="125" rx="11" ry="13" opacity="0.82" />
+        </g>
+        <ellipse cx="60" cy="52" rx="13" ry="9" fill="#ffffff" opacity="0.28" />
+        <ellipse cx="60" cy="97" rx="17" ry="23" fill="#ffffff" opacity="0.22" />
+        <ellipse cx="46" cy="32" rx="5" ry="9" transform="rotate(-22 46 32)" fill="#ffffff" opacity="0.5" />
+        <ellipse cx="45" cy="86" rx="4" ry="9" transform="rotate(-14 45 86)" fill="#ffffff" opacity="0.35" />
+        <g fill="#225e30" opacity="0.35">
+          <circle cx="50" cy="38" r="3" />
+          <circle cx="70" cy="38" r="3" />
+          <path d="M54 47 q6 5 12 0" fill="none" stroke="#225e30" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+      </symbol>
+
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="17.4" cy="6.6" r="1.4" fill="currentColor" />
+      </symbol>
+
+      <symbol id="icon-tiktok" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M16.6 3c.4 2.1 1.7 3.6 3.9 3.9v2.9c-1.5.1-2.8-.3-3.9-1.1v5.7c0 3.6-2.4 5.9-5.6 5.9-3 0-5.5-2.3-5.5-5.4 0-3.4 3-5.8 6.3-5.3v3c-.4-.1-.8-.2-1.2-.1-1.4.1-2.3 1.1-2.3 2.5.1 1.4 1.2 2.4 2.6 2.4 1.5-.1 2.4-1.1 2.4-2.7V3h3.3z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

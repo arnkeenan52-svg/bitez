@@ -1,0 +1,25 @@
+{
+  "name": "bitez-site",
+  "version": "1.0.0",
+  "description": "bitez — vegan protein gummies. launch site.",
+  "scripts": {
+    "build": "tailwindcss -i src/tailwind.css -o css/styles.css --minify",
+    "watch": "tailwindcss -i src/tailwind.css -o css/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnkeenan52-svg/bitez.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arnkeenan52-svg/bitez/issues"
+  },
+  "homepage": "https://github.com/arnkeenan52-svg/bitez#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "private": true
+}

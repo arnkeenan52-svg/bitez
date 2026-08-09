@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+/*
+  bitez design tokens — see README.md
+  cream ~60% · greens ~30% · red ≤10% (urgency only) · no pure black
+*/
+@theme {
+  --color-*: initial;
+  --color-cream: #faf5e8;
+  --color-forest: #225e30;
+  --color-forest-deep: #1a4a26;
+  --color-apple: #a4d65e;
+  --color-berry: #e63950;
+  --color-mango: #f5c242;
+  --color-white: #ffffff;
+
+  /* per-flavor background tints (brand colors mixed into cream) */
+  --color-tint-apple: #e9f1cf;
+  --color-tint-berry: #f9dfe1;
+  --color-tint-mango: #f8eac6;
+
+  --font-display: "Baloo 2", "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-body: "Nunito", ui-rounded, system-ui, sans-serif;
+
+  --shadow-pop: 0 10px 30px -12px rgba(34, 94, 48, 0.35);
+  --shadow-soft: 0 6px 24px -14px rgba(34, 94, 48, 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-body text-forest antialiased;
+  }
+
+  ::selection {
+    background: var(--color-apple);
+    color: var(--color-forest);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-apple);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-extrabold leading-[1.05] tracking-tight;
+  }
+}
+
+@layer components {
+  /* ---------- buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-display font-bold no-underline
+      transition-[transform,background-color,color] duration-200 ease-out select-none cursor-pointer;
+  }
+  .btn:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 80ms;
+  }
+  .btn-primary {
+    @apply bg-forest text-white shadow-pop;
+  }
+  .btn-primary:hover {
+    @apply bg-apple text-forest;
+  }
+  .btn-ghost {
+    @apply border-[3px] border-forest bg-transparent text-forest;
+  }
+  .btn-ghost:hover {
+    @apply bg-forest text-white;
+  }
+
+  /* ---------- tags / pills ---------- */
+  .tag {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-body text-xs font-bold uppercase tracking-[0.12em];
+  }
+  .tag-urgent {
+    @apply bg-berry text-white;
+  }
+  .tag-status {
+    @apply bg-forest text-cream;
+  }
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-forest/15 bg-white/60 px-4 py-2 text-sm font-bold text-forest;
+  }
+
+  /* ---------- wordmark fallback (if assets/bitez-logo.png is missing) ---------- */
+  .wordmark {
+    @apply relative inline-block font-display font-extrabold lowercase leading-none text-white;
+    -webkit-text-stroke: 2px var(--color-forest);
+    paint-order: stroke fill;
+    text-shadow:
+      2px 2px 0 var(--color-forest),
+      -1px 1px 0 var(--color-forest),
+      1px -1px 0 var(--color-forest),
+      -1px -1px 0 var(--color-forest);
+  }
+  .wordmark::before {
+    content: "";
+    @apply absolute rounded-full bg-apple;
+    width: 1.15em;
+    height: 1.15em;
+    left: -0.28em;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: -1;
+  }
+
+  /* image → placeholder swap: JS adds .img-missing when an asset 404s */
+  .asset-frame .asset-fallback {
+    display: none;
+  }
+  .asset-frame.img-missing img {
+    display: none;
+  }
+  .asset-frame.img-missing .asset-fallback {
+    display: block;
+  }
+
+  /* ---------- gummy float / wiggle ---------- */
+  .float-slow {
+    animation: floaty 6s ease-in-out infinite;
+  }
+  .float-slower {
+    animation: floaty 8s ease-in-out 1.2s infinite;
+  }
+  .sticker-spin {
+    animation: sticker 14s linear infinite;
+  }
+
+  /* ---------- faq accordion ---------- */
+  .faq-item {
+    @apply rounded-2xl border-[3px] border-forest/12 bg-white/50 transition-colors duration-200;
+  }
+  .faq-item[open] {
+    @apply border-forest/25 bg-white/80;
+  }
+  .faq-item summary {
+    @apply flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-display text-lg font-bold lowercase sm:px-6 sm:text-xl;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary .faq-icon {
+    @apply grid size-8 shrink-0 place-items-center rounded-full bg-forest text-cream transition-transform duration-300;
+  }
+  .faq-item[open] summary .faq-icon {
+    transform: rotate(45deg);
+    @apply bg-apple text-forest;
+  }
+  .faq-item .faq-body {
+    @apply px-5 pb-5 pt-0 text-base leading-relaxed sm:px-6;
+  }
+
+  /* ---------- nutrition label ---------- */
+  .label-card {
+    @apply rounded-2xl border-[3px] border-forest bg-white p-5 shadow-soft sm:p-6;
+  }
+  .label-rule {
+    @apply my-2 h-[10px] rounded-full bg-forest;
+  }
+  .label-rule-thin {
+    @apply my-2 h-[3px] rounded-full bg-forest/80;
+  }
+  .label-row {
+    @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
+  }
+
+  /* ---------- sticky mobile CTA ---------- */
+  .sticky-cta {
+    @apply fixed inset-x-0 bottom-0 z-40 p-3 md:hidden;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    transform: translateY(120%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0.35, 1.1);
+  }
+  .sticky-cta.is-visible {
+    transform: translateY(0);
+  }
+
+  /* ---------- confetti ---------- */
+  .confetti-bear {
+    position: fixed;
+    top: -48px;
+    z-index: 60;
+    pointer-events: none;
+    animation: confetti-fall var(--fall-time, 2.6s) ease-in forwards;
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tilt, 0deg));
+  }
+  50% {
+    transform: translateY(-12px) rotate(var(--tilt, 0deg));
+  }
+}
+
+@keyframes sticker {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(var(--spin, 320deg));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .float-slow,
+  .float-slower,
+  .sticker-spin,
+  .confetti-bear {
+    animation: none !important;
+  }
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
+  .sticky-cta {
+    transition: none;
+  }
+}
