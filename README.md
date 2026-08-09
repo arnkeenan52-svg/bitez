@@ -41,6 +41,15 @@ host works the same way — build, then serve the repo root.
    `<link rel="canonical">` once the domain is live.
 4. **Legal** — replace `[legal company details placeholder]` in the footer.
 
+## Design system
+
+Component styling follows **claymorphism** (soft 3D, toy-like — fits the
+gummy product): 16–24px radii, thick light borders, double shadows (outer
+drop + inner highlight, tokens `--shadow-clay` / `--shadow-clay-btn` in
+`src/tailwind.css`), soft squish on press, scroll-triggered reveals
+(IntersectionObserver, disabled for `prefers-reduced-motion` and no-JS).
+Images ship as WebP with JPEG fallback and responsive `srcset`.
+
 ## Brand guardrails (baked into the copy — keep it that way)
 
 - Honest numbers only: 10g protein / ~100 kcal / ~4g sugar per 48g bag; 20g protein / ~200 kcal per 96g bag. Never inflate.

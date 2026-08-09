@@ -10,6 +10,30 @@ const FORM_ENDPOINT = "";
 const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const GUMMY_COLORS = ["#a4d65e", "#e63950", "#f5c242"];
 
+// gates the scroll-reveal styles so a no-JS visitor sees everything statically
+document.documentElement.classList.add("js-enabled");
+
+/* ---------- scroll-triggered reveals ---------- */
+function initScrollReveals() {
+  const els = document.querySelectorAll(".reveal");
+  if (REDUCED_MOTION || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-inview"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-inview");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+  els.forEach((el) => io.observe(el));
+}
+
 /* ---------- graceful placeholders for missing assets ---------- */
 function initAssetFallbacks() {
   document.querySelectorAll(".asset-frame img").forEach((img) => {
@@ -122,7 +146,8 @@ function initPineappleVote() {
     () => {
       button.disabled = true;
       button.classList.add("opacity-60", "pointer-events-none");
-      button.textContent = "vote counted 🍍";
+      const label = button.querySelector(".vote-label");
+      if (label) label.textContent = "vote counted";
       note.textContent = "vote counted 🍍 — join the waitlist to hear who wins.";
       gummyConfetti(10);
     },
@@ -159,6 +184,7 @@ function initStickyCta() {
 }
 
 initAssetFallbacks();
+initScrollReveals();
 initWaitlistForms();
 initPineappleVote();
 initStickyCta();

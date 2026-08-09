@@ -66,8 +66,8 @@
     <!-- ============ hero ============ -->
     <section class="relative overflow-hidden" aria-labelledby="hero-heading">
       <!-- decorative background blobs -->
-      <div class="pointer-events-none absolute -left-24 top-16 size-64 rounded-[42%_58%_55%_45%/45%_42%_58%_55%] bg-apple/20" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute -right-28 bottom-8 size-80 rotate-12 rounded-[58%_42%_45%_55%/42%_55%_45%_58%] bg-mango/20" aria-hidden="true"></div>
+      <div class="blob-drift pointer-events-none absolute -left-24 top-16 size-64 rounded-[42%_58%_55%_45%/45%_42%_58%_55%] bg-apple/20" aria-hidden="true"></div>
+      <div class="blob-drift pointer-events-none absolute -right-28 bottom-8 size-80 rotate-12 rounded-[58%_42%_45%_55%/42%_55%_45%_58%] bg-mango/20" style="animation-delay:-5s" aria-hidden="true"></div>
 
       <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-6 lg:pb-24 lg:pt-14">
         <div class="relative z-10">
@@ -113,7 +113,10 @@
 
         <!-- hero product media -->
         <div class="asset-frame relative mx-auto w-full max-w-md lg:max-w-lg">
-          <img src="assets/greenapple.jpg" alt="green apple bitez — bag with translucent green protein gummy bears spilling out" class="w-full rounded-[2.5rem] object-cover shadow-pop" width="1000" height="1000" fetchpriority="high" />
+          <picture>
+            <source type="image/webp" srcset="assets/greenapple-500.webp 500w, assets/greenapple.webp 1000w" sizes="(min-width: 1024px) 512px, 90vw" />
+            <img src="assets/greenapple.jpg" srcset="assets/greenapple-500.jpg 500w, assets/greenapple.jpg 1000w" sizes="(min-width: 1024px) 512px, 90vw" alt="green apple bitez — bag with translucent green protein gummy bears spilling out" class="w-full rounded-[2.5rem] border-4 border-white/70 object-cover shadow-pop" width="1000" height="1000" fetchpriority="high" />
+          </picture>
           <div class="asset-fallback relative aspect-square w-full">
             <div class="absolute inset-[6%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
             <svg viewBox="0 0 120 140" class="float-slow absolute left-1/2 top-1/2 z-10 w-[52%] -translate-x-1/2 -translate-y-[54%] text-apple" style="--tilt:-3deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -148,9 +151,12 @@
 
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         <!-- green apple -->
-        <article id="green-apple" class="flex flex-col rounded-3xl bg-tint-apple p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+        <article id="green-apple" class="clay reveal flex flex-col bg-tint-apple p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
-            <img src="assets/greenapple.jpg" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/greenapple-500.webp 500w, assets/greenapple.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
+              <img src="assets/greenapple-500.jpg" srcset="assets/greenapple-500.jpg 500w, assets/greenapple.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" />
+            </picture>
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-apple/25" aria-hidden="true"></div>
               <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -163,9 +169,12 @@
         </article>
 
         <!-- strawberry -->
-        <article id="strawberry" class="flex flex-col rounded-3xl bg-tint-berry p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+        <article id="strawberry" class="clay reveal flex flex-col bg-tint-berry p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6" style="--reveal-delay:0.1s">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
-            <img src="assets/strawberry.jpg" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/strawberry-500.webp 500w, assets/strawberry.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
+              <img src="assets/strawberry-500.jpg" srcset="assets/strawberry-500.jpg 500w, assets/strawberry.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" />
+            </picture>
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-berry/15" aria-hidden="true"></div>
               <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-berry" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -178,9 +187,12 @@
         </article>
 
         <!-- pineapple -->
-        <article id="pineapple" class="flex flex-col rounded-3xl bg-tint-mango p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+        <article id="pineapple" class="clay reveal flex flex-col bg-tint-mango p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6" style="--reveal-delay:0.2s">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
-            <img src="assets/pineapple.jpg" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/pineapple-500.webp 500w, assets/pineapple.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
+              <img src="assets/pineapple-500.jpg" srcset="assets/pineapple-500.jpg 500w, assets/pineapple.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" />
+            </picture>
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[48%_52%_55%_45%/55%_48%_52%_45%] bg-mango/25" aria-hidden="true"></div>
               <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -191,7 +203,10 @@
           <h3 class="mt-3 text-3xl lowercase">pineapple</h3>
           <p class="mt-2 font-semibold leading-relaxed">help us pick flavor #3. tropical, golden, a little wild — if you vote it in.</p>
           <div class="mt-4">
-            <button type="button" id="vote-pineapple" class="btn btn-ghost px-5 py-2.5 text-base lowercase">vote pineapple 🍍</button>
+            <button type="button" id="vote-pineapple" class="btn btn-ghost px-5 py-2.5 text-base lowercase">
+              <svg viewBox="0 0 120 140" class="size-5 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
+              <span class="vote-label">vote pineapple</span>
+            </button>
             <p id="vote-note" class="mt-3 font-bold text-forest" role="status" aria-live="polite"></p>
           </div>
         </article>
@@ -210,7 +225,7 @@
         <h2 id="why-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">why bitez<span class="text-apple">.</span></h2>
 
         <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
-          <div>
+          <div class="reveal">
             <div class="flex h-24 items-end gap-1" aria-hidden="true">
               <svg viewBox="0 0 120 140" class="w-14 rotate-[-14deg] text-apple"><use href="#gummy-bear" /></svg>
               <svg viewBox="0 0 120 140" class="w-16 -translate-y-2 text-berry"><use href="#gummy-bear" /></svg>
@@ -220,7 +235,7 @@
             <p class="mt-2 font-semibold leading-relaxed">translucent, sour, properly chewy. pectin base — like the candy you grew up with, because that's what it is.</p>
           </div>
 
-          <div>
+          <div class="reveal" style="--reveal-delay:0.1s">
             <div class="flex h-24 items-end" aria-hidden="true">
               <svg viewBox="0 0 96 96" class="w-[76px] text-forest">
                 <rect x="14" y="6" width="68" height="84" rx="10" fill="none" stroke="currentColor" stroke-width="6" />
@@ -233,7 +248,7 @@
             <p class="mt-2 font-semibold leading-relaxed">real numbers, nothing hidden. the protein on the bag is the protein in the bag — no blends, no asterisks.</p>
           </div>
 
-          <div>
+          <div class="reveal" style="--reveal-delay:0.2s">
             <div class="flex h-24 items-end" aria-hidden="true">
               <!-- round lab badge: dark green circle, cream ring -->
               <svg viewBox="0 0 100 100" class="w-[92px]">
@@ -260,7 +275,7 @@
 
     <!-- ============ nutrition transparency ============ -->
     <section id="nutrition" class="mx-auto grid w-full max-w-6xl scroll-mt-24 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24" aria-labelledby="nutrition-heading">
-      <div>
+      <div class="reveal">
         <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">full transparency</p>
         <h2 id="nutrition-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">no small print<span class="text-apple">.</span></h2>
         <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed">
@@ -276,7 +291,7 @@
         </ul>
       </div>
 
-      <div>
+      <div class="reveal" style="--reveal-delay:0.12s">
         <div class="label-card mx-auto w-full max-w-md">
           <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
           <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">small bag · 48g</p>
@@ -303,6 +318,9 @@
           <p class="pt-2 text-sm font-semibold text-forest-soft">verified by independent lab testing, batch by batch.</p>
         </div>
         <p class="mx-auto mt-4 max-w-md text-center font-bold lowercase text-forest-soft">the boring numbers, front and center. that's the point.</p>
+        <p class="mx-auto mt-3 max-w-md text-center">
+          <a href="#waitlist" class="font-display font-bold lowercase text-forest underline underline-offset-4 hover:text-forest-soft">sounds fair? join the waitlist →</a>
+        </p>
 
         <div class="asset-frame mt-6">
           <img src="assets/nutrition-flatlay.png" alt="bitez nutrition label flatlay" class="mx-auto w-full max-w-md rounded-2xl shadow-soft" loading="lazy" />
@@ -415,7 +433,10 @@
 
   <!-- sticky mobile CTA -->
   <div class="sticky-cta" id="sticky-cta">
-    <a href="#waitlist" class="btn btn-primary min-h-[56px] w-full text-lg lowercase shadow-pop">join the waitlist 🍏</a>
+    <a href="#waitlist" class="btn btn-primary min-h-[56px] w-full text-lg lowercase">
+      <svg viewBox="0 0 120 140" class="size-5 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
+      join the waitlist
+    </a>
   </div>
 
   <!-- ============ svg defs ============ -->
