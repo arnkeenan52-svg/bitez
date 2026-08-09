@@ -231,14 +231,6 @@
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
   }
 
-  /* ---------- no list panel ---------- */
-  .nolist-card {
-    @apply relative overflow-hidden rounded-3xl bg-forest-deep p-6 text-cream sm:p-8;
-  }
-  .nolist-card .blob-a {
-    @apply pointer-events-none absolute rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-forest;
-  }
-
   /* ---------- numbered steps ---------- */
   .steps {
     @apply relative flex flex-col gap-5;
