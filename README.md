@@ -33,6 +33,10 @@ npm run watch      # rebuild on change
 Then open `index.html` (or serve the folder: `npx serve .`). The compiled
 `css/styles.css` is committed, so the site works without a build step.
 
+When you change CSS or JS, bump the `?v=` query string on the
+`styles.css` / `main.js` links in all four HTML files so every visitor
+gets the new files immediately.
+
 ## Deploy
 
 `vercel.json` is included: Vercel runs the Tailwind build and serves the
