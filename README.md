@@ -12,7 +12,8 @@ checkout when ready.
 ⚠️ **Placeholder offer** in `green-apple.html`: the buy box sells the 96g
 bag in packs — 1 bag €4.90 · 3-pack €12.90 (save 12%, free EU shipping) ·
 6-pack €22.90 (save 22%). Prices, discounts and the free-shipping promise
-are placeholders — confirm before launch. Small/share bag sizes (48g/144g,
+are placeholders — confirm before launch. The 14-day money-back
+guarantee shown on the product page was added at the owner's request. Small/share bag sizes (48g/144g,
 144g itself an assumption) appear in nutrition info only.
 
 ## Stack

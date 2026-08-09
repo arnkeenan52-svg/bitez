@@ -42,7 +42,7 @@
     </div>
   </header>
 
-  <svg class="block w-full text-forest" viewBox="0 0 1440 36" preserveAspectRatio="none" height="14" aria-hidden="true"><path d="M-10,20 C200,36 440,4 720,15 C1000,26 1250,32 1450,10" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></svg>
+  <svg class="block h-auto w-full text-forest" viewBox="0 0 1440 30" aria-hidden="true"><path d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>
 
   <main class="relative isolate">
     <div class="pointer-events-none absolute inset-x-0 top-0 -z-10" aria-hidden="true">
@@ -79,11 +79,53 @@
           <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">green apple<span class="text-apple">.</span></h1>
           <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">sour green apple, translucent like real candy. the first bitez flavor.</p>
 
-          <ul class="mt-6 flex flex-nowrap gap-2" role="list">
-            <li class="pill whitespace-nowrap">100% vegan</li>
-            <li class="pill whitespace-nowrap">no gelatin</li>
-            <li class="pill whitespace-nowrap">lab tested</li>
-          </ul>
+          <div class="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
+            <span class="inline-grid" role="img" aria-label="100 percent vegan">
+              <svg viewBox="0 0 100 100" class="size-20 sm:size-24">
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="em-v-t" d="M20,50 A30,30 0 0 1 80,50" fill="none" />
+                <path id="em-v-b" d="M17,50 A33,33 0 0 0 83,50" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-v-t" startOffset="50%">100%</textPath></text>
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-v-b" startOffset="50%">VEGAN</textPath></text>
+                <path d="M50 63 C39 55 40 40 58 37 C60 53 57 59 50 63 Z" fill="#a4d65e"/><path d="M50 62 C52 54 55 47 58 42" fill="none" stroke="#225e30" stroke-width="2"/>
+              </svg>
+            </span>
+            <span class="inline-grid" role="img" aria-label="14 day money back guarantee">
+              <svg viewBox="0 0 100 100" class="size-20 sm:size-24">
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="em-g-t" d="M20,50 A30,30 0 0 1 80,50" fill="none" />
+                <path id="em-g-b" d="M17,50 A33,33 0 0 0 83,50" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-g-t" startOffset="50%">14-DAY</textPath></text>
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-g-b" startOffset="50%">GUARANTEE</textPath></text>
+                <path d="M50 33 l13 5 v10 c0 9 -5.5 13.5 -13 16.5 c-7.5 -3 -13 -7.5 -13 -16.5 v-10 z" fill="#a4d65e"/><path d="M43 50 l5 5 l10 -11" fill="none" stroke="#225e30" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="inline-grid" role="img" aria-label="free shipping on 3-packs and up in the EU">
+              <svg viewBox="0 0 100 100" class="size-20 sm:size-24">
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="em-s-t" d="M20,50 A30,30 0 0 1 80,50" fill="none" />
+                <path id="em-s-b" d="M17,50 A33,33 0 0 0 83,50" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-s-t" startOffset="50%">FREE</textPath></text>
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-s-b" startOffset="50%">SHIPPING</textPath></text>
+                <rect x="31" y="42" width="24" height="15" rx="2" fill="#a4d65e"/><path d="M55 46 h9 l6 6 v5 h-15 z" fill="#a4d65e"/><circle cx="40" cy="60" r="4" fill="#faf5e8" stroke="#225e30" stroke-width="2"/><circle cx="60" cy="60" r="4" fill="#faf5e8" stroke="#225e30" stroke-width="2"/>
+              </svg>
+            </span>
+            <span class="inline-grid" role="img" aria-label="independent lab tested, every batch">
+              <svg viewBox="0 0 100 100" class="size-20 sm:size-24">
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="em-l-t" d="M20,50 A30,30 0 0 1 80,50" fill="none" />
+                <path id="em-l-b" d="M17,50 A33,33 0 0 0 83,50" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-l-t" startOffset="50%">LAB</textPath></text>
+                <text class="font-body" fill="#faf5e8" font-size="12.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#em-l-b" startOffset="50%">TESTED</textPath></text>
+                <path d="M38 51 l8 9 l17 -19" fill="none" stroke="#a4d65e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <p class="mt-2 text-xs font-semibold text-forest-soft">free shipping on 3-packs and up, in the EU. 14-day money-back guarantee from delivery.</p>
 
           <div id="preorder" class="mt-8 max-w-md scroll-mt-28">
             <form class="js-preorder" data-flavor="green apple" novalidate>
@@ -211,7 +253,7 @@
             </details>
             <details class="faq-item" name="pdp">
               <summary>shipping &amp; pre-order<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
-              <p class="faq-body">pre-orders ship in 8–12 weeks, EU first. nothing is charged today: when your order is ready, we email you a payment link. pay then, and it ships. change your mind? ignore the email and the order lapses.</p>
+              <p class="faq-body">pre-orders ship in 8–12 weeks, EU first. nothing is charged today: when your order is ready, we email you a payment link. pay then, and it ships. change your mind? ignore the email and the order lapses. once delivered, you have a 14-day money-back guarantee.</p>
             </details>
           </div>
         </div>
