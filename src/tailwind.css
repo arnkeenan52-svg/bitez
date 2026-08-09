@@ -230,19 +230,40 @@
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
   }
 
-  /* ---------- pre-order form ---------- */
+  /* ---------- pre-order form (size chips behave like buttons: fast ease-out, press squish) ---------- */
   .size-chip {
-    @apply flex cursor-pointer flex-col items-center gap-0.5 rounded-2xl border-[3px] border-forest/15 bg-white/60 px-2 py-3 text-center transition-colors duration-150;
+    @apply flex cursor-pointer flex-col items-center gap-0.5 rounded-2xl border-[3px] border-forest/15 bg-white px-2 py-3 text-center select-none;
+    box-shadow: 0 2px 6px -2px rgba(34, 94, 48, 0.15);
+    transition:
+      transform 150ms ease-out,
+      background-color 150ms ease-out,
+      border-color 150ms ease-out,
+      box-shadow 150ms ease-out;
   }
   .size-chip:hover {
     @apply border-forest/40;
+    transform: translateY(-1px);
+  }
+  .size-chip:active {
+    transform: scale(0.96);
   }
   .size-chip:has(input:checked) {
     @apply border-forest bg-forest text-cream;
+    box-shadow:
+      0 4px 10px -4px rgba(34, 94, 48, 0.4),
+      inset 0 2px 4px rgba(255, 255, 255, 0.22);
   }
   .size-chip:has(input:focus-visible) {
     outline: 3px solid var(--color-apple);
     outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .size-chip,
+    .size-chip:hover,
+    .size-chip:active {
+      transform: none;
+      transition: none;
+    }
   }
   .qty-btn {
     @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;
