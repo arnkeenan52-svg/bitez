@@ -251,6 +251,72 @@
     @apply pointer-events-none absolute rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-forest;
   }
 
+  /* ---------- numbered steps ---------- */
+  .steps {
+    @apply relative flex flex-col gap-5;
+  }
+  .steps::before {
+    content: "";
+    @apply absolute bottom-10 left-7 top-10 w-[3px] rounded bg-forest/15;
+  }
+  .step-icon {
+    @apply relative z-10 grid size-14 shrink-0 place-items-center rounded-full bg-forest text-cream;
+  }
+  .step-card {
+    @apply flex-1 rounded-2xl bg-white p-4 sm:p-5;
+    box-shadow: 0 4px 12px -6px rgba(34, 94, 48, 0.18);
+  }
+
+  /* ---------- old way vs bitez ---------- */
+  .vs-card {
+    @apply grid grid-cols-2 overflow-hidden rounded-3xl;
+    box-shadow: 0 8px 20px -12px rgba(34, 94, 48, 0.25);
+  }
+  .vs-col-old {
+    @apply bg-white/70;
+  }
+  .vs-col-new {
+    @apply bg-tint-apple;
+  }
+  .vs-row {
+    @apply flex items-center gap-2.5 border-b-2 border-forest/10 px-3 py-3.5 text-sm font-semibold last:border-b-0 sm:px-5 sm:text-base;
+  }
+  .vs-head {
+    @apply flex min-h-14 items-center justify-center border-b-2 border-forest/10 px-3 py-3 text-center sm:px-5;
+  }
+  .vs-x {
+    @apply grid size-6 shrink-0 place-items-center rounded-full bg-forest/10 text-forest-soft;
+  }
+  .vs-check {
+    @apply grid size-6 shrink-0 place-items-center rounded-full bg-forest text-apple;
+  }
+
+  /* ---------- dose cards ---------- */
+  .dose-card {
+    @apply flex flex-col items-center gap-2 rounded-2xl bg-white p-4 text-center sm:p-5;
+    box-shadow: 0 4px 12px -6px rgba(34, 94, 48, 0.18);
+  }
+  .dose-card.is-hero {
+    @apply bg-forest text-cream;
+  }
+  .dose-card.is-hero .dose-note {
+    @apply text-cream/85;
+  }
+  .dose-note {
+    @apply text-sm font-semibold leading-relaxed text-forest-soft;
+  }
+
+  /* ---------- perk band ---------- */
+  .perk-band {
+    @apply flex flex-col gap-3 rounded-3xl bg-forest-deep p-5 sm:p-6;
+  }
+  .perk-card {
+    @apply flex items-center gap-4 rounded-2xl bg-forest p-4 text-cream;
+  }
+  .perk-icon {
+    @apply grid size-11 shrink-0 place-items-center rounded-full bg-apple text-forest;
+  }
+
   /* ---------- pack tiers ---------- */
   .pack-option {
     @apply relative block cursor-pointer select-none rounded-2xl border-[3px] border-forest/15 bg-white p-4;
