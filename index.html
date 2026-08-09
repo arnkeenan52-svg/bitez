@@ -66,9 +66,15 @@
     </div>
   </header>
 
+  <svg class="block w-full text-forest" viewBox="0 0 1440 36" preserveAspectRatio="none" height="14" aria-hidden="true"><path d="M-10,20 C200,36 440,4 720,15 C1000,26 1250,32 1450,10" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></svg>
+
   <main>
     <!-- ============ hero ============ -->
-    <section class="relative overflow-hidden" aria-labelledby="hero-heading">
+    <section class="relative isolate overflow-hidden" aria-labelledby="hero-heading">
+      <div class="pointer-events-none absolute inset-x-0 top-0 -z-10" aria-hidden="true">
+        <div class="h-56 bg-apple/25 sm:h-64"></div>
+        <svg class="block w-full rotate-180 text-apple/25" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" /></svg>
+      </div>
       <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-6 lg:pb-24 lg:pt-14">
         <div class="relative z-10">
           <h1 id="hero-heading" class="text-[clamp(3.3rem,12vw,6.2rem)] lowercase">
