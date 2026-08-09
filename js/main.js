@@ -386,6 +386,22 @@ function initStickyCta() {
   ).observe(footer);
 }
 
+/* ---------- browser chrome tint ---------- */
+/* iOS Safari paints its toolbar with theme-color; switch it to the footer
+   green while the footer is on screen so no cream shows around the chrome */
+function initThemeColor() {
+  const meta = document.querySelector('meta[name="theme-color"]');
+  const footer = document.querySelector("footer");
+  if (!meta || !footer || !("IntersectionObserver" in window)) return;
+  const cream = meta.content;
+  new IntersectionObserver(
+    ([entry]) => {
+      meta.content = entry.isIntersecting ? "#1a4a26" : cream;
+    },
+    { threshold: 0.05 }
+  ).observe(footer);
+}
+
 initAssetFallbacks();
 initScrollReveals();
 initCart();
@@ -393,3 +409,4 @@ initPreorderForms();
 initFlavorVotes();
 initGallery();
 initStickyCta();
+initThemeColor();
