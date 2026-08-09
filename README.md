@@ -50,7 +50,7 @@ host works the same way — build, then serve the repo root.
    total_eur per reservation. While it's empty the form demos the success
    state without sending anything. Flavor votes are front-end only.
 2. **Assets** — real pack shots for all three flavors are in `assets/`
-   (see `assets/README.md`). Still optional: `nutrition-flatlay.png`.
+   (see `assets/README.md`).
 3. ~~Absolute URLs~~ — done: eatbitez.com canonicals, og:url, absolute
    social images, robots.txt, sitemap.xml and Product schema are in.
 4. **Legal** — replace `[legal company details placeholder]` in the footer.
