@@ -9,12 +9,13 @@ emails a payment link when the order ships, 8–12 weeks out. No payment
 processing on the site — swap the reservation form for Shopify/Stripe
 checkout when ready.
 
-⚠️ **Placeholder offer** in `green-apple.html`: the buy box sells the 96g
-bag in packs — 1 bag €4.90 · 3-pack €12.90 (save 12%, free EU shipping) ·
-6-pack €22.90 (save 22%). Prices, discounts and the free-shipping promise
-are placeholders — confirm before launch. The 14-day money-back
-guarantee shown on the product page was added at the owner's request.
-The 96g bag is the only size — there are no small/share sizes.
+**Offer** in `green-apple.html`: the buy box sells the 96g bag in packs —
+1 bag €9.99 (owner-set) · 3-pack €26.99 (save 10%, free EU shipping) ·
+6-pack €47.99 (save 20%). ⚠️ The bundle prices/discounts and the
+free-shipping promise are still placeholders — confirm before launch.
+The 14-day money-back guarantee shown on the product page was added at
+the owner's request. The 96g bag is the only size — there are no
+small/share sizes.
 
 ## Stack
 
