@@ -6,9 +6,9 @@ Product photography used by the site.
 |---|---|
 | `hero-trio(.webp/-550.webp/-550.png)` | hero — all three bags, transparent background (AI lineup composed from the three pack shots) |
 | `greenapple.jpg` | green apple flavor card + OG/social image |
+| `greenapple-front/-bears/-macro(.jpg/.webp/-500.jpg)` | green apple product gallery |
 | `strawberry.jpg` | strawberry flavor card |
 | `pineapple.jpg` | pineapple flavor card |
-| `nutrition-flatlay.png` | optional — nutrition transparency section (add when available) |
 
 Shots are square 1000×1000 JPEGs (bag + spilled gummies on the flavor-color
 background). To swap one, replace the file and keep the name — the site picks

@@ -45,8 +45,9 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* overscroll: cream above the page, footer green below it */
-    background: linear-gradient(var(--color-cream) 50%, var(--color-forest-deep) 50%);
+    /* overscroll canvas: solid footer green. a gradient repeats past the page
+       edge and shows cream again below the footer, so it must be one color */
+    background-color: var(--color-forest-deep);
     /* NOTE: no overflow-x on <html> — it breaks iOS Safari pinch-zoom recovery */
   }
 
@@ -228,19 +229,6 @@
   }
   .label-row {
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
-  }
-
-  /* ---------- annotated product photo ---------- */
-  .annotate-wrap {
-    position: relative;
-    container-type: inline-size;
-  }
-  .annotate {
-    @apply absolute font-display font-extrabold lowercase leading-tight text-forest;
-    font-size: clamp(0.85rem, 4.2cqw, 1.5rem);
-    text-shadow:
-      0 0 6px var(--color-cream),
-      0 0 12px var(--color-cream);
   }
 
   /* ---------- no list panel ---------- */
@@ -554,8 +542,20 @@
     position: absolute;
     inset-inline: 0;
     top: 100%;
-    height: 50vh;
+    height: 100vh;
     background: var(--color-forest-deep);
+  }
+  /* stretch the announcement bar's red into the top rubber-band zone */
+  body > a.bg-berry {
+    position: relative;
+  }
+  body > a.bg-berry::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 100%;
+    height: 100vh;
+    background: var(--color-berry);
   }
 }
 
