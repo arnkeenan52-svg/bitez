@@ -188,7 +188,7 @@ function renderCart(items = cartLoad()) {
 
   if (!items.length) {
     list.innerHTML =
-      '<p class="font-semibold text-forest-soft">your bag is empty.</p><a href="green-apple.html#preorder" class="mt-2 inline-block font-display font-bold lowercase text-forest underline underline-offset-4">add some gummies →</a>';
+      '<p class="font-semibold text-forest-soft">your bag is empty.</p><a href="green-apple.html" class="mt-2 inline-block font-display font-bold lowercase text-forest underline underline-offset-4">add some gummies →</a>';
     footer.hidden = true;
     return;
   }
