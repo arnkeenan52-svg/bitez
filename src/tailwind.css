@@ -139,10 +139,10 @@
   /* the three radiating action lines off the "z", as on the bags */
   .wordmark-spark {
     @apply absolute;
-    width: 0.62em;
-    height: 0.62em;
-    right: -0.08em;
-    top: -0.28em;
+    width: 0.58em;
+    height: 0.58em;
+    right: 0.02em;
+    top: -0.18em;
   }
 
   /* image → placeholder swap: JS adds .img-missing when an asset 404s */
@@ -227,6 +227,27 @@
   }
   .label-row {
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
+  }
+
+  /* ---------- nutrition size slides ---------- */
+  .nutri-track {
+    @apply flex gap-4 overflow-x-auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nutri-track::-webkit-scrollbar {
+    display: none;
+  }
+  .nutri-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+  .nutri-tab {
+    @apply inline-flex cursor-pointer items-center rounded-full border-2 border-forest/25 bg-white/60 px-4 py-2 font-display text-sm font-bold lowercase text-forest transition-colors duration-200;
+  }
+  .nutri-tab[aria-current="true"] {
+    @apply border-forest bg-forest text-cream;
   }
 
   /* ---------- sticky mobile CTA ---------- */

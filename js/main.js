@@ -136,23 +136,59 @@ function initWaitlistForms() {
   });
 }
 
-/* ---------- pineapple vote ---------- */
-function initPineappleVote() {
-  const button = document.getElementById("vote-pineapple");
-  const note = document.getElementById("vote-note");
-  if (!button || !note) return;
-  button.addEventListener(
-    "click",
-    () => {
-      button.disabled = true;
-      button.classList.add("opacity-60", "pointer-events-none");
-      const label = button.querySelector(".vote-label");
-      if (label) label.textContent = "vote counted";
-      note.textContent = "vote counted 🍍 — join the waitlist to hear who wins.";
-      gummyConfetti(10);
-    },
-    { once: true }
-  );
+/* ---------- flavor votes (one vote per visitor, front-end only) ---------- */
+function initFlavorVotes() {
+  const buttons = [...document.querySelectorAll(".js-vote")];
+  buttons.forEach((button) => {
+    button.addEventListener(
+      "click",
+      () => {
+        const emoji = button.dataset.emoji || "";
+        const note = button.parentElement.querySelector(".js-vote-note");
+        buttons.forEach((b) => {
+          b.disabled = true;
+          b.classList.add("opacity-60", "pointer-events-none");
+        });
+        const label = button.querySelector(".vote-label");
+        if (label) label.textContent = "vote counted";
+        if (note) note.textContent = `vote counted ${emoji} — join the waitlist to hear who wins.`;
+        gummyConfetti(10);
+      },
+      { once: true }
+    );
+  });
+}
+
+/* ---------- nutrition size slides ---------- */
+function initNutritionSlides() {
+  const track = document.querySelector(".js-nutri-track");
+  const tabs = [...document.querySelectorAll(".js-nutri-tab")];
+  if (!track || !tabs.length) return;
+  const slides = [...track.querySelectorAll(".nutri-slide")];
+
+  const setActive = (index) => {
+    tabs.forEach((tab, i) => tab.setAttribute("aria-current", String(i === index)));
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const index = Number(tab.dataset.slide) || 0;
+      slides[index]?.scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "nearest", inline: "center" });
+      setActive(index);
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(slides.indexOf(entry.target));
+        });
+      },
+      { root: track, threshold: 0.6 }
+    );
+    slides.forEach((slide) => io.observe(slide));
+  }
 }
 
 /* ---------- sticky mobile CTA ---------- */
@@ -186,5 +222,6 @@ function initStickyCta() {
 initAssetFallbacks();
 initScrollReveals();
 initWaitlistForms();
-initPineappleVote();
+initFlavorVotes();
+initNutritionSlides();
 initStickyCta();

@@ -52,9 +52,10 @@ Images ship as WebP with JPEG fallback and responsive `srcset`.
 
 ## Brand guardrails (baked into the copy — keep it that way)
 
-- Honest numbers only: 10g protein / ~100 kcal / ~4g sugar per 48g bag; 20g protein / ~200 kcal per 96g bag. Never inflate.
+- Honest numbers only: 10g protein / ~100 kcal / ~4g sugar per 48g bag; 20g / ~200 kcal per 96g; 30g / ~300 kcal per 144g share bag. Never inflate.
 - It's a protein **snack** / candy replacement — never a meal replacement.
 - No health/medical/weight-loss claims, no "clinically proven" (EU food-claim rules).
+- The recipe **does contain artificial flavours/colours** — never claim "no artificials" anywhere on the site. That information lives on the printed label only.
 - Never mention whey. Product is vegan: hydrolyzed pea protein + pectin.
 - Red (`#E63950`) is for urgency only (announcement bar, tags) — ≤10% of any view.
 - No pure black — forest green `#225E30` is the "black".
