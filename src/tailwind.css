@@ -47,7 +47,7 @@
     scroll-behavior: smooth;
     /* overscroll: cream above the page, footer green below it */
     background: linear-gradient(var(--color-cream) 50%, var(--color-forest-deep) 50%);
-    overflow-x: clip;
+    /* NOTE: no overflow-x on <html> — it breaks iOS Safari pinch-zoom recovery */
   }
 
   body {
@@ -239,6 +239,8 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    /* keep the carousel's intrinsic width from widening ancestor grid columns */
+    contain: inline-size;
   }
   .nutri-track::-webkit-scrollbar {
     display: none;

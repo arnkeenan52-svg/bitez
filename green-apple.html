@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>green apple — bitez | vegan protein gummies</title>
+  <meta name="description" content="the launch flavor. sharp, sour, translucent green — vegan protein gummies with 20g protein per bag, lab tested in denmark." />
+  <meta name="theme-color" content="#faf5e8" />
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="bitez" />
+  <meta property="og:title" content="green apple — bitez | vegan protein gummies" />
+  <meta property="og:description" content="the launch flavor. sharp, sour, translucent green — vegan protein gummies with 20g protein per bag, lab tested in denmark." />
+  <meta property="og:image" content="assets/greenapple.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body id="top">
+  <!-- announcement bar -->
+  <a href="#waitlist" class="block bg-berry px-4 py-2.5 text-center font-bold text-cream no-underline transition-colors hover:bg-berry/90">
+    <span class="text-[15px] leading-snug sm:text-base">launching soon — <span class="underline underline-offset-4">join the waitlist</span> for first drop</span>
+  </a>
+
+  <!-- header -->
+  <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+    <a href="index.html" class="flex items-center no-underline" aria-label="bitez — home">
+      <span class="wordmark text-[2.5rem] sm:text-[2.9rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-forest" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
+    </a>
+    <nav class="hidden items-center gap-7 font-bold lowercase md:flex" aria-label="main">
+      <a href="index.html#flavors" class="text-forest no-underline hover:underline hover:underline-offset-4">flavors</a>
+      <a href="index.html#why" class="text-forest no-underline hover:underline hover:underline-offset-4">why bitez</a>
+      <a href="index.html#nutrition" class="text-forest no-underline hover:underline hover:underline-offset-4">nutrition</a>
+      <a href="index.html#faq" class="text-forest no-underline hover:underline hover:underline-offset-4">faq</a>
+    </nav>
+    <a href="#waitlist" class="btn btn-primary px-5 py-2.5 text-base lowercase">join waitlist</a>
+  </header>
+
+  <main>
+    <!-- product hero -->
+    <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
+      <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
+
+      <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div class="clay overflow-hidden bg-tint-apple p-3 sm:p-4">
+          <picture>
+            <source type="image/webp" srcset="assets/greenapple-500.webp 500w, assets/greenapple.webp 1000w" sizes="(min-width: 1024px) 540px, 92vw" />
+            <img src="assets/greenapple.jpg" srcset="assets/greenapple-500.jpg 500w, assets/greenapple.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="green apple bitez bag with translucent green gummy bears spilling out" class="w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" />
+          </picture>
+        </div>
+
+        <div>
+          <span class="tag tag-status">launch flavor · first drop</span>
+          <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">green apple<span class="text-apple">.</span></h1>
+          <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">the hero. sharp, sour and translucent green — the flavor that launches bitez.</p>
+          <p class="mt-3 max-w-lg font-semibold leading-relaxed text-forest-soft">proper green apple sour, the chewy pectin bite of real candy, and 20g of protein in the big bag. tested by an independent lab in denmark, batch by batch — reports published.</p>
+
+          <ul class="mt-6 flex max-w-lg flex-wrap gap-2" role="list">
+            <li class="pill">100% vegan</li>
+            <li class="pill">pectin, no gelatin</li>
+            <li class="pill">lab tested, always</li>
+          </ul>
+
+          <div id="waitlist" class="mt-8 scroll-mt-28">
+            <form class="js-waitlist flex max-w-md flex-col gap-3 sm:flex-row" novalidate>
+              <label for="email-hero" class="sr-only">email address</label>
+              <input id="email-hero" name="email" type="email" required autocomplete="email" placeholder="your email"
+                class="min-h-[56px] w-full flex-1 rounded-full border-[3px] border-forest/25 bg-white px-6 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-forest" />
+              <button type="submit" class="btn btn-primary min-h-[56px] shrink-0 px-7 text-lg lowercase">join the waitlist</button>
+            </form>
+            <div class="js-form-status mt-3 max-w-md" role="status" aria-live="polite"></div>
+            <p class="mt-3 text-sm font-semibold text-forest-soft">first drop goes to the waitlist. no spam — just the drop date and first access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- nutrition -->
+    <section class="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6" aria-labelledby="nutrition-heading">
+      <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">full transparency</p>
+      <h2 id="nutrition-heading" class="mt-2 text-[clamp(2rem,6vw,3rem)] lowercase">the numbers<span class="text-apple">.</span></h2>
+
+      <div class="mt-8 w-full max-w-md">
+        <div class="mb-4 flex flex-wrap gap-2" role="group" aria-label="pick a bag size">
+          <button type="button" class="js-nutri-tab nutri-tab" data-slide="0" aria-current="true">small · 48g</button>
+          <button type="button" class="js-nutri-tab nutri-tab" data-slide="1" aria-current="false">big · 96g</button>
+          <button type="button" class="js-nutri-tab nutri-tab" data-slide="2" aria-current="false">share · 144g</button>
+        </div>
+        <div class="nutri-track js-nutri-track" tabindex="0" aria-label="nutrition facts per bag size — swipe or use the size buttons">
+          <div class="nutri-slide">
+            <div class="label-card">
+              <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
+              <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">small bag · 48g</p>
+              <div class="label-rule" role="presentation"></div>
+              <dl>
+                <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~100 kcal</dd></div>
+                <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">10 g</dd></div>
+                <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~4 g</dd></div>
+              </dl>
+              <div class="label-rule" role="presentation"></div>
+              <p class="pt-2 text-sm font-semibold text-forest-soft">the snack size. verified by independent lab testing, batch by batch.</p>
+            </div>
+          </div>
+          <div class="nutri-slide">
+            <div class="label-card">
+              <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
+              <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">big bag · 96g</p>
+              <div class="label-rule" role="presentation"></div>
+              <dl>
+                <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~200 kcal</dd></div>
+                <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">20 g</dd></div>
+                <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~8 g</dd></div>
+              </dl>
+              <div class="label-rule" role="presentation"></div>
+              <p class="pt-2 text-sm font-semibold text-forest-soft">the launch size — the bag in the photos. verified by independent lab testing, batch by batch.</p>
+            </div>
+          </div>
+          <div class="nutri-slide">
+            <div class="label-card">
+              <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
+              <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">share bag · 144g</p>
+              <div class="label-rule" role="presentation"></div>
+              <dl>
+                <div class="label-row"><dt>energy</dt><dd class="font-extrabold">~300 kcal</dd></div>
+                <div class="label-row text-lg"><dt class="font-extrabold">protein</dt><dd class="font-display text-2xl font-extrabold">30 g</dd></div>
+                <div class="label-row"><dt>sugars</dt><dd class="font-extrabold">~12 g</dd></div>
+              </dl>
+              <div class="label-rule" role="presentation"></div>
+              <p class="pt-2 text-sm font-semibold text-forest-soft">for sharing. technically. verified by independent lab testing, batch by batch.</p>
+            </div>
+          </div>
+        </div>
+        <p class="mt-4 font-bold lowercase text-forest-soft">the boring numbers, front and center. that's the point.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- wave: cream → forest-deep -->
+  <svg class="-mb-px block w-full text-forest-deep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="currentColor" d="M0,46 C220,72 420,14 680,28 C940,42 1140,70 1300,50 C1370,42 1410,38 1440,34 L1440,70 L0,70 Z" />
+  </svg>
+
+  <!-- footer -->
+  <footer class="bg-forest-deep text-cream">
+    <div class="mx-auto w-full max-w-6xl px-4 pb-10 pt-12 sm:px-6 lg:pt-16">
+      <div class="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">get the first drop<span class="text-apple">.</span></h2>
+          <p class="mt-3 max-w-md text-lg font-semibold text-cream/85">first batches will be small. the waitlist gets them first.</p>
+        </div>
+        <div>
+          <form class="js-waitlist flex max-w-md flex-col gap-3 sm:flex-row" novalidate>
+            <label for="email-footer" class="sr-only">email address</label>
+            <input id="email-footer" name="email" type="email" required autocomplete="email" placeholder="your email"
+              class="min-h-[56px] w-full flex-1 rounded-full border-[3px] border-transparent bg-white px-6 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-apple" />
+            <button type="submit" class="btn min-h-[56px] shrink-0 bg-apple px-7 text-lg lowercase text-forest hover:bg-cream">join the waitlist</button>
+          </form>
+          <div class="js-form-status mt-3 max-w-md" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t-2 border-cream/15 pt-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <span class="wordmark text-[2.5rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-apple" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
+          <div class="flex items-center gap-5">
+            <a href="https://www.instagram.com/bitezprotein" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-bold lowercase text-cream no-underline hover:text-apple">
+              <svg class="size-5" aria-hidden="true"><use href="#icon-instagram" /></svg>
+              instagram
+            </a>
+            <a href="https://www.tiktok.com/@bitezprotein" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-bold lowercase text-cream no-underline hover:text-apple">
+              <svg class="size-5" aria-hidden="true"><use href="#icon-tiktok" /></svg>
+              tiktok
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col gap-2 text-sm font-semibold text-cream/75 sm:flex-row sm:items-center sm:justify-between">
+          <p>[legal company details placeholder] · based in denmark</p>
+          <p>© 2026 bitez — candy that counts.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- sticky mobile CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="#waitlist" class="btn btn-primary min-h-[56px] w-full text-lg lowercase">
+      <svg viewBox="0 0 120 140" class="size-5 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
+      join the waitlist
+    </a>
+  </div>
+
+  <!-- svg defs -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true">
+    <defs>
+      <symbol id="gummy-bear" viewBox="0 0 120 140">
+        <g fill="currentColor">
+          <circle cx="34" cy="26" r="13" opacity="0.82" />
+          <circle cx="86" cy="26" r="13" opacity="0.82" />
+          <ellipse cx="60" cy="42" rx="30" ry="26" opacity="0.85" />
+          <ellipse cx="26" cy="80" rx="10" ry="18" transform="rotate(24 26 80)" opacity="0.82" />
+          <ellipse cx="94" cy="80" rx="10" ry="18" transform="rotate(-24 94 80)" opacity="0.82" />
+          <ellipse cx="60" cy="94" rx="31" ry="36" opacity="0.85" />
+          <ellipse cx="44" cy="125" rx="11" ry="13" opacity="0.82" />
+          <ellipse cx="76" cy="125" rx="11" ry="13" opacity="0.82" />
+        </g>
+        <ellipse cx="60" cy="52" rx="13" ry="9" fill="#ffffff" opacity="0.28" />
+        <ellipse cx="60" cy="97" rx="17" ry="23" fill="#ffffff" opacity="0.22" />
+        <ellipse cx="46" cy="32" rx="5" ry="9" transform="rotate(-22 46 32)" fill="#ffffff" opacity="0.5" />
+        <ellipse cx="45" cy="86" rx="4" ry="9" transform="rotate(-14 45 86)" fill="#ffffff" opacity="0.35" />
+        <g fill="#225e30" opacity="0.35">
+          <circle cx="50" cy="38" r="3" />
+          <circle cx="70" cy="38" r="3" />
+          <path d="M54 47 q6 5 12 0" fill="none" stroke="#225e30" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="17.4" cy="6.6" r="1.4" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M16.6 3c.4 2.1 1.7 3.6 3.9 3.9v2.9c-1.5.1-2.8-.3-3.9-1.1v5.7c0 3.6-2.4 5.9-5.6 5.9-3 0-5.5-2.3-5.5-5.4 0-3.4 3-5.8 6.3-5.3v3c-.4-.1-.8-.2-1.2-.1-1.4.1-2.3 1.1-2.3 2.5.1 1.4 1.2 2.4 2.6 2.4 1.5-.1 2.4-1.1 2.4-2.7V3h3.3z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
