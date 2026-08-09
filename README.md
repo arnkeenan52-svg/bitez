@@ -55,6 +55,12 @@ host works the same way — build, then serve the repo root.
 3. ~~Absolute URLs~~ — done: eatbitez.com canonicals, og:url, absolute
    social images, robots.txt, sitemap.xml and Product schema are in.
 4. **Legal** — replace `[legal company details placeholder]` in the footer.
+5. **Trust content that needs the owner** (conversion audit findings):
+   the real ingredient list + sweetener + allergens in the "what's inside"
+   accordion (it currently promises the list "before launch"), a support
+   email in the footer, a short "who's making this" founder note, and a
+   lab-reports page (or lab name) to back the "we publish the reports"
+   claim.
 
 ## Design system
 

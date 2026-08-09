@@ -96,7 +96,10 @@ function initPreorderForms() {
       };
     };
     const updateTotal = () => {
-      button.textContent = `add to bag · €${selection().price.toFixed(2)}`;
+      const price = selection().price.toFixed(2);
+      button.textContent = `add to bag · €${price}`;
+      const stickyLabel = document.querySelector(".js-sticky-label");
+      if (stickyLabel) stickyLabel.textContent = `pre-order · €${price}`;
     };
 
     form.querySelectorAll('input[name="pack"]').forEach((radio) => radio.addEventListener("change", updateTotal));
@@ -190,9 +193,9 @@ function renderCart(items = cartLoad()) {
           <p class="text-sm font-semibold text-forest-soft">${item.sizeLabel} · €${item.price.toFixed(2)}</p>
         </div>
         <div class="flex shrink-0 items-center gap-2">
-          <button type="button" class="js-cart-minus qty-btn !size-9 !text-base" data-index="${i}" aria-label="one fewer ${item.flavor}">−</button>
+          <button type="button" class="js-cart-minus qty-btn !text-base" data-index="${i}" aria-label="one fewer ${item.flavor}">−</button>
           <span class="w-5 text-center font-display font-bold">${item.qty}</span>
-          <button type="button" class="js-cart-plus qty-btn !size-9 !text-base" data-index="${i}" aria-label="one more ${item.flavor}">+</button>
+          <button type="button" class="js-cart-plus qty-btn !text-base" data-index="${i}" aria-label="one more ${item.flavor}">+</button>
         </div>
       </div>`
     )
@@ -233,7 +236,7 @@ function initCart() {
           <button type="submit" class="btn btn-primary min-h-[52px] text-lg lowercase">reserve pre-order</button>
         </form>
         <div class="js-form-status mt-3" role="status" aria-live="polite"></div>
-        <p class="mt-3 text-xs font-semibold text-forest-soft">nothing charged today. we email a payment link when your order ships, 8–12 weeks out.</p>
+        <p class="mt-3 text-xs font-semibold text-forest-soft">no card details, just your email. we send a payment link when your order ships, 8–12 weeks out. nothing charged today.</p>
       </div>
     </aside>`;
   document.body.appendChild(wrap);
@@ -306,8 +309,13 @@ function initGallery() {
   const source = main.closest("picture")?.querySelector("source");
   thumbs.forEach((thumb) => {
     thumb.addEventListener("click", () => {
-      main.src = thumb.dataset.full;
-      if (source && thumb.dataset.webp) source.srcset = thumb.dataset.webp;
+      const full = thumb.dataset.full;
+      main.src = full;
+      main.srcset = `${full.replace(/\.jpg$/, "-500.jpg")} 500w, ${full} 1000w`;
+      if (source && thumb.dataset.webp) {
+        const webp = thumb.dataset.webp;
+        source.srcset = `${webp.replace(/\.webp$/, "-500.webp")} 500w, ${webp} 1000w`;
+      }
       main.alt = thumb.dataset.alt || main.alt;
       thumbs.forEach((t) => t.setAttribute("aria-current", String(t === thumb)));
     });

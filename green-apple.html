@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809h" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809h" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809i" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809i" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,12 +71,23 @@
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
       <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
 
-      <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div>
+      <div class="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-x-14 lg:gap-y-5">
+        <div class="lg:col-start-2">
+          <span class="tag tag-status">launch flavor · first drop</span>
+          <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">green apple<span class="text-apple">.</span></h1>
+          <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">sour green apple, translucent like real candy. the first bitez flavor.</p>
+          <p class="mt-3 text-sm font-semibold text-forest-soft">€9.99 a bag · bundles from €8.00 a bag · nothing charged today</p>
+          <ul class="mt-5 flex flex-nowrap gap-2" role="list">
+            <li class="pill whitespace-nowrap px-3 text-xs sm:px-4 sm:text-sm">20g protein</li>
+            <li class="pill whitespace-nowrap px-3 text-xs sm:px-4 sm:text-sm">~8g sugar</li>
+            <li class="pill whitespace-nowrap px-3 text-xs sm:px-4 sm:text-sm">lab tested</li>
+          </ul>
+        </div>
+        <div class="lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-center">
           <div class="overflow-hidden rounded-3xl bg-white p-3 sm:p-4">
             <picture>
-              <source type="image/webp" srcset="assets/greenapple-front.webp" />
-              <img src="assets/greenapple-front.jpg" alt="green apple bitez pouch, front view on cream studio background" class="js-pdp-main w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" decoding="async" />
+              <source type="image/webp" srcset="assets/greenapple-front-500.webp 500w, assets/greenapple-front.webp 1000w" sizes="(min-width: 1024px) 540px, 92vw" />
+              <img src="assets/greenapple-front.jpg" srcset="assets/greenapple-front-500.jpg 500w, assets/greenapple-front.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="green apple bitez pouch, front view on cream studio background" class="js-pdp-main w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" decoding="async" />
             </picture>
           </div>
           <div class="mt-3 flex gap-3" role="group" aria-label="product photos">
@@ -92,12 +103,8 @@
           </div>
         </div>
 
-        <div>
-          <span class="tag tag-status">launch flavor · first drop</span>
-          <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">green apple<span class="text-apple">.</span></h1>
-          <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">sour green apple, translucent like real candy. the first bitez flavor.</p>
-
-          <div id="preorder" class="mt-8 max-w-md scroll-mt-28">
+        <div class="lg:col-start-2">
+          <div id="preorder" class="max-w-md scroll-mt-28">
             <form class="js-preorder" data-flavor="green apple" novalidate>
               <fieldset>
                 <legend class="flex w-full items-center gap-3 font-bold uppercase tracking-[0.14em] text-sm text-forest-soft"><span class="h-0.5 flex-1 rounded bg-forest/15"></span>bundle &amp; save up to 20%<span class="h-0.5 flex-1 rounded bg-forest/15"></span></legend>
@@ -110,7 +117,7 @@
                       <span class="font-display text-xl font-extrabold lowercase">1 bag</span>
                       <span class="ml-auto font-display text-xl font-extrabold">€9.99</span>
                     </span>
-                    <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">96g · 20g protein · €9.99 per bag</span>
+                    <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">96g · 20g protein · + shipping</span>
                   </label>
 
                   <label class="pack-option">
@@ -125,7 +132,7 @@
                         <s class="text-sm font-semibold text-forest-soft">€29.97</s>
                       </span>
                     </span>
-                    <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">€9.00 per bag</span>
+                    <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">€9.00 per bag · ships free</span>
                   </label>
 
                   <label class="pack-option">
@@ -139,7 +146,7 @@
                         <s class="text-sm font-semibold text-forest-soft">€59.94</s>
                       </span>
                     </span>
-                    <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">€8.00 per bag</span>
+                    <span class="mt-1 block pl-9 text-sm font-semibold text-forest-soft">€8.00 per bag · ships free</span>
                   </label>
 
                 </div>
@@ -156,10 +163,11 @@
                 <span class="rounded-full bg-forest px-2.5 py-0.5 font-bold text-cream">8–12 weeks</span>
                 · EU first
               </p>
+              <p class="mt-2 text-sm font-semibold text-forest-soft">the first batch is small and ships in order of pre-order. earlier order, earlier bag.</p>
 
               <button type="submit" class="mt-4 btn btn-primary min-h-[56px] w-full px-7 text-lg lowercase">add to bag · €26.99</button>
             </form>
-            <p class="mt-3 text-sm font-semibold text-forest-soft">pre-order: nothing charged today. checkout is in your bag, top right.</p>
+            <p class="mt-3 text-sm font-semibold text-forest-soft">nothing charged today. next step is just your email, no card details.</p>
 
             <!-- trust emblems -->
             <div class="mt-5 grid grid-cols-3 gap-2 border-t-2 border-forest/10 pt-5">
@@ -210,10 +218,19 @@
               <p class="faq-body">vegan pea protein for the numbers, pectin for the chew. no gelatin, nothing from animals. the full ingredient list goes on the printed label and on this page before launch. an independent lab in denmark tests every batch and we publish the reports.</p>
             </details>
             <details class="faq-item" name="pdp">
+              <summary>what if i don't like it?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
+              <p class="faq-body">worried it tastes like a protein bar? that's what the guarantee is for. if you don't love it, you have 14 days from delivery to get your money back.</p>
+            </details>
+            <details class="faq-item" name="pdp">
+              <summary>is it really vegan?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
+              <p class="faq-body">yes. the protein is hydrolyzed pea protein and the gummy base is pectin, a fruit fibre. no gelatin, nothing from animals.</p>
+            </details>
+            <details class="faq-item" name="pdp">
               <summary>shipping &amp; pre-order<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
-              <p class="faq-body">pre-orders ship in 8–12 weeks, EU first. nothing is charged today: when your order is ready, we email you a payment link. pay then, and it ships. change your mind? ignore the email and the order lapses. once delivered, you have a 14-day money-back guarantee.</p>
+              <p class="faq-body">pre-orders ship in 8–12 weeks, EU first. nothing is charged today: when your order is ready, we email you a payment link. pay then, and it ships. change your mind? ignore the email and the order lapses. if the first drop slips past 12 weeks, we email you straight away. you've paid nothing, so you can wait or let the order lapse. your call.</p>
             </details>
           </div>
+          <p class="mt-3 text-sm font-semibold text-forest-soft">more questions? <a href="index.html#faq" class="font-bold text-forest underline underline-offset-4">read the faq</a></p>
         </div>
       </div>
     </section>
@@ -235,6 +252,13 @@
           <p class="font-display text-3xl font-extrabold sm:text-4xl">100%</p>
           <p class="mt-1 text-xs font-bold lowercase text-forest-soft sm:text-sm">vegan · pectin base</p>
         </div>
+      </div>
+
+      <div class="mt-6 max-w-3xl overflow-hidden rounded-3xl">
+        <picture>
+          <source type="image/webp" srcset="assets/flatlay-700.webp 700w, assets/flatlay.webp 1000w" sizes="(min-width: 768px) 736px, 92vw" />
+          <img src="assets/flatlay.jpg" alt="green apple bitez pouch with translucent green gummy bears spilled out and a hand picking one up" class="w-full" width="1000" height="1000" loading="lazy" decoding="async" />
+        </picture>
       </div>
       <!-- how it works -->
       <h2 class="mt-14 text-[clamp(2rem,6vw,3rem)] lowercase">how it works<span class="text-apple">.</span></h2>
@@ -328,9 +352,16 @@
           </div>
           <div>
             <h3 class="text-xl lowercase text-white">nothing charged today</h3>
-            <p class="text-sm font-semibold text-cream/85">you pay by payment link when your order ships. 14-day money-back guarantee.</p>
+            <p class="text-sm font-semibold text-cream/85">no card details now, just your email. payment link when it ships. 14-day money-back guarantee.</p>
           </div>
         </div>
+      </div>
+
+      <div class="mt-8">
+        <a href="#preorder" class="btn btn-primary min-h-[56px] w-full px-8 text-lg lowercase sm:w-auto">
+          <svg viewBox="0 0 120 140" class="size-5 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
+          pre-order green apple · from €8.00 a bag
+        </a>
       </div>
     </section>
 
@@ -380,7 +411,7 @@
   <div class="sticky-cta" id="sticky-cta">
     <a href="#preorder" class="btn btn-primary min-h-[56px] w-full text-lg lowercase">
       <svg viewBox="0 0 120 140" class="size-5 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
-      pre-order now
+      <span class="js-sticky-label">pre-order now</span>
     </a>
   </div>
 
@@ -419,6 +450,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809h" defer></script>
+  <script src="js/main.js?v=20260809i" defer></script>
 </body>
 </html>
