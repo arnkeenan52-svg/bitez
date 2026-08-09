@@ -392,7 +392,27 @@ function initStickyCta() {
 
   let heroVisible = true;
   let footerVisible = false;
-  const update = () => bar.classList.toggle("is-visible", !heroVisible && !footerVisible);
+  // on product pages (buy box present) the bar only appears on upward scroll intent
+  const scrollUpOnly = Boolean(document.getElementById("preorder"));
+  let scrollingUp = false;
+  let lastY = window.scrollY;
+  const update = () =>
+    bar.classList.toggle("is-visible", !heroVisible && !footerVisible && (!scrollUpOnly || scrollingUp));
+
+  if (scrollUpOnly) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const y = window.scrollY;
+        if (Math.abs(y - lastY) > 4) {
+          scrollingUp = y < lastY;
+          lastY = y;
+          update();
+        }
+      },
+      { passive: true }
+    );
+  }
 
   new IntersectionObserver(
     ([entry]) => {
