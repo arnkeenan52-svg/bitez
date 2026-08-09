@@ -47,9 +47,8 @@ host works the same way — build, then serve the repo root.
    state without sending anything. Flavor votes are front-end only.
 2. **Assets** — real pack shots for all three flavors are in `assets/`
    (see `assets/README.md`). Still optional: `nutrition-flatlay.png`.
-3. **Absolute URLs** — replace the relative `og:image` / `twitter:image` in
-   `index.html` with the absolute production URL, and add `og:url` +
-   `<link rel="canonical">` once the domain is live.
+3. ~~Absolute URLs~~ — done: eatbitez.com canonicals, og:url, absolute
+   social images, robots.txt, sitemap.xml and Product schema are in.
 4. **Legal** — replace `[legal company details placeholder]` in the footer.
 
 ## Design system
