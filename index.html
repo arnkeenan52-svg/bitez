@@ -23,8 +23,8 @@
 
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809d" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809d" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809e" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809e" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -323,7 +323,7 @@
         <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">full transparency</p>
         <h2 id="nutrition-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">no small print<span class="text-apple">.</span></h2>
         <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed">
-          the full label sits right here on the site. protein, kcal and sugar for all three bag sizes, in type you can read.
+          the full label sits right here on the site. protein, kcal and sugar per bag, in type you can read.
         </p>
         <p class="mt-4 max-w-lg font-semibold leading-relaxed text-forest-soft">
           bitez is a protein snack, not a meal replacement.
@@ -336,85 +336,26 @@
 
       <div class="reveal min-w-0" style="--reveal-delay:0.12s">
         <div class="mx-auto w-full max-w-md">
-          <div class="mb-4 flex flex-wrap gap-2" role="group" aria-label="pick a bag size">
-            <button type="button" class="js-nutri-tab nutri-tab" data-slide="0" aria-current="true">small · 48g</button>
-            <button type="button" class="js-nutri-tab nutri-tab" data-slide="1" aria-current="false">big · 96g</button>
-            <button type="button" class="js-nutri-tab nutri-tab" data-slide="2" aria-current="false">share · 144g</button>
-          </div>
-
-          <div class="nutri-track js-nutri-track" tabindex="0" aria-label="nutrition facts per bag size — swipe or use the size buttons">
-            <!-- small bag -->
-            <div class="nutri-slide">
-              <div class="label-card">
-                <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
-                <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">small bag · 48g</p>
-                <div class="label-rule" role="presentation"></div>
-                <dl>
-                  <div class="label-row">
-                    <dt>energy</dt>
-                    <dd class="font-extrabold">~100 kcal</dd>
-                  </div>
-                  <div class="label-row text-lg">
-                    <dt class="font-extrabold">protein</dt>
-                    <dd class="font-display text-2xl font-extrabold">10 g</dd>
-                  </div>
-                  <div class="label-row">
-                    <dt>sugars</dt>
-                    <dd class="font-extrabold">~4 g</dd>
-                  </div>
-                </dl>
-                <div class="label-rule" role="presentation"></div>
-                <p class="pt-2 text-sm font-semibold text-forest-soft">the snack size. verified by independent lab testing, batch by batch.</p>
+          <div class="label-card">
+            <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
+            <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">per bag · 96g</p>
+            <div class="label-rule" role="presentation"></div>
+            <dl>
+              <div class="label-row">
+                <dt>energy</dt>
+                <dd class="font-extrabold">~200 kcal</dd>
               </div>
-            </div>
-            <!-- big bag -->
-            <div class="nutri-slide">
-              <div class="label-card">
-                <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
-                <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">big bag · 96g</p>
-                <div class="label-rule" role="presentation"></div>
-                <dl>
-                  <div class="label-row">
-                    <dt>energy</dt>
-                    <dd class="font-extrabold">~200 kcal</dd>
-                  </div>
-                  <div class="label-row text-lg">
-                    <dt class="font-extrabold">protein</dt>
-                    <dd class="font-display text-2xl font-extrabold">20 g</dd>
-                  </div>
-                  <div class="label-row">
-                    <dt>sugars</dt>
-                    <dd class="font-extrabold">~8 g</dd>
-                  </div>
-                </dl>
-                <div class="label-rule" role="presentation"></div>
-                <p class="pt-2 text-sm font-semibold text-forest-soft">the launch size, the bag in the photos. verified by independent lab testing, batch by batch.</p>
+              <div class="label-row text-lg">
+                <dt class="font-extrabold">protein</dt>
+                <dd class="font-display text-2xl font-extrabold">20 g</dd>
               </div>
-            </div>
-            <!-- share bag -->
-            <div class="nutri-slide">
-              <div class="label-card">
-                <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
-                <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">share bag · 144g</p>
-                <div class="label-rule" role="presentation"></div>
-                <dl>
-                  <div class="label-row">
-                    <dt>energy</dt>
-                    <dd class="font-extrabold">~300 kcal</dd>
-                  </div>
-                  <div class="label-row text-lg">
-                    <dt class="font-extrabold">protein</dt>
-                    <dd class="font-display text-2xl font-extrabold">30 g</dd>
-                  </div>
-                  <div class="label-row">
-                    <dt>sugars</dt>
-                    <dd class="font-extrabold">~12 g</dd>
-                  </div>
-                </dl>
-                <div class="label-rule" role="presentation"></div>
-                <p class="pt-2 text-sm font-semibold text-forest-soft">the biggest bag. verified by independent lab testing, batch by batch.</p>
+              <div class="label-row">
+                <dt>sugars</dt>
+                <dd class="font-extrabold">~8 g</dd>
               </div>
-            </div>
+            </dl>
+            <div class="label-rule" role="presentation"></div>
+            <p class="pt-2 text-sm font-semibold text-forest-soft">one bag, one honest label. verified by independent lab testing, batch by batch.</p>
           </div>
         </div>
         <p class="mx-auto mt-4 max-w-md text-center font-bold lowercase text-forest-soft">the boring numbers, front and center. that's the point.</p>
@@ -444,7 +385,7 @@
             how much protein is in a bag?
             <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
           </summary>
-          <p class="faq-body">10g in the small bag (48g), 20g in the big bag (96g), 30g in the share bag (144g). that's the tested number, not a marketing number.</p>
+          <p class="faq-body">20g per bag (96g). that's the tested number, not a marketing number.</p>
         </details>
 
         <details class="faq-item" name="faq">
@@ -560,6 +501,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809d" defer></script>
+  <script src="js/main.js?v=20260809e" defer></script>
 </body>
 </html>

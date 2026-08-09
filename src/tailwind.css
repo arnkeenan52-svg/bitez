@@ -291,21 +291,6 @@
     @apply grid size-6 shrink-0 place-items-center rounded-full bg-forest text-apple;
   }
 
-  /* ---------- dose cards ---------- */
-  .dose-card {
-    @apply flex flex-col items-center gap-2 rounded-2xl bg-white p-4 text-center sm:p-5;
-    box-shadow: 0 4px 12px -6px rgba(34, 94, 48, 0.18);
-  }
-  .dose-card.is-hero {
-    @apply bg-forest text-cream;
-  }
-  .dose-card.is-hero .dose-note {
-    @apply text-cream/85;
-  }
-  .dose-note {
-    @apply text-sm font-semibold leading-relaxed text-forest-soft;
-  }
-
   /* ---------- perk band ---------- */
   .perk-band {
     @apply flex flex-col gap-3 rounded-3xl bg-forest-deep p-5 sm:p-6;
@@ -404,29 +389,6 @@
   }
   .qty-btn:hover {
     @apply border-forest;
-  }
-
-  /* ---------- nutrition size slides ---------- */
-  .nutri-track {
-    @apply flex gap-4 overflow-x-auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    /* keep the carousel's intrinsic width from widening ancestor grid columns */
-    contain: inline-size;
-  }
-  .nutri-track::-webkit-scrollbar {
-    display: none;
-  }
-  .nutri-slide {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-  }
-  .nutri-tab {
-    @apply inline-flex cursor-pointer items-center rounded-xl border-2 border-forest/25 bg-white/60 px-4 py-2 font-display text-sm font-bold lowercase text-forest transition-colors duration-200;
-  }
-  .nutri-tab[aria-current="true"] {
-    @apply border-forest bg-forest text-cream;
   }
 
   /* ---------- cart ---------- */

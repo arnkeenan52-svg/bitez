@@ -13,13 +13,13 @@ checkout when ready.
 bag in packs — 1 bag €4.90 · 3-pack €12.90 (save 12%, free EU shipping) ·
 6-pack €22.90 (save 22%). Prices, discounts and the free-shipping promise
 are placeholders — confirm before launch. The 14-day money-back
-guarantee shown on the product page was added at the owner's request. Small/share bag sizes (48g/144g,
-144g itself an assumption) appear in nutrition info only.
+guarantee shown on the product page was added at the owner's request.
+The 96g bag is the only size — there are no small/share sizes.
 
 ## Stack
 
 - Plain HTML (`index.html`) + [Tailwind CSS v4](https://tailwindcss.com) compiled to a single static stylesheet (`css/styles.css`)
-- Vanilla JS (`js/main.js`) — waitlist forms, gummy confetti, sticky mobile CTA, asset fallbacks
+- Vanilla JS (`js/main.js`) — pre-order forms, cart drawer, gummy confetti, sticky mobile CTA, asset fallbacks
 - Self-hosted Baloo 2 + Nunito (`fonts/`) — no third-party requests, no cookies, no trackers (keeps the site consent-banner-free in the EU)
 
 ## Develop
@@ -66,7 +66,7 @@ Images ship as WebP with JPEG fallback and responsive `srcset`.
 
 ## Brand guardrails (baked into the copy — keep it that way)
 
-- Honest numbers only: 10g protein / ~100 kcal / ~4g sugar per 48g bag; 20g / ~200 kcal per 96g; 30g / ~300 kcal per 144g share bag. Never inflate.
+- Honest numbers only: 20g protein / ~200 kcal / ~8g sugar per 96g bag (the only size). Never inflate.
 - It's a protein **snack** / candy replacement — never a meal replacement.
 - No health/medical/weight-loss claims, no "clinically proven" (EU food-claim rules).
 - The recipe **does contain artificial flavours/colours** — never claim "no artificials" anywhere on the site. That information lives on the printed label only.

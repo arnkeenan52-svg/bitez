@@ -337,38 +337,6 @@ function initFlavorVotes() {
   });
 }
 
-/* ---------- nutrition size slides ---------- */
-function initNutritionSlides() {
-  const track = document.querySelector(".js-nutri-track");
-  const tabs = [...document.querySelectorAll(".js-nutri-tab")];
-  if (!track || !tabs.length) return;
-  const slides = [...track.querySelectorAll(".nutri-slide")];
-
-  const setActive = (index) => {
-    tabs.forEach((tab, i) => tab.setAttribute("aria-current", String(i === index)));
-  };
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const index = Number(tab.dataset.slide) || 0;
-      slides[index]?.scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "nearest", inline: "center" });
-      setActive(index);
-    });
-  });
-
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(slides.indexOf(entry.target));
-        });
-      },
-      { root: track, threshold: 0.6 }
-    );
-    slides.forEach((slide) => io.observe(slide));
-  }
-}
-
 /* ---------- sticky mobile CTA ---------- */
 function initStickyCta() {
   const bar = document.getElementById("sticky-cta");
@@ -423,6 +391,5 @@ initScrollReveals();
 initCart();
 initPreorderForms();
 initFlavorVotes();
-initNutritionSlides();
 initGallery();
 initStickyCta();
