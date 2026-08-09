@@ -42,13 +42,17 @@
     </div>
   </header>
 
-  <main>
+  <main class="relative isolate">
+    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10" aria-hidden="true">
+      <div class="h-[440px] bg-mango/25 sm:h-80"></div>
+      <svg class="block w-full rotate-180 text-mango/25" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" /></svg>
+    </div>
     <!-- product hero -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
       <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
 
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div class="clay overflow-hidden bg-tint-mango p-3 sm:p-4">
+        <div class="clay overflow-hidden bg-white p-3 sm:p-4">
           <picture>
             <source type="image/webp" srcset="assets/pineapple-500.webp 500w, assets/pineapple.webp 1000w" sizes="(min-width: 1024px) 540px, 92vw" />
             <img src="assets/pineapple.jpg" srcset="assets/pineapple-500.jpg 500w, assets/pineapple.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="pineapple bitez bag with translucent amber gummy bears spilling out" class="w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" />
