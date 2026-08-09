@@ -23,6 +23,12 @@ npm run watch      # rebuild on change
 Then open `index.html` (or serve the folder: `npx serve .`). The compiled
 `css/styles.css` is committed, so the site works without a build step.
 
+## Deploy
+
+`vercel.json` is included: Vercel runs the Tailwind build and serves the
+repository root (the site has no framework and no output folder). Any static
+host works the same way — build, then serve the repo root.
+
 ## Before launch checklist
 
 1. **Waitlist endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js` to a
