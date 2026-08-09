@@ -329,7 +329,7 @@ function initFlavorVotes() {
         });
         const label = button.querySelector(".vote-label");
         if (label) label.textContent = "vote counted";
-        if (note) note.textContent = `vote counted ${emoji} — join the waitlist to hear who wins.`;
+        if (note) note.textContent = `vote counted ${emoji} · your vote picks the next drop.`;
         gummyConfetti(10);
       },
       { once: true }
