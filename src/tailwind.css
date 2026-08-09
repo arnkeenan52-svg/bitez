@@ -231,17 +231,18 @@
   }
 
   /* ---------- pre-order form ---------- */
-  .size-option {
-    @apply flex cursor-pointer items-center justify-between gap-3 rounded-2xl border-[3px] border-forest/15 bg-white/60 px-4 py-3 font-semibold transition-colors duration-150;
+  .size-chip {
+    @apply flex cursor-pointer flex-col items-center gap-0.5 rounded-2xl border-[3px] border-forest/15 bg-white/60 px-2 py-3 text-center transition-colors duration-150;
   }
-  .size-option:hover {
+  .size-chip:hover {
     @apply border-forest/40;
   }
-  .size-option:has(input:checked) {
-    @apply border-forest bg-white;
+  .size-chip:has(input:checked) {
+    @apply border-forest bg-forest text-cream;
   }
-  .size-option input {
-    @apply size-4 accent-forest;
+  .size-chip:has(input:focus-visible) {
+    outline: 3px solid var(--color-apple);
+    outline-offset: 3px;
   }
   .qty-btn {
     @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;

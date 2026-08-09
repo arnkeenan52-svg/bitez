@@ -62,9 +62,6 @@
             <button type="button" class="js-thumb thumb-btn" aria-current="false" data-full="assets/greenapple-bears.jpg" data-webp="assets/greenapple-bears.webp" data-alt="green apple bitez pouch with five translucent green gummy bears in front">
               <img src="assets/greenapple-bears-500.jpg" alt="pouch with gummies" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
-            <button type="button" class="js-thumb thumb-btn" aria-current="false" data-full="assets/greenapple.jpg" data-webp="assets/greenapple.webp" data-alt="green apple bitez bags with gummy bears spilling out, studio scene">
-              <img src="assets/greenapple-500.jpg" alt="studio scene" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
-            </button>
             <button type="button" class="js-thumb thumb-btn" aria-current="false" data-full="assets/greenapple-macro.jpg" data-webp="assets/greenapple-macro.webp" data-alt="macro close-up of translucent green apple gummy bears, backlit">
               <img src="assets/greenapple-macro-500.jpg" alt="gummy close-up" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
@@ -75,7 +72,6 @@
           <span class="tag tag-status">launch flavor · first drop</span>
           <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">green apple<span class="text-apple">.</span></h1>
           <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">the hero. sharp, sour, translucent green. the flavor that launches bitez.</p>
-          <p class="mt-3 max-w-lg font-semibold leading-relaxed text-forest-soft">proper green apple sour, the chewy pectin bite of real candy, and 20g of protein in the big bag. an independent lab in denmark tests every batch and we publish the reports.</p>
 
           <ul class="mt-6 flex flex-nowrap gap-2" role="list">
             <li class="pill whitespace-nowrap">100% vegan</li>
@@ -86,28 +82,25 @@
           <div id="preorder" class="mt-8 max-w-md scroll-mt-28">
             <form class="js-preorder" data-flavor="green apple" novalidate>
               <fieldset>
-                <legend class="font-display text-lg font-bold lowercase">pick your bag</legend>
-                <div class="mt-3 grid gap-2">
-                  <label class="size-option">
-                    <span class="flex items-center gap-3">
-                      <input type="radio" name="size" value="small-48g" data-price="2.90" data-label="small · 48g" />
-                      <span>small · 48g · 10g protein</span>
-                    </span>
-                    <span class="font-display font-bold">€2.90</span>
+                <div class="flex items-baseline justify-between">
+                  <legend class="font-display text-lg font-bold lowercase">pick size</legend>
+                  <p class="font-display text-2xl font-extrabold"><span class="js-unit-price">€4.90</span> <span class="font-body text-sm font-semibold text-forest-soft">per bag</span></p>
+                </div>
+                <div class="mt-3 grid grid-cols-3 gap-2">
+                  <label class="size-chip">
+                    <input type="radio" name="size" value="small-48g" data-price="2.90" data-label="small · 48g" class="sr-only" />
+                    <span class="font-display text-lg font-bold lowercase">small</span>
+                    <span class="text-sm font-semibold">48g</span>
                   </label>
-                  <label class="size-option">
-                    <span class="flex items-center gap-3">
-                      <input type="radio" name="size" value="big-96g" data-price="4.90" data-label="big · 96g" checked />
-                      <span>big · 96g · 20g protein</span>
-                    </span>
-                    <span class="font-display font-bold">€4.90</span>
+                  <label class="size-chip">
+                    <input type="radio" name="size" value="big-96g" data-price="4.90" data-label="big · 96g" class="sr-only" checked />
+                    <span class="font-display text-lg font-bold lowercase">big</span>
+                    <span class="text-sm font-semibold">96g</span>
                   </label>
-                  <label class="size-option">
-                    <span class="flex items-center gap-3">
-                      <input type="radio" name="size" value="share-144g" data-price="6.90" data-label="share · 144g" />
-                      <span>share · 144g · 30g protein</span>
-                    </span>
-                    <span class="font-display font-bold">€6.90</span>
+                  <label class="size-chip">
+                    <input type="radio" name="size" value="share-144g" data-price="6.90" data-label="share · 144g" class="sr-only" />
+                    <span class="font-display text-lg font-bold lowercase">share</span>
+                    <span class="text-sm font-semibold">144g</span>
                   </label>
                 </div>
               </fieldset>
@@ -196,20 +189,48 @@
     <!-- product story -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6" aria-labelledby="story-heading">
       <h2 id="story-heading" class="text-[clamp(2rem,6vw,3rem)] lowercase">what you're getting<span class="text-apple">.</span></h2>
-      <div class="mt-6 grid gap-10 lg:grid-cols-2">
-        <div class="flex max-w-xl flex-col gap-4 text-lg font-semibold leading-relaxed">
-          <p>green apple bitez are translucent gummy bears with a sharp, sour apple bite. the base is pectin, the fruit fibre that sets classic wine gums, so the chew snaps clean. no gelatin at any step.</p>
-          <p>each big bag carries 20g of hydrolyzed pea protein. hydrolyzed means the protein is broken into fragments small enough to dissolve into the candy. you taste apple, not protein powder.</p>
-          <p>every production batch goes to an independent lab in denmark before it ships. protein, sugars and energy get measured, and the report gets published. the number on the bag is a measurement, not an estimate.</p>
+      <div class="mt-8 flex flex-col gap-10">
+        <div class="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+          <div class="clay overflow-hidden bg-white p-2">
+            <picture>
+              <source type="image/webp" srcset="assets/greenapple-macro.webp" />
+              <img src="assets/greenapple-macro.jpg" alt="macro close-up of translucent green apple gummy bears" class="aspect-[4/3] w-full rounded-2xl object-cover" width="1000" height="750" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div>
+            <h3 class="text-2xl lowercase">tastes like candy, because it is</h3>
+            <p class="mt-2 max-w-md font-semibold leading-relaxed">translucent, sharp-sour green apple with the clean pectin chew of classic wine gums. no gelatin.</p>
+          </div>
         </div>
-        <ul class="flex flex-col gap-3 font-semibold" role="list">
-          <li class="flex items-start gap-3"><svg viewBox="0 0 16 16" class="mt-1 size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>20g protein per 96g bag, 10g per 48g, 30g per 144g</span></li>
-          <li class="flex items-start gap-3"><svg viewBox="0 0 16 16" class="mt-1 size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>~8g sugar per 96g bag, measured every batch</span></li>
-          <li class="flex items-start gap-3"><svg viewBox="0 0 16 16" class="mt-1 size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>pectin base, 100% vegan, no gelatin</span></li>
-          <li class="flex items-start gap-3"><svg viewBox="0 0 16 16" class="mt-1 size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>independent lab report published per batch</span></li>
-          <li class="flex items-start gap-3"><svg viewBox="0 0 16 16" class="mt-1 size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ships from denmark, EU first</span></li>
-          <li class="flex items-start gap-3"><svg viewBox="0 0 16 16" class="mt-1 size-4 shrink-0 text-forest" aria-hidden="true"><path d="M2.5 8.5 6.5 12.5 13.5 4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>pre-order: you pay only when it ships</span></li>
-        </ul>
+        <div class="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+          <div class="clay overflow-hidden bg-white p-2 md:order-2">
+            <picture>
+              <source type="image/webp" srcset="assets/greenapple.webp" />
+              <img src="assets/greenapple.jpg" alt="open green apple bitez bag with gummy bears spilling out" class="aspect-[4/3] w-full rounded-2xl object-cover" width="1000" height="750" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="md:order-1 md:justify-self-end md:text-right">
+            <h3 class="text-2xl lowercase">20g protein per big bag</h3>
+            <p class="mt-2 max-w-md font-semibold leading-relaxed">hydrolyzed pea protein dissolves into the candy. you taste apple, not powder.</p>
+          </div>
+        </div>
+        <div class="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+          <div class="flex justify-center py-4">
+            <svg viewBox="0 0 100 100" class="w-36" aria-hidden="true">
+              <circle cx="50" cy="50" r="48" fill="#225e30" />
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+              <path id="pdp-badge-arc" d="M50,50 m-33,0 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0" fill="none" />
+              <text class="font-body" fill="#faf5e8" font-size="8.5" font-weight="800" letter-spacing="1.4">
+                <textPath href="#pdp-badge-arc">lab tested · every batch · denmark ·</textPath>
+              </text>
+              <path d="M40 50 l8 8 l14 -16" fill="none" stroke="#a4d65e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl lowercase">measured, then published</h3>
+            <p class="mt-2 max-w-md font-semibold leading-relaxed">an independent lab in denmark tests every batch. the report is public.</p>
+          </div>
+        </div>
       </div>
 
       <h2 class="mt-14 text-[clamp(2rem,6vw,3rem)] lowercase">how it compares<span class="text-apple">.</span></h2>

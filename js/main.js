@@ -101,6 +101,8 @@ function initPreorderForms() {
     const updateTotal = () => {
       const s = selection();
       button.textContent = `add to bag · €${(s.price * s.qty).toFixed(2)}`;
+      const unit = form.querySelector(".js-unit-price");
+      if (unit) unit.textContent = `€${s.price.toFixed(2)}`;
     };
 
     form.querySelectorAll('input[name="size"]').forEach((radio) => radio.addEventListener("change", updateTotal));
