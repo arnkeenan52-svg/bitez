@@ -1,10 +1,17 @@
 # bitez — launch site
 
-Phase-1 pre-launch website for **bitez**, vegan protein gummies. _Candy that counts._
+Pre-launch website for **bitez**, vegan protein gummies. _Candy that counts._
 
-Static single page: brand story + email waitlist. No checkout (product is in
-supplier sampling). Flavor sections are structured as standalone articles so
-they can become product pages when the store (Shopify or similar) lands.
+Static multi-page site: brand home (`index.html`) plus product pages per
+flavor (`green-apple.html`, `strawberry.html`, `pineapple.html`). Pre-order
+model: visitors reserve bags (size × qty + email, nothing charged); the shop
+emails a payment link when the order ships, 8–12 weeks out. No payment
+processing on the site — swap the reservation form for Shopify/Stripe
+checkout when ready.
+
+⚠️ **Placeholder prices** in `green-apple.html`: €2.90 / €4.90 / €6.90 for
+48g / 96g / 144g. Confirm or change before launch. The share-bag size (144g)
+is an assumption too.
 
 ## Stack
 
@@ -31,9 +38,10 @@ host works the same way — build, then serve the repo root.
 
 ## Before launch checklist
 
-1. **Waitlist endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js` to a
-   Formspree/Mailchimp POST URL. While it's empty the form demos the success
-   state without sending anything.
+1. **Pre-order endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js`
+   to a Formspree/Mailchimp POST URL. It receives size, qty, email and
+   total_eur per reservation. While it's empty the form demos the success
+   state without sending anything. Flavor votes are front-end only.
 2. **Assets** — real pack shots for all three flavors are in `assets/`
    (see `assets/README.md`). Still optional: `nutrition-flatlay.png`.
 3. **Absolute URLs** — replace the relative `og:image` / `twitter:image` in

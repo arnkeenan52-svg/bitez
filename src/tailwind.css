@@ -170,9 +170,6 @@
   .sticker-spin {
     animation: sticker 14s linear infinite;
   }
-  .blob-drift {
-    animation: blob-drift 10s ease-in-out infinite alternate;
-  }
 
   /* ---------- scroll reveals (JS adds .is-inview; no-JS renders static) ---------- */
   .js-enabled .reveal {
@@ -231,6 +228,26 @@
   }
   .label-row {
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
+  }
+
+  /* ---------- pre-order form ---------- */
+  .size-option {
+    @apply flex cursor-pointer items-center justify-between gap-3 rounded-2xl border-[3px] border-forest/15 bg-white/60 px-4 py-3 font-semibold transition-colors duration-150;
+  }
+  .size-option:hover {
+    @apply border-forest/40;
+  }
+  .size-option:has(input:checked) {
+    @apply border-forest bg-white;
+  }
+  .size-option input {
+    @apply size-4 accent-forest;
+  }
+  .qty-btn {
+    @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;
+  }
+  .qty-btn:hover {
+    @apply border-forest;
   }
 
   /* ---------- nutrition size slides ---------- */
@@ -301,14 +318,6 @@
   }
 }
 
-@keyframes blob-drift {
-  from {
-    translate: 0 0;
-  }
-  to {
-    translate: 18px -20px;
-  }
-}
 
 @keyframes confetti-fall {
   0% {
@@ -331,7 +340,6 @@
   .float-slow,
   .float-slower,
   .sticker-spin,
-  .blob-drift,
   .confetti-bear {
     animation: none !important;
   }
@@ -346,5 +354,12 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

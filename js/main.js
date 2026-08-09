@@ -1,8 +1,9 @@
 /* bitez — launch site interactions */
 
 /**
- * Waitlist form endpoint (Formspree/Mailchimp-style POST target).
- * Leave empty during phase 1 to demo the success state without a backend.
+ * Pre-order endpoint (Formspree/Mailchimp-style POST target).
+ * Receives fields: size, qty, email, total_eur.
+ * Leave empty to demo the success state without a backend.
  * Example: const FORM_ENDPOINT = "https://formspree.io/f/yourFormId";
  */
 const FORM_ENDPOINT = "";
@@ -71,66 +72,84 @@ function gummyConfetti(count = 26) {
   }
 }
 
-/* ---------- waitlist forms ---------- */
-function showSuccess(form) {
-  const status = form.parentElement.querySelector(".js-form-status");
-  form.hidden = true;
-  if (status) {
-    const onDark = Boolean(form.closest("footer"));
-    status.innerHTML = `
-      <p class="rounded-2xl border-[3px] ${onDark ? "border-apple/60 bg-white/10 text-cream" : "border-apple bg-white/70 text-forest"} px-5 py-4 font-display text-xl font-bold lowercase">
-        you're on the list 🍏
-        <span class="mt-1 block font-body text-sm font-semibold ${onDark ? "text-cream/80" : "text-forest-soft"}">we'll email you when the first drop lands.</span>
-      </p>`;
-  }
-  gummyConfetti();
-}
-
+/* ---------- pre-order form ---------- */
 function showError(form, message) {
   const status = form.parentElement.querySelector(".js-form-status");
   if (!status) return;
-  // white chip keeps the error legible on both the cream hero and the dark footer
   status.innerHTML = message
     ? `<p class="inline-block rounded-full bg-white px-4 py-2 text-sm font-bold text-berry-deep">${message}</p>`
     : "";
 }
 
-function initWaitlistForms() {
-  document.querySelectorAll("form.js-waitlist").forEach((form) => {
+function initPreorderForms() {
+  document.querySelectorAll("form.js-preorder").forEach((form) => {
+    const qtyInput = form.querySelector('input[name="qty"]');
+    const button = form.querySelector('button[type="submit"]');
+
+    const currentTotal = () => {
+      const size = form.querySelector('input[name="size"]:checked');
+      const qty = Math.min(10, Math.max(1, parseInt(qtyInput.value, 10) || 1));
+      qtyInput.value = qty;
+      return (parseFloat(size.dataset.price) * qty).toFixed(2);
+    };
+    const updateTotal = () => {
+      button.textContent = `pre-order · €${currentTotal()}`;
+    };
+
+    form.querySelectorAll('input[name="size"]').forEach((radio) => radio.addEventListener("change", updateTotal));
+    form.querySelector(".js-qty-plus").addEventListener("click", () => {
+      qtyInput.value = Math.min(10, (parseInt(qtyInput.value, 10) || 1) + 1);
+      updateTotal();
+    });
+    form.querySelector(".js-qty-minus").addEventListener("click", () => {
+      qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+      updateTotal();
+    });
+    updateTotal();
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const input = form.querySelector('input[type="email"]');
-      const button = form.querySelector('button[type="submit"]');
       const email = input.value.trim();
-
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showError(form, "that email doesn't look right — mind checking it?");
+        showError(form, "that email doesn't look right. mind checking it?");
         input.focus();
         return;
       }
 
       showError(form, "");
+      const total = currentTotal();
       button.disabled = true;
-      const originalLabel = button.textContent;
-      button.textContent = "joining…";
+      button.textContent = "reserving…";
 
       try {
         if (FORM_ENDPOINT) {
+          const data = new FormData(form);
+          data.set("total_eur", total);
           const response = await fetch(FORM_ENDPOINT, {
             method: "POST",
             headers: { Accept: "application/json" },
-            body: new FormData(form),
+            body: data,
           });
           if (!response.ok) throw new Error(`endpoint responded ${response.status}`);
         } else {
           // no endpoint wired yet — demo the success state
           await new Promise((resolve) => setTimeout(resolve, 450));
         }
-        showSuccess(form);
+        form.hidden = true;
+        const status = form.parentElement.querySelector(".js-form-status");
+        if (status) {
+          status.innerHTML = `
+            <p class="rounded-2xl border-[3px] border-apple bg-white/70 px-5 py-4 font-display text-xl font-bold lowercase text-forest">
+              pre-order reserved 🍏 · €${total}
+              <span class="mt-1 block font-body text-sm font-semibold text-forest-soft">nothing charged today. we email your payment link when it ships, 8–12 weeks out.</span>
+            </p>`;
+        }
+        gummyConfetti();
       } catch (error) {
-        showError(form, "something went wrong — mind trying again?");
+        showError(form, "something went wrong. mind trying again?");
         button.disabled = false;
-        button.textContent = originalLabel;
+        updateTotal();
       }
     });
   });
@@ -194,7 +213,7 @@ function initNutritionSlides() {
 /* ---------- sticky mobile CTA ---------- */
 function initStickyCta() {
   const bar = document.getElementById("sticky-cta");
-  const heroForm = document.getElementById("waitlist");
+  const heroForm = document.getElementById("preorder") || document.getElementById("cta");
   const footer = document.querySelector("footer");
   if (!bar || !heroForm || !footer || !("IntersectionObserver" in window)) return;
 
@@ -221,7 +240,7 @@ function initStickyCta() {
 
 initAssetFallbacks();
 initScrollReveals();
-initWaitlistForms();
+initPreorderForms();
 initFlavorVotes();
 initNutritionSlides();
 initStickyCta();
