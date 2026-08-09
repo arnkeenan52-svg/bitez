@@ -24,6 +24,7 @@
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
   {
@@ -59,7 +60,9 @@
       <a href="#nutrition" class="text-forest no-underline hover:underline hover:underline-offset-4">nutrition</a>
       <a href="#faq" class="text-forest no-underline hover:underline hover:underline-offset-4">faq</a>
     </nav>
-    <a href="green-apple.html#preorder" class="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm lowercase sm:px-5 sm:text-base">pre-order</a>
+    <div class="js-header-actions flex items-center gap-2">
+      <a href="green-apple.html#preorder" class="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm lowercase sm:px-5 sm:text-base">pre-order</a>
+    </div>
   </header>
 
   <main>
@@ -98,7 +101,7 @@
         <div class="asset-frame relative mx-auto w-full max-w-md sm:max-w-lg lg:max-w-xl">
           <picture>
             <source type="image/webp" srcset="assets/hero-trio-550.webp 550w, assets/hero-trio.webp 1089w" sizes="(min-width: 1024px) 576px, 92vw" />
-            <img src="assets/hero-trio-550.png" srcset="assets/hero-trio-550.png 550w" sizes="(min-width: 1024px) 576px, 92vw" alt="the three bitez flavors side by side: strawberry, green apple and pineapple protein gummy bags" class="relative z-10 w-full drop-shadow-[0_24px_26px_rgba(34,94,48,0.28)]" width="1089" height="603" fetchpriority="high" />
+            <img src="assets/hero-trio-550.png" srcset="assets/hero-trio-550.png 550w" sizes="(min-width: 1024px) 576px, 92vw" alt="the three bitez flavors side by side: strawberry, green apple and pineapple protein gummy bags" class="relative z-10 w-full drop-shadow-[0_24px_26px_rgba(34,94,48,0.28)]" width="1089" height="603" fetchpriority="high" decoding="async" />
           </picture>
           <div class="asset-fallback relative aspect-square w-full">
             <div class="absolute inset-[6%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
@@ -138,7 +141,7 @@
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
             <picture>
               <source type="image/webp" srcset="assets/greenapple-500.webp 500w, assets/greenapple.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
-              <img src="assets/greenapple-500.jpg" srcset="assets/greenapple-500.jpg 500w, assets/greenapple.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" />
+              <img src="assets/greenapple-500.jpg" srcset="assets/greenapple-500.jpg 500w, assets/greenapple.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </picture>
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-apple/25" aria-hidden="true"></div>
@@ -157,7 +160,7 @@
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
             <picture>
               <source type="image/webp" srcset="assets/strawberry-500.webp 500w, assets/strawberry.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
-              <img src="assets/strawberry-500.jpg" srcset="assets/strawberry-500.jpg 500w, assets/strawberry.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" />
+              <img src="assets/strawberry-500.jpg" srcset="assets/strawberry-500.jpg 500w, assets/strawberry.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </picture>
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-berry/15" aria-hidden="true"></div>
@@ -183,7 +186,7 @@
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
             <picture>
               <source type="image/webp" srcset="assets/pineapple-500.webp 500w, assets/pineapple.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
-              <img src="assets/pineapple-500.jpg" srcset="assets/pineapple-500.jpg 500w, assets/pineapple.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" />
+              <img src="assets/pineapple-500.jpg" srcset="assets/pineapple-500.jpg 500w, assets/pineapple.jpg 1000w" sizes="(min-width: 768px) 30vw, 90vw" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </picture>
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[48%_52%_55%_45%/55%_48%_52%_45%] bg-mango/25" aria-hidden="true"></div>
@@ -413,7 +416,7 @@
         </p>
 
         <div class="asset-frame mt-6">
-          <img src="assets/nutrition-flatlay.png" alt="bitez nutrition label flatlay" class="mx-auto w-full max-w-md rounded-2xl shadow-soft" loading="lazy" />
+          <img src="assets/nutrition-flatlay.png" alt="bitez nutrition label flatlay" class="mx-auto w-full max-w-md rounded-2xl shadow-soft" loading="lazy" decoding="async" />
           <span class="asset-fallback hidden" aria-hidden="true"></span>
         </div>
       </div>

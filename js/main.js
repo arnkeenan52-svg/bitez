@@ -222,7 +222,7 @@ function initCart() {
   btn.className = "cart-btn js-cart-open";
   btn.setAttribute("aria-label", "open your bag");
   btn.innerHTML = `${BAG_ICON}<span class="cart-badge js-cart-count" hidden>0</span>`;
-  header.appendChild(btn);
+  (header.querySelector(".js-header-actions") || header).appendChild(btn);
 
   const wrap = document.createElement("div");
   wrap.innerHTML = `
