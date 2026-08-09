@@ -230,6 +230,27 @@
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
   }
 
+  /* ---------- annotated product photo ---------- */
+  .annotate-wrap {
+    position: relative;
+    container-type: inline-size;
+  }
+  .annotate {
+    @apply absolute font-display font-extrabold lowercase leading-tight text-forest;
+    font-size: clamp(0.85rem, 4.2cqw, 1.5rem);
+    text-shadow:
+      0 0 6px var(--color-cream),
+      0 0 12px var(--color-cream);
+  }
+
+  /* ---------- no list panel ---------- */
+  .nolist-card {
+    @apply relative overflow-hidden rounded-3xl bg-forest-deep p-6 text-cream sm:p-8;
+  }
+  .nolist-card .blob-a {
+    @apply pointer-events-none absolute rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-forest;
+  }
+
   /* ---------- pack tiers ---------- */
   .pack-option {
     @apply relative block cursor-pointer select-none rounded-2xl border-[3px] border-forest/15 bg-white p-4;
