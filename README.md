@@ -34,8 +34,8 @@ host works the same way — build, then serve the repo root.
 1. **Waitlist endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js` to a
    Formspree/Mailchimp POST URL. While it's empty the form demos the success
    state without sending anything.
-2. **Assets** — drop the real product shots into `assets/` (see
-   `assets/README.md`). Placeholders disappear automatically.
+2. **Assets** — real pack shots for all three flavors are in `assets/`
+   (see `assets/README.md`). Still optional: `nutrition-flatlay.png`.
 3. **Absolute URLs** — replace the relative `og:image` / `twitter:image` in
    `index.html` with the absolute production URL, and add `og:url` +
    `<link rel="canonical">` once the domain is live.

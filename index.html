@@ -12,11 +12,11 @@
   <meta property="og:site_name" content="bitez" />
   <meta property="og:title" content="bitez — vegan protein gummies | candy that counts" />
   <meta property="og:description" content="vegan protein gummies that taste like actual candy. 10g protein per bag. no artificial anything. join the waitlist for the first drop." />
-  <meta property="og:image" content="assets/greenapple.png" />
+  <meta property="og:image" content="assets/greenapple.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="bitez — vegan protein gummies | candy that counts" />
   <meta name="twitter:description" content="vegan protein gummies that taste like actual candy. 10g protein per bag. no artificial anything." />
-  <meta name="twitter:image" content="assets/greenapple.png" />
+  <meta name="twitter:image" content="assets/greenapple.jpg" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -51,10 +51,7 @@
   <!-- ============ header ============ -->
   <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
     <a href="#top" class="flex items-center no-underline" aria-label="bitez — home">
-      <span class="asset-frame flex items-center">
-        <img src="assets/bitez-logo.png" alt="bitez" class="h-11 w-auto sm:h-12" width="132" height="48" />
-        <span class="asset-fallback wordmark pl-2 text-4xl sm:text-[2.6rem]">bitez</span>
-      </span>
+      <span class="wordmark text-[2.5rem] sm:text-[2.9rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-forest" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
     </a>
     <nav class="hidden items-center gap-7 font-bold lowercase md:flex" aria-label="main">
       <a href="#flavors" class="text-forest no-underline hover:underline hover:underline-offset-4">flavors</a>
@@ -115,27 +112,27 @@
         </div>
 
         <!-- hero product media -->
-        <div class="asset-frame relative mx-auto w-full max-w-md lg:max-w-none">
-          <img src="assets/greenapple.png" alt="green apple bitez — bag with translucent green protein gummy bears spilling out" class="relative z-10 mx-auto w-full max-w-md drop-shadow-[0_16px_16px_rgba(34,94,48,0.2)]" width="520" height="520" />
+        <div class="asset-frame relative mx-auto w-full max-w-md lg:max-w-lg">
+          <img src="assets/greenapple.jpg" alt="green apple bitez — bag with translucent green protein gummy bears spilling out" class="w-full rounded-[2.5rem] object-cover shadow-pop" width="1000" height="1000" fetchpriority="high" />
           <div class="asset-fallback relative aspect-square w-full">
             <div class="absolute inset-[6%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
             <svg viewBox="0 0 120 140" class="float-slow absolute left-1/2 top-1/2 z-10 w-[52%] -translate-x-1/2 -translate-y-[54%] text-apple" style="--tilt:-3deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
             <svg viewBox="0 0 120 140" class="float-slower absolute left-[10%] top-[62%] w-[20%] text-apple" style="--tilt:-16deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
             <svg viewBox="0 0 120 140" class="float-slow absolute right-[6%] top-[38%] w-[16%] text-apple" style="--tilt:22deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
             <span class="sr-only">green apple bitez — translucent green protein gummy bears (product photo coming soon)</span>
-          </div>
 
-          <!-- protein sticker -->
-          <div class="absolute right-2 top-2 z-20 grid size-28 place-items-center sm:size-32" aria-hidden="true">
-            <svg viewBox="0 0 100 100" class="sticker-spin absolute inset-0 size-full">
-              <circle cx="50" cy="50" r="48" fill="#225e30" />
-              <circle cx="50" cy="50" r="41" fill="none" stroke="#faf5e8" stroke-width="2" stroke-dasharray="1 3" stroke-linecap="round" />
-              <path id="sticker-arc" d="M50,50 m-33,0 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0" fill="none" />
-              <text class="font-body" fill="#faf5e8" font-size="10.5" font-weight="800" letter-spacing="2.5">
-                <textPath href="#sticker-arc">10g protein · per bag ·</textPath>
-              </text>
-            </svg>
-            <span class="relative font-display text-2xl font-extrabold text-cream sm:text-[1.7rem]">10g</span>
+            <!-- protein sticker (placeholder state only — the real pack shot has its own badge) -->
+            <div class="absolute right-2 top-2 z-20 grid size-28 place-items-center sm:size-32" aria-hidden="true">
+              <svg viewBox="0 0 100 100" class="sticker-spin absolute inset-0 size-full">
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="41" fill="none" stroke="#faf5e8" stroke-width="2" stroke-dasharray="1 3" stroke-linecap="round" />
+                <path id="sticker-arc" d="M50,50 m-33,0 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="10.5" font-weight="800" letter-spacing="2.5">
+                  <textPath href="#sticker-arc">10g protein · per bag ·</textPath>
+                </text>
+              </svg>
+              <span class="relative font-display text-2xl font-extrabold text-cream sm:text-[1.7rem]">10g</span>
+            </div>
           </div>
         </div>
       </div>
@@ -153,7 +150,7 @@
         <!-- green apple -->
         <article id="green-apple" class="flex flex-col rounded-3xl bg-tint-apple p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
-            <img src="assets/greenapple.png" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <img src="assets/greenapple.jpg" alt="green apple bitez bag with translucent green gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-apple/25" aria-hidden="true"></div>
               <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -168,7 +165,7 @@
         <!-- strawberry -->
         <article id="strawberry" class="flex flex-col rounded-3xl bg-tint-berry p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
-            <img src="assets/strawberry.png" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <img src="assets/strawberry.jpg" alt="strawberry bitez bag with translucent red gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-berry/15" aria-hidden="true"></div>
               <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-berry" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -183,7 +180,7 @@
         <!-- pineapple -->
         <article id="pineapple" class="flex flex-col rounded-3xl bg-tint-mango p-5 shadow-soft transition-transform duration-200 hover:-translate-y-1 sm:p-6">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
-            <img src="assets/pineapple.png" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
+            <img src="assets/pineapple.jpg" alt="pineapple bitez bag with translucent amber gummy bears" class="size-full object-cover" width="400" height="400" loading="lazy" />
             <div class="asset-fallback absolute inset-0">
               <div class="absolute inset-[12%] rounded-[48%_52%_55%_45%/55%_48%_52%_45%] bg-mango/25" aria-hidden="true"></div>
               <svg viewBox="0 0 120 140" class="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
@@ -396,10 +393,7 @@
 
       <div class="mt-12 border-t-2 border-cream/15 pt-8">
         <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <span class="asset-frame flex items-center">
-            <img src="assets/bitez-logo.png" alt="bitez" class="h-10 w-auto" width="110" height="40" />
-            <span class="asset-fallback wordmark pl-2 text-3xl">bitez</span>
-          </span>
+          <span class="wordmark text-4xl">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-apple" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
           <div class="flex items-center gap-5">
             <a href="https://www.instagram.com/bitezprotein" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-bold lowercase text-cream no-underline hover:text-apple">
               <svg class="size-5" aria-hidden="true"><use href="#icon-instagram" /></svg>

@@ -97,26 +97,22 @@
     @apply inline-flex items-center gap-2 rounded-full border-2 border-forest/15 bg-white/60 px-4 py-2 text-sm font-bold text-forest;
   }
 
-  /* ---------- wordmark fallback (if assets/bitez-logo.png is missing) ---------- */
+  /* ---------- wordmark: white bubble letters + forest outline, like the packaging ---------- */
   .wordmark {
-    @apply isolate relative inline-block font-display font-extrabold lowercase leading-none text-white;
-    -webkit-text-stroke: 2px var(--color-forest);
+    @apply relative inline-block font-display font-extrabold lowercase leading-none text-white;
+    letter-spacing: -0.015em;
+    -webkit-text-stroke: 0.055em var(--color-forest);
     paint-order: stroke fill;
-    text-shadow:
-      2px 2px 0 var(--color-forest),
-      -1px 1px 0 var(--color-forest),
-      1px -1px 0 var(--color-forest),
-      -1px -1px 0 var(--color-forest);
+    text-shadow: 0.055em 0.07em 0 var(--color-forest);
+    padding-right: 0.5em; /* room for the action lines */
   }
-  .wordmark::before {
-    content: "";
-    @apply absolute rounded-full bg-apple;
-    width: 1.15em;
-    height: 1.15em;
-    left: -0.28em;
-    top: 50%;
-    translate: 0 -50%;
-    z-index: -1;
+  /* the three radiating action lines off the "z", as on the bags */
+  .wordmark-spark {
+    @apply absolute;
+    width: 0.62em;
+    height: 0.62em;
+    right: -0.08em;
+    top: -0.28em;
   }
 
   /* image → placeholder swap: JS adds .img-missing when an asset 404s */
