@@ -403,9 +403,10 @@ function initStickyCta() {
     window.addEventListener(
       "scroll",
       () => {
-        const y = window.scrollY;
+        const y = Math.max(0, window.scrollY);
         if (Math.abs(y - lastY) > 4) {
-          scrollingUp = y < lastY;
+          // require real depth so the iOS top bounce and page open never show the bar
+          scrollingUp = y < lastY && y > 400;
           lastY = y;
           update();
         }
