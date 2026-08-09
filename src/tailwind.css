@@ -45,10 +45,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* overscroll: cream above the page, footer green below it */
+    background: linear-gradient(var(--color-cream) 50%, var(--color-forest-deep) 50%);
+    overflow-x: clip;
   }
 
   body {
     @apply bg-cream font-body text-forest antialiased;
+    overflow-x: clip;
   }
 
   ::selection {
