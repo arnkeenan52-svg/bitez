@@ -4,7 +4,8 @@ Product photography used by the site.
 
 | File | Used for |
 |---|---|
-| `greenapple.jpg` | hero product shot + green apple flavor card + OG/social image |
+| `hero-trio(.webp/-550.webp/-550.png)` | hero — all three bags, transparent background (AI lineup composed from the three pack shots) |
+| `greenapple.jpg` | green apple flavor card + OG/social image |
 | `strawberry.jpg` | strawberry flavor card |
 | `pineapple.jpg` | pineapple flavor card |
 | `nutrition-flatlay.png` | optional — nutrition transparency section (add when available) |
