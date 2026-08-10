@@ -23,8 +23,8 @@
 
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810b" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810b" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810c" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810c" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -104,21 +104,21 @@
 
           <!-- trust emblems -->
           <ul class="mt-7 flex gap-6 sm:gap-8" role="list">
-            <li class="flex flex-col items-center gap-2 text-center">
+            <li class="reveal flex flex-col items-center gap-2 text-center">
               <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                 <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                 <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18C6 10.5 10.5 6 18.5 5.5 18 13.5 13.5 18 6 18Z" /><path d="M6 18c2.5-4.5 5.5-7.5 9-9.5" /></svg>
               </span>
               <span class="text-xs font-extrabold lowercase leading-tight">100% vegan</span>
             </li>
-            <li class="flex flex-col items-center gap-2 text-center">
+            <li class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.1s">
               <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                 <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                 <svg viewBox="0 0 120 140" class="w-7" aria-hidden="true"><use href="#gummy-bear" /></svg>
               </span>
               <span class="text-xs font-extrabold lowercase leading-tight">no gelatin</span>
             </li>
-            <li class="flex flex-col items-center gap-2 text-center">
+            <li class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.2s">
               <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                 <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                 <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6" /><path d="M10.5 3v5.5L5.8 17.8a1.9 1.9 0 0 0 1.7 2.7h9a1.9 1.9 0 0 0 1.7-2.7L13.5 8.5V3" /><path d="M7.7 14.8h8.6" /></svg>
@@ -137,7 +137,7 @@
         <div class="asset-frame relative mx-auto w-full max-w-md sm:max-w-lg lg:max-w-xl">
           <picture>
             <source type="image/webp" srcset="assets/hero-trio-550.webp 550w, assets/hero-trio.webp 1089w" sizes="(min-width: 1024px) 576px, 92vw" />
-            <img src="assets/hero-trio-550.png" srcset="assets/hero-trio-550.png 550w" sizes="(min-width: 1024px) 576px, 92vw" alt="the three bitez flavors side by side: strawberry, green apple and pineapple protein gummy bags" class="relative z-10 w-full drop-shadow-[0_24px_26px_rgba(34,94,48,0.28)]" width="1089" height="603" fetchpriority="high" decoding="async" />
+            <img src="assets/hero-trio-550.png" srcset="assets/hero-trio-550.png 550w" sizes="(min-width: 1024px) 576px, 92vw" alt="the three bitez flavors side by side: strawberry, green apple and pineapple protein gummy bags" class="float-slower relative z-10 w-full drop-shadow-[0_24px_26px_rgba(34,94,48,0.28)]" width="1089" height="603" fetchpriority="high" decoding="async" />
           </picture>
           <div class="asset-fallback relative aspect-square w-full">
             <div class="absolute inset-[6%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
@@ -163,17 +163,41 @@
       </div>
     </section>
 
+    <!-- rolling brand strip: the first scroll moment -->
+    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <div class="marquee-wrap reveal -rotate-1">
+        <div class="marquee">
+          <div class="marquee-group">
+            <span>20g protein</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>tastes like real candy</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>100% vegan</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>lab tested</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>~8g sugar</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <span>20g protein</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>tastes like real candy</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>100% vegan</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>lab tested</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>~8g sugar</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ============ flavor showcase ============ -->
     <section id="flavors" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 lg:py-24" aria-labelledby="flavors-heading">
-      <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">the lineup</p>
-      <h2 id="flavors-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">sour. chewy. loaded<span class="text-apple">.</span></h2>
+      <span class="sticker -rotate-2">the lineup</span>
+      <h2 id="flavors-heading" class="mt-3 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">sour. chewy. loaded<span class="text-apple">.</span></h2>
+        <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
       <p class="mt-4 max-w-xl text-lg font-semibold leading-relaxed">
         green apple ships first. strawberry and pineapple are up for the vote. every flavor runs the same spec: vegan pea protein, pectin base, lab tested batches.
       </p>
 
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         <!-- green apple -->
-        <article id="green-apple" class="clay reveal flex flex-col bg-tint-apple p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6">
+        <div class="reveal reveal-pop">
+        <article id="green-apple" class="clay flex h-full flex-col bg-tint-apple p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6 md:-rotate-1">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
             <picture>
               <source type="image/webp" srcset="assets/greenapple-500.webp 500w, assets/greenapple.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
@@ -192,9 +216,11 @@
             <a href="green-apple.html" class="btn btn-primary px-5 py-2.5 text-base lowercase">pre-order →</a>
           </div>
         </article>
+        </div>
 
         <!-- strawberry -->
-        <article id="strawberry" class="clay reveal flex flex-col bg-tint-berry p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6" style="--reveal-delay:0.1s">
+        <div class="reveal reveal-pop" style="--reveal-delay:0.1s">
+        <article id="strawberry" class="clay flex h-full flex-col bg-tint-berry p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6 md:rotate-1">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
             <picture>
               <source type="image/webp" srcset="assets/strawberry-500.webp 500w, assets/strawberry.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
@@ -218,9 +244,11 @@
             <p class="js-vote-note mt-3 font-bold text-forest empty:hidden" role="status" aria-live="polite"></p>
           </div>
         </article>
+        </div>
 
         <!-- pineapple -->
-        <article id="pineapple" class="clay reveal flex flex-col bg-tint-mango p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6" style="--reveal-delay:0.2s">
+        <div class="reveal reveal-pop" style="--reveal-delay:0.2s">
+        <article id="pineapple" class="clay flex h-full flex-col bg-tint-mango p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6 md:-rotate-1">
           <div class="asset-frame relative aspect-square overflow-hidden rounded-2xl bg-white/40">
             <picture>
               <source type="image/webp" srcset="assets/pineapple-500.webp 500w, assets/pineapple.webp 1000w" sizes="(min-width: 768px) 30vw, 90vw" />
@@ -244,6 +272,7 @@
             <p class="js-vote-note mt-3 font-bold text-forest empty:hidden" role="status" aria-live="polite"></p>
           </div>
         </article>
+        </div>
       </div>
     </section>
 
@@ -255,11 +284,12 @@
     <!-- ============ why bitez ============ -->
     <section id="why" class="scroll-mt-24 bg-tint-apple" aria-labelledby="why-heading">
       <div class="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
-        <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">the honest part</p>
-        <h2 id="why-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">why bitez<span class="text-apple">.</span></h2>
+        <span class="sticker rotate-2">the honest part</span>
+        <h2 id="why-heading" class="mt-3 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">why bitez<span class="text-apple">.</span></h2>
+        <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
 
         <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
-          <div class="reveal">
+          <div class="why-card reveal reveal-pop md:-rotate-1">
             <div class="flex h-24 items-end gap-1" aria-hidden="true">
               <svg viewBox="0 0 120 140" class="w-14 rotate-[-14deg] text-apple"><use href="#gummy-bear" /></svg>
               <svg viewBox="0 0 120 140" class="w-16 -translate-y-2 text-berry"><use href="#gummy-bear" /></svg>
@@ -269,7 +299,7 @@
             <p class="mt-2 font-semibold leading-relaxed">translucent, sour, properly chewy. the same pectin base as the candy you grew up with.</p>
           </div>
 
-          <div class="reveal" style="--reveal-delay:0.1s">
+          <div class="why-card reveal reveal-pop md:rotate-1" style="--reveal-delay:0.1s">
             <div class="flex h-24 items-end" aria-hidden="true">
               <svg viewBox="0 0 96 96" class="w-[88px] text-forest">
                 <rect x="14" y="6" width="68" height="84" rx="10" fill="none" stroke="currentColor" stroke-width="6" />
@@ -282,7 +312,7 @@
             <p class="mt-2 font-semibold leading-relaxed">real numbers, nothing hidden. the protein on the bag is the protein in the bag. no blends, no asterisks.</p>
           </div>
 
-          <div class="reveal" style="--reveal-delay:0.2s">
+          <div class="why-card reveal reveal-pop md:-rotate-1" style="--reveal-delay:0.2s">
             <div class="flex h-24 items-end" aria-hidden="true">
               <!-- round lab badge: dark green circle, cream ring -->
               <svg viewBox="0 0 100 100" class="w-[92px]">
@@ -309,11 +339,12 @@
 
     <!-- ============ comparison ============ -->
     <section id="compare" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 pt-16 sm:px-6" aria-labelledby="compare-heading">
-      <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">side by side</p>
-      <h2 id="compare-heading" class="mt-2 text-[clamp(2rem,6vw,3rem)] lowercase">bitez vs the candy aisle<span class="text-apple">.</span></h2>
+      <span class="sticker -rotate-2">side by side</span>
+      <h2 id="compare-heading" class="mt-3 text-[clamp(2rem,6vw,3rem)] lowercase">bitez vs the candy aisle<span class="text-apple">.</span></h2>
+        <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
       <p class="mt-4 max-w-xl text-lg font-semibold leading-relaxed">same chew, different label. per 100g:</p>
 
-      <div class="compare-card mt-6 max-w-3xl">
+      <div class="compare-card reveal mt-6 max-w-3xl lg:-rotate-1">
         <div class="compare-row bg-forest text-cream">
           <span class="font-bold uppercase tracking-[0.1em] text-xs sm:text-sm">per 100g</span>
           <span class="!bg-transparent text-center font-display text-lg font-extrabold lowercase !text-cream">bitez</span>
@@ -351,8 +382,9 @@
     <!-- ============ nutrition transparency ============ -->
     <section id="nutrition" class="mx-auto grid w-full max-w-6xl scroll-mt-24 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24" aria-labelledby="nutrition-heading">
       <div class="reveal min-w-0">
-        <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">full transparency</p>
-        <h2 id="nutrition-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">no small print<span class="text-apple">.</span></h2>
+        <span class="sticker rotate-2">full transparency</span>
+        <h2 id="nutrition-heading" class="mt-3 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">no small print<span class="text-apple">.</span></h2>
+        <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
         <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed">
           the full label sits right here on the site. protein, kcal and sugar per bag, in type you can read.
         </p>
@@ -367,7 +399,7 @@
 
       <div class="reveal min-w-0" style="--reveal-delay:0.12s">
         <div class="mx-auto w-full max-w-md">
-          <div class="label-card">
+          <div class="label-card lg:rotate-1">
             <p class="font-display text-3xl font-extrabold lowercase">nutrition facts</p>
             <p class="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-forest-soft">per bag · 96g</p>
             <div class="label-rule" role="presentation"></div>
@@ -399,10 +431,12 @@
 
     <!-- ============ faq ============ -->
     <section id="faq" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 pb-20 pt-4 sm:px-6 lg:pb-28" aria-labelledby="faq-heading">
-      <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">faq</p>
-      <h2 id="faq-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">fair questions<span class="text-apple">.</span></h2>
+      <span class="sticker -rotate-2">faq</span>
+      <h2 id="faq-heading" class="mt-3 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">fair questions<span class="text-apple">.</span></h2>
+        <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
 
       <div class="mt-8 flex max-w-3xl flex-col gap-3">
+        <div class="reveal">
         <details class="faq-item" name="faq">
           <summary>
             is it really vegan?
@@ -410,7 +444,9 @@
           </summary>
           <p class="faq-body">yes. the protein is hydrolyzed pea protein and the gummy base is pectin, a fruit fibre. no gelatin, nothing from animals.</p>
         </details>
+        </div>
 
+        <div class="reveal" style="--reveal-delay:0.06s">
         <details class="faq-item" name="faq">
           <summary>
             how much protein is in a bag?
@@ -418,7 +454,9 @@
           </summary>
           <p class="faq-body">20g per bag (96g). that's the tested number, not a marketing number.</p>
         </details>
+        </div>
 
+        <div class="reveal" style="--reveal-delay:0.12s">
         <details class="faq-item" name="faq">
           <summary>
             how does pre-ordering work?
@@ -426,7 +464,9 @@
           </summary>
           <p class="faq-body">join the first drop with your email, no payment details. when your bags are ready to ship, in 8 to 12 weeks, we email you a payment link. you pay then, and they ship, with a 14-day money-back guarantee from delivery. <a href="green-apple.html" class="font-bold text-forest underline underline-offset-4">pre-order here</a>.</p>
         </details>
+        </div>
 
+        <div class="reveal" style="--reveal-delay:0.18s">
         <details class="faq-item" name="faq">
           <summary>
             where do you ship?
@@ -434,7 +474,9 @@
           </summary>
           <p class="faq-body">we ship to the EU first. more countries after that.</p>
         </details>
+        </div>
 
+        <div class="reveal" style="--reveal-delay:0.24s">
         <details class="faq-item" name="faq">
           <summary>
             why should i trust the label?
@@ -442,6 +484,7 @@
           </summary>
           <p class="faq-body">an independent lab tests every batch and we publish the reports. check the numbers yourself.</p>
         </details>
+        </div>
       </div>
     </section>
   </main>
@@ -459,8 +502,15 @@
           <h2 class="text-balance text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">pre-order the first drop<span class="text-apple">.</span></h2>
           <p class="mt-3 max-w-md text-lg font-semibold text-cream/85">first batches are small and ship in order of pre-order. 8–12 weeks from order to your door.</p>
         </div>
-        <div class="lg:justify-self-end">
-          <a href="green-apple.html" class="btn min-h-[56px] bg-apple px-8 text-lg lowercase text-forest hover:bg-cream">pre-order green apple</a>
+        <div class="reveal lg:justify-self-end">
+          <div class="flex items-end gap-2 lg:justify-end" aria-hidden="true">
+            <svg viewBox="0 0 120 140" class="size-5 -rotate-12 text-apple opacity-55"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="size-7 rotate-6 text-apple opacity-75"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="size-9 -rotate-3 text-apple"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="size-7 rotate-12 text-apple opacity-75"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="size-5 -rotate-6 text-apple opacity-55"><use href="#gummy-bear" /></svg>
+          </div>
+          <a href="green-apple.html" class="btn mt-4 min-h-[56px] bg-apple px-8 text-lg lowercase text-forest hover:bg-cream">pre-order green apple</a>
         </div>
       </div>
 
@@ -532,6 +582,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260810b" defer></script>
+  <script src="js/main.js?v=20260810c" defer></script>
 </body>
 </html>

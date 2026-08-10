@@ -217,6 +217,19 @@
     transform: none;
   }
 
+  /* candy pop-in: reveal variant that lands with a small spring */
+  .js-enabled .reveal.reveal-pop {
+    transform: translateY(26px) scale(0.96);
+    transition:
+      opacity 0.55s ease-out,
+      transform 0.7s var(--ease-spring);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  .js-enabled .reveal.reveal-pop.is-inview {
+    opacity: 1;
+    transform: none;
+  }
+
   /* ---------- faq accordion ---------- */
   .faq-item {
     @apply rounded-2xl border-[3px] border-white/70 bg-white/50 transition-colors duration-200;
@@ -245,6 +258,31 @@
     @apply px-5 pb-5 pt-0 text-base leading-relaxed sm:px-6;
   }
 
+  /* tactile faq: candy squish on press */
+  .faq-item summary {
+    transition: transform 0.25s var(--ease-spring);
+  }
+  .faq-item summary:active {
+    transform: scale(0.985);
+  }
+  /* animated open/close where the platform can interpolate to auto */
+  @supports (interpolate-size: allow-keywords) {
+    .faq-item::details-content {
+      interpolate-size: allow-keywords;
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        block-size 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.25s ease-out,
+        content-visibility 0.35s allow-discrete;
+    }
+    .faq-item[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+  }
+
   /* ---------- nutrition label ---------- */
   .label-card {
     @apply rounded-2xl border-[3px] border-forest bg-white p-5 sm:p-6;
@@ -267,6 +305,12 @@
   .sticker {
     @apply inline-flex items-center gap-1.5 rounded-full border-[3px] border-white bg-forest px-3.5 py-1 font-display text-sm font-bold lowercase text-cream;
     box-shadow: 0 4px 12px -6px rgba(34, 94, 48, 0.4);
+  }
+
+  /* why-bitez tiles: die-cut sticker skin so the tint band cascades real surfaces */
+  .why-card {
+    @apply rounded-[26px_34px_30px_38px] border-[3px] border-white/70 bg-white/60 p-5 sm:p-6;
+    box-shadow: var(--shadow-clay);
   }
 
   /* swap card (old way -> bitez): die-cut sticker skin over translucent white
@@ -343,10 +387,40 @@
       transform: translateX(-50%);
     }
   }
+  /* comparison table: the bitez column stamps in top-to-bottom on reveal */
+  .js-enabled .compare-card.reveal .compare-row > :nth-child(2)::before {
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .js-enabled .compare-card.reveal.is-inview .compare-row > :nth-child(2)::before {
+    transform: scaleY(1);
+  }
+  .js-enabled .compare-card.reveal .compare-row:nth-child(2) > :nth-child(2)::before { transition-delay: 0.25s; }
+  .js-enabled .compare-card.reveal .compare-row:nth-child(3) > :nth-child(2)::before { transition-delay: 0.4s; }
+  .js-enabled .compare-card.reveal .compare-row:nth-child(4) > :nth-child(2)::before { transition-delay: 0.55s; }
+  .js-enabled .compare-card.reveal .compare-row:nth-child(5) > :nth-child(2)::before { transition-delay: 0.7s; }
+  .js-enabled .compare-card.reveal .compare-row:nth-child(6) > :nth-child(2)::before { transition-delay: 0.85s; }
+
+  /* nutrition label rules draw themselves when the label card reveals */
+  .js-enabled .reveal .label-rule {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.35s;
+  }
+  .js-enabled .reveal.is-inview .label-rule {
+    transform: scaleX(1);
+  }
+  .js-enabled .reveal dl + .label-rule {
+    transition-delay: 0.55s;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .marquee {
       animation: none;
     }
+    .js-enabled .compare-card.reveal .compare-row > :nth-child(2)::before,
+    .js-enabled .reveal .label-rule,
     .js-enabled .reveal .stat-fill {
       transform: none;
       transition: none;
@@ -499,7 +573,14 @@
     @apply grid grid-cols-[1.2fr_1fr_1fr] items-center gap-2 border-b-2 border-forest/10 px-4 py-3 text-sm font-semibold last:border-b-0 sm:px-6 sm:text-base;
   }
   .compare-row > :nth-child(2) {
-    @apply bg-tint-apple/60 -my-3 self-stretch py-3 text-center font-extrabold;
+    @apply relative isolate -my-3 self-stretch py-3 text-center font-extrabold;
+  }
+  .compare-row > :nth-child(2)::before {
+    content: "";
+    @apply absolute inset-0 -z-10 bg-tint-apple/60;
+  }
+  .compare-row:first-child > :nth-child(2)::before {
+    content: none;
   }
   .compare-row > :nth-child(3) {
     @apply text-center text-forest-soft;
@@ -569,6 +650,10 @@
   html {
     scroll-behavior: auto;
   }
+  .faq-item summary,
+  .faq-item::details-content {
+    transition: none;
+  }
   .float-slow,
   .float-slower,
   .sticker-spin,
@@ -609,6 +694,10 @@
 @media print {
   .reveal {
     opacity: 1 !important;
+    transform: none !important;
+  }
+  .js-enabled .compare-card.reveal .compare-row > :nth-child(2)::before,
+  .js-enabled .reveal .label-rule {
     transform: none !important;
   }
 }
