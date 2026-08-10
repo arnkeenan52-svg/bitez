@@ -342,6 +342,11 @@
   .pick-group {
     @apply flex flex-col gap-2 rounded-[20px] bg-white/70 p-2;
   }
+  /* subscribe trust lines: fully collapsed in one-time mode (no dead gap);
+     the small shift on toggling is user-initiated and below the CTA */
+  .js-sub-lines.invisible {
+    display: none;
+  }
   .pick-row {
     @apply relative block cursor-pointer select-none rounded-2xl border-2 border-forest/15 bg-transparent px-3.5 py-3 transition-colors duration-150;
   }
@@ -394,7 +399,8 @@
     @apply pointer-events-none fixed inset-0 z-40 bg-forest-deep/50 opacity-0 transition-opacity duration-300;
   }
   .cart-drawer {
-    @apply fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream shadow-2xl;
+    @apply fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream sm:rounded-l-3xl;
+    box-shadow: var(--shadow-pop);
     transform: translateX(100%);
     visibility: hidden;
     transition:

@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809s" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809s" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809t" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809t" />
 </head>
 
 <body id="top">
@@ -44,30 +44,39 @@
     </div>
   </header>
 
-  <svg class="-mb-px block h-auto w-full" viewBox="0 0 1440 30" aria-hidden="true"><path class="fill-mango/25" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8 L1452,30 L-12,30 Z" /><path class="text-forest" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>
+  <svg class="-mb-px block h-auto w-full" viewBox="0 0 1440 30" aria-hidden="true"><path class="fill-tint-mango" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8 L1452,30 L-12,30 Z" /><path class="text-forest" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>
 
   <main class="relative isolate">
     <div class="pointer-events-none absolute inset-x-0 top-0 -z-10" aria-hidden="true">
-      <div class="h-[440px] bg-mango/25 sm:h-80"></div>
-      <svg class="block w-full rotate-180 text-mango/25" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" /></svg>
+      <div class="h-[440px] bg-tint-mango sm:h-80"></div>
+      <svg class="block w-full rotate-180 text-tint-mango" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" /></svg>
+    </div>
+    <!-- ambient blob field: behind all content -->
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
+      <div class="absolute right-[-120px] top-[38%] h-[380px] w-[380px] rotate-6 rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-mango"></div>
+      <div class="absolute left-[-140px] top-[70%] h-[340px] w-[340px] -rotate-6 rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-tint-mango"></div>
+      <svg viewBox="0 0 120 140" class="absolute left-[8%] top-[52%] size-6 rotate-12 text-mango opacity-50"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[7%] top-[82%] size-5 -rotate-6 text-mango opacity-50"><use href="#gummy-bear" /></svg>
     </div>
     <!-- product hero -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
       <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
 
-      <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div class="overflow-hidden rounded-3xl bg-white p-3 sm:p-4">
+      <div class="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-x-14 lg:gap-y-5">
+        <div class="lg:col-start-2">
+          <span class="tag tag-urgent">coming soon · vote</span>
+          <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">pineapple<span class="text-apple">.</span></h1>
+          <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">tropical, golden, a little wild. one vote away from dropping next.</p>
+          <p class="mt-3 max-w-lg font-semibold leading-relaxed text-forest-soft">same honest spec as green apple: vegan pea protein, pectin base, every batch lab tested. if pineapple wins the vote, it drops next.</p>
+        </div>
+        <div class="clay overflow-hidden rounded-[20px] bg-white p-3 sm:p-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-start">
           <picture>
             <source type="image/webp" srcset="assets/pineapple-500.webp 500w, assets/pineapple.webp 1000w" sizes="(min-width: 1024px) 540px, 92vw" />
             <img src="assets/pineapple.jpg" srcset="assets/pineapple-500.jpg 500w, assets/pineapple.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="pineapple bitez bag with translucent amber gummy bears spilling out" class="w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" />
           </picture>
         </div>
 
-        <div>
-          <span class="tag tag-urgent">coming soon · vote</span>
-          <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">pineapple<span class="text-apple">.</span></h1>
-          <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">tropical, golden, a little wild. one vote away from dropping next.</p>
-          <p class="mt-3 max-w-lg font-semibold leading-relaxed text-forest-soft">same honest spec as green apple: vegan pea protein, pectin base, every batch lab tested. if pineapple wins the vote, it drops next.</p>
+        <div class="lg:col-start-2">
 
           <ul class="mt-6 flex gap-6 sm:gap-8" role="list">
             <li class="flex flex-col items-center gap-2 text-center">
@@ -93,9 +102,9 @@
             </li>
           </ul>
 
-          <div class="mt-8">
-            <button type="button" class="js-vote btn btn-ghost px-6 py-3 text-lg lowercase" data-flavor="pineapple" data-emoji="🍍">
-              <svg viewBox="0 0 120 140" class="size-6 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
+          <div class="mt-8 scroll-mt-28" id="cta">
+            <button type="button" class="js-vote btn btn-ghost min-h-[56px] w-full px-8 text-lg lowercase sm:w-auto" data-flavor="pineapple" data-emoji="🍍">
+              <svg viewBox="0 0 120 140" class="size-7 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
               <span class="vote-label">vote pineapple</span>
             </button>
             <p class="js-vote-note mt-3 font-bold text-forest" role="status" aria-live="polite"></p>
@@ -145,7 +154,7 @@
     <div class="mx-auto w-full max-w-6xl px-4 pb-10 pt-12 sm:px-6 lg:pt-16">
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <h2 class="text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">pre-order the first drop<span class="text-apple">.</span></h2>
+          <h2 class="text-balance text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">pre-order the first drop<span class="text-apple">.</span></h2>
           <p class="mt-3 max-w-md text-lg font-semibold text-cream/85">first batches are small and ship in order of pre-order. 8–12 weeks from order to your door.</p>
         </div>
         <div class="lg:justify-self-end">
@@ -218,6 +227,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809s" defer></script>
+  <script src="js/main.js?v=20260809t" defer></script>
 </body>
 </html>

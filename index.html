@@ -23,8 +23,8 @@
 
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809s" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809s" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809t" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809t" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -97,8 +97,8 @@
 
           <!-- pre-order CTAs -->
           <div id="cta" class="mt-8 grid max-w-md grid-cols-2 items-center gap-3 scroll-mt-28">
-            <a href="green-apple.html" class="btn btn-primary min-h-[56px] whitespace-nowrap px-3 text-sm lowercase sm:px-4 sm:text-lg">pre-order now</a>
-            <a href="#flavors" class="btn btn-ghost min-h-[56px] whitespace-nowrap px-3 text-sm lowercase sm:px-4 sm:text-lg">see the flavors</a>
+            <a href="green-apple.html" class="btn btn-primary min-h-[56px] whitespace-nowrap px-3 text-base lowercase sm:px-4 sm:text-lg">pre-order now</a>
+            <a href="#flavors" class="btn btn-ghost min-h-[56px] whitespace-nowrap px-3 text-base lowercase sm:px-4 sm:text-lg">see the flavors</a>
           </div>
           <p class="mt-3 text-sm font-semibold text-forest-soft">first drop ships in 8–12 weeks. you pay when it ships.</p>
 
@@ -188,7 +188,9 @@
           <span class="tag tag-status mt-5 self-start">launch flavor · first drop</span>
           <h3 class="mt-3 text-3xl lowercase"><a href="green-apple.html" class="text-forest no-underline hover:underline hover:underline-offset-4">green apple</a></h3>
           <p class="mt-2 font-semibold leading-relaxed">sharp, sour, translucent green. 20g of protein hiding in plain sight.</p>
-          <a href="green-apple.html" class="mt-3 inline-flex items-center gap-1 font-display font-bold lowercase text-forest underline underline-offset-4 hover:text-forest-soft">pre-order →</a>
+          <div class="mt-4 md:mt-auto md:pt-4">
+            <a href="green-apple.html" class="btn btn-primary px-5 py-2.5 text-base lowercase">pre-order →</a>
+          </div>
         </article>
 
         <!-- strawberry -->
@@ -208,12 +210,12 @@
           <h3 class="mt-3 text-3xl lowercase"><a href="strawberry.html" class="text-forest no-underline hover:underline hover:underline-offset-4">strawberry</a></h3>
           <p class="mt-2 font-semibold leading-relaxed">sweet, a little sour, very red. vote it in and it drops next.</p>
           <a href="strawberry.html" class="mt-3 inline-flex items-center gap-1 font-display font-bold lowercase text-forest underline underline-offset-4 hover:text-forest-soft">see the flavor →</a>
-          <div class="mt-4">
+          <div class="mt-4 md:mt-auto md:pt-4">
             <button type="button" class="js-vote btn btn-ghost px-5 py-2.5 text-base lowercase" data-flavor="strawberry" data-emoji="🍓">
               <svg viewBox="0 0 120 140" class="size-5 text-berry" aria-hidden="true"><use href="#gummy-bear" /></svg>
               <span class="vote-label">vote strawberry</span>
             </button>
-            <p class="js-vote-note mt-3 font-bold text-forest" role="status" aria-live="polite"></p>
+            <p class="js-vote-note mt-3 font-bold text-forest empty:hidden" role="status" aria-live="polite"></p>
           </div>
         </article>
 
@@ -234,12 +236,12 @@
           <h3 class="mt-3 text-3xl lowercase"><a href="pineapple.html" class="text-forest no-underline hover:underline hover:underline-offset-4">pineapple</a></h3>
           <p class="mt-2 font-semibold leading-relaxed">tropical, golden, a little wild. vote it in and it drops next.</p>
           <a href="pineapple.html" class="mt-3 inline-flex items-center gap-1 font-display font-bold lowercase text-forest underline underline-offset-4 hover:text-forest-soft">see the flavor →</a>
-          <div class="mt-4">
+          <div class="mt-4 md:mt-auto md:pt-4">
             <button type="button" class="js-vote btn btn-ghost px-5 py-2.5 text-base lowercase" data-flavor="pineapple" data-emoji="🍍">
               <svg viewBox="0 0 120 140" class="size-5 text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
               <span class="vote-label">vote pineapple</span>
             </button>
-            <p class="js-vote-note mt-3 font-bold text-forest" role="status" aria-live="polite"></p>
+            <p class="js-vote-note mt-3 font-bold text-forest empty:hidden" role="status" aria-live="polite"></p>
           </div>
         </article>
       </div>
@@ -269,7 +271,7 @@
 
           <div class="reveal" style="--reveal-delay:0.1s">
             <div class="flex h-24 items-end" aria-hidden="true">
-              <svg viewBox="0 0 96 96" class="w-[76px] text-forest">
+              <svg viewBox="0 0 96 96" class="w-[88px] text-forest">
                 <rect x="14" y="6" width="68" height="84" rx="10" fill="none" stroke="currentColor" stroke-width="6" />
                 <line x1="28" y1="28" x2="68" y2="28" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
                 <line x1="28" y1="46" x2="68" y2="46" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
@@ -306,12 +308,12 @@
     </svg>
 
     <!-- ============ comparison ============ -->
-    <section id="compare" class="mx-auto w-full max-w-3xl scroll-mt-24 px-4 pt-16 sm:px-6" aria-labelledby="compare-heading">
+    <section id="compare" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 pt-16 sm:px-6" aria-labelledby="compare-heading">
       <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">side by side</p>
       <h2 id="compare-heading" class="mt-2 text-[clamp(2rem,6vw,3rem)] lowercase">bitez vs the candy aisle<span class="text-apple">.</span></h2>
       <p class="mt-4 max-w-xl text-lg font-semibold leading-relaxed">same chew, different label. per 100g:</p>
 
-      <div class="compare-card mt-6">
+      <div class="compare-card mt-6 max-w-3xl">
         <div class="compare-row bg-forest text-cream">
           <span class="font-bold uppercase tracking-[0.1em] text-xs sm:text-sm">per 100g</span>
           <span class="!bg-transparent text-center font-display text-lg font-extrabold lowercase !text-cream">bitez</span>
@@ -343,7 +345,7 @@
           <span>no</span>
         </div>
       </div>
-      <p class="mt-3 text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
+      <p class="mt-3 max-w-3xl text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
     </section>
 
     <!-- ============ nutrition transparency ============ -->
@@ -396,11 +398,11 @@
     </section>
 
     <!-- ============ faq ============ -->
-    <section id="faq" class="mx-auto w-full max-w-3xl scroll-mt-24 px-4 pb-20 pt-4 sm:px-6 lg:pb-28" aria-labelledby="faq-heading">
+    <section id="faq" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 pb-20 pt-4 sm:px-6 lg:pb-28" aria-labelledby="faq-heading">
       <p class="font-bold uppercase tracking-[0.18em] text-forest-soft">faq</p>
       <h2 id="faq-heading" class="mt-2 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">fair questions<span class="text-apple">.</span></h2>
 
-      <div class="mt-8 flex flex-col gap-3">
+      <div class="mt-8 flex max-w-3xl flex-col gap-3">
         <details class="faq-item" name="faq">
           <summary>
             is it really vegan?
@@ -454,7 +456,7 @@
     <div class="mx-auto w-full max-w-6xl px-4 pb-10 pt-12 sm:px-6 lg:pt-16">
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <h2 class="text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">pre-order the first drop<span class="text-apple">.</span></h2>
+          <h2 class="text-balance text-[clamp(2.2rem,6vw,3.4rem)] lowercase text-white">pre-order the first drop<span class="text-apple">.</span></h2>
           <p class="mt-3 max-w-md text-lg font-semibold text-cream/85">first batches are small and ship in order of pre-order. 8–12 weeks from order to your door.</p>
         </div>
         <div class="lg:justify-self-end">
@@ -530,6 +532,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809s" defer></script>
+  <script src="js/main.js?v=20260809t" defer></script>
 </body>
 </html>
