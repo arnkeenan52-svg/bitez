@@ -22,6 +22,7 @@
   --color-tint-apple: #e9f1cf;
   --color-tint-berry: #f9dfe1;
   --color-tint-mango: #f8eac6;
+  --color-cream-dim: #f1edda;
 
   --font-display: "Baloo 2", "Nunito", ui-rounded, system-ui, sans-serif;
   --font-body: "Nunito", ui-rounded, system-ui, sans-serif;
@@ -739,10 +740,9 @@
     content: "";
     @apply h-0.5 flex-1 rounded-full bg-forest/15;
   }
-  /* order summary */
+  /* order summary — mobile bar is full-bleed muted, Shopify-style */
   .ck-summary-toggle {
-    @apply flex w-full items-center justify-between gap-3 rounded-2xl border-[3px] border-white/70 bg-white/80 p-4 text-left font-display text-base font-extrabold lowercase text-forest;
-    box-shadow: var(--shadow-soft);
+    @apply flex w-full items-center justify-between gap-3 border-y-2 border-forest/10 bg-cream-dim px-4 py-3.5 text-left font-display text-base font-extrabold lowercase text-forest sm:px-6;
   }
   .ck-summary-toggle svg {
     @apply transition-transform;

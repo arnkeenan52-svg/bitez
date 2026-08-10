@@ -11,8 +11,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810g" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810g" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810h" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810h" />
   <script src="https://js.stripe.com/v3/"></script>
 </head>
 
@@ -22,23 +22,28 @@
     <a href="index.html" class="flex items-center no-underline" aria-label="bitez — home">
       <span class="wordmark text-[2.2rem] sm:text-[2.6rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-forest" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
     </a>
-    <p class="flex items-center gap-2 text-sm font-bold lowercase text-forest-soft">
-      <svg viewBox="0 0 24 24" class="size-4.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" /><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7" /></svg>
-      secure checkout
-    </p>
+    <div class="flex items-center gap-3">
+      <p class="hidden items-center gap-2 text-sm font-bold lowercase text-forest-soft sm:flex">
+        <svg viewBox="0 0 24 24" class="size-4.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" /><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7" /></svg>
+        secure checkout
+      </p>
+      <a href="green-apple.html#preorder" class="cart-btn" aria-label="back to your bag">
+        <svg viewBox="0 0 24 24" class="size-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6.2 7.5h11.6l.8 9.6a3.6 3.6 0 0 1-3.6 3.9H9a3.6 3.6 0 0 1-3.6-3.9z" stroke-linejoin="round"/><path d="M8.8 7.5a3.2 3.2 0 0 0 6.4 0"/></svg>
+      </a>
+    </div>
   </header>
 
   <main class="relative isolate">
     <!-- ambient background: behind everything, extra subtle on checkout -->
     <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
       <div class="absolute -left-24 top-[8%] h-72 w-72 rounded-[58%_42%_55%_45%/55%_48%_52%_45%] bg-tint-apple/50"></div>
-      <div class="absolute -right-28 top-[42%] h-80 w-80 rounded-[45%_55%_48%_52%/52%_45%_55%_48%] bg-tint-apple/40"></div>
+      <div class="absolute -right-28 top-[42%] h-80 w-80 rounded-[45%_55%_48%_52%/52%_45%_55%_48%] bg-tint-apple/40 lg:hidden"></div>
       <div class="absolute -left-20 top-[78%] h-64 w-64 rounded-[52%_48%_45%_55%/48%_55%_45%_52%] bg-tint-mango/30"></div>
       <svg viewBox="0 0 120 140" class="absolute left-[5%] top-[18%] size-6 rotate-12 text-apple opacity-25"><use href="#gummy-bear" /></svg>
-      <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[30%] size-5 -rotate-6 text-apple opacity-20"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[30%] size-5 -rotate-6 text-apple opacity-20 lg:hidden"><use href="#gummy-bear" /></svg>
       <svg viewBox="0 0 120 140" class="absolute left-[8%] top-[58%] size-7 rotate-6 text-apple opacity-20"><use href="#gummy-bear" /></svg>
-      <svg viewBox="0 0 120 140" class="absolute right-[9%] top-[72%] size-5 rotate-12 text-apple opacity-25"><use href="#gummy-bear" /></svg>
-      <svg viewBox="0 0 120 140" class="absolute right-[4%] top-[92%] size-6 -rotate-12 text-apple opacity-20"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[9%] top-[72%] size-5 rotate-12 text-apple opacity-25 lg:hidden"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[4%] top-[92%] size-6 -rotate-12 text-apple opacity-20 lg:hidden"><use href="#gummy-bear" /></svg>
     </div>
 
     <!-- empty-bag state (shown by JS when the bag is empty) -->
@@ -49,12 +54,14 @@
     </div>
 
     <div class="js-ck-page mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-10">
+      <!-- full-height muted split behind the summary column (Shopify-style) -->
+      <div class="fixed inset-y-0 right-0 -z-20 hidden border-l-2 border-forest/10 bg-cream-dim lg:block" style="left: min(calc(50% + 152px), calc(100% - 424px))" aria-hidden="true"></div>
       <!-- ============ left: the form ============ -->
       <div class="min-w-0 pt-2">
         <h1 class="sr-only">checkout</h1>
 
         <!-- mobile order summary (collapsible, Shopify-style) -->
-        <div class="lg:hidden">
+        <div class="-mx-4 sm:-mx-6 lg:hidden">
           <button type="button" class="ck-summary-toggle js-summary-toggle" aria-expanded="false" aria-controls="summary-mobile">
             <span class="flex items-center gap-2">
               <svg viewBox="0 0 24 24" class="size-4 text-forest-soft" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6.2 7.5h11.6l.8 9.6a3.6 3.6 0 0 1-3.6 3.9H9a3.6 3.6 0 0 1-3.6-3.9z" stroke-linejoin="round" /><path d="M8.8 7.5a3.2 3.2 0 0 0 6.4 0" /></svg>
@@ -63,11 +70,12 @@
             </span>
             <span class="js-summary-total-mini">€0.00</span>
           </button>
-          <div id="summary-mobile" class="js-summary-slot mt-3 hidden rounded-[22px_28px_24px_30px] border-[3px] border-white/70 bg-white/80 p-5 shadow-soft"></div>
+          <div id="summary-mobile" class="js-summary-slot hidden border-b-2 border-forest/10 bg-cream-dim px-4 py-5 sm:px-6"></div>
         </div>
 
         <!-- express checkout -->
         <div class="js-express-wrap mt-5 hidden">
+          <p class="mb-3 text-center text-xs font-extrabold lowercase tracking-[0.14em] text-forest-soft">express checkout</p>
           <div id="express-checkout"></div>
           <div class="ck-or mt-4">or</div>
         </div>
@@ -227,8 +235,8 @@
       </div>
 
       <!-- ============ right: order summary (desktop) ============ -->
-      <aside class="mt-8 hidden min-w-0 lg:mt-2 lg:block" aria-label="order summary">
-        <div class="js-summary-slot sticky top-6 rounded-[22px_28px_24px_30px] border-[3px] border-white/70 bg-white/80 p-6 shadow-soft"></div>
+      <aside class="hidden min-w-0 lg:block" aria-label="order summary">
+        <div class="js-summary-slot sticky top-0 max-h-screen overflow-y-auto py-8 pl-2 pr-1"></div>
       </aside>
     </div>
   </main>
@@ -260,6 +268,6 @@
     </defs>
   </svg>
 
-  <script src="js/checkout.js?v=20260810g" defer></script>
+  <script src="js/checkout.js?v=20260810h" defer></script>
 </body>
 </html>

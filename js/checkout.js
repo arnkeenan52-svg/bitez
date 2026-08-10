@@ -78,6 +78,7 @@
   /* ---------- order summary (rendered into desktop + mobile slots) ---------- */
   function renderSummary(lines, t) {
     const weeks = Math.round(config.subTrialDays / 7);
+    const count = lines.reduce((n, l) => n + l.qty, 0);
     const itemsHtml = lines
       .map(
         (l) => `
@@ -100,13 +101,17 @@
       : "";
 
     return `
+      <div class="mb-4 flex items-baseline justify-between gap-3">
+        <span class="text-xs font-extrabold lowercase text-forest-soft">${count} item${count === 1 ? "" : "s"} in your bag</span>
+        <a href="green-apple.html#preorder" class="text-xs font-bold lowercase text-forest underline underline-offset-4">edit bag</a>
+      </div>
       <div class="flex flex-col gap-4">${itemsHtml}</div>
       <form class="js-promo-form mt-5 flex gap-2" novalidate>
         <label class="ck-field min-w-0 flex-1">
           <input class="ck-input js-promo-input !h-[48px]" type="text" placeholder="discount code" autocomplete="off" ${promo ? "disabled" : ""} />
           <span class="ck-label">discount code</span>
         </label>
-        <button type="submit" class="btn btn-ghost shrink-0 px-4 py-2 text-sm lowercase" ${promo ? "disabled" : ""}>apply</button>
+        <button type="submit" class="btn btn-ghost shrink-0 px-4 py-2 text-sm lowercase" disabled>apply</button>
       </form>
       <p class="js-promo-msg mt-1.5 hidden text-xs font-bold text-berry-deep" role="status"></p>
       <div class="mt-5 flex flex-col gap-2 border-t-2 border-forest/10 pt-4">
@@ -309,26 +314,28 @@
     };
   }
 
+  /* one source of truth for field rules — used by submit validation AND
+   * blur-time validation (Shopify validates on blur, clears on typing) */
+  const BASE_CHECKS = [
+    [".js-email", (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+    [".js-first", (v) => v.length > 0],
+    [".js-last", (v) => v.length > 0],
+    [".js-address", (v) => v.length > 1],
+    [".js-postal", (v) => v.length > 1],
+    [".js-city", (v) => v.length > 0],
+  ];
+  const BILLING_CHECKS = [
+    [".js-bill-first", (v) => v.length > 0],
+    [".js-bill-last", (v) => v.length > 0],
+    [".js-bill-address", (v) => v.length > 1],
+    [".js-bill-postal", (v) => v.length > 1],
+    [".js-bill-city", (v) => v.length > 0],
+  ];
+  const activeChecks = () => [...BASE_CHECKS, ...(billingDifferent() ? BILLING_CHECKS : [])];
+
   function validateForm() {
     let firstBad = null;
-    const required = [
-      [".js-email", (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
-      [".js-first", (v) => v.length > 0],
-      [".js-last", (v) => v.length > 0],
-      [".js-address", (v) => v.length > 1],
-      [".js-postal", (v) => v.length > 1],
-      [".js-city", (v) => v.length > 0],
-      ...(billingDifferent()
-        ? [
-            [".js-bill-first", (v) => v.length > 0],
-            [".js-bill-last", (v) => v.length > 0],
-            [".js-bill-address", (v) => v.length > 1],
-            [".js-bill-postal", (v) => v.length > 1],
-            [".js-bill-city", (v) => v.length > 0],
-          ]
-        : []),
-    ];
-    for (const [sel, ok] of required) {
+    for (const [sel, ok] of activeChecks()) {
       const input = $(sel);
       const good = ok(input.value.trim());
       input.setAttribute("aria-invalid", String(!good));
@@ -336,27 +343,43 @@
     }
     if (firstBad) {
       firstBad.focus();
-      showError("almost there — fill in the highlighted fields.");
+      showError("almost there — fill in the highlighted fields.", { scroll: false }); // the focused field is the anchor
       return false;
     }
     return true;
   }
 
-  function showError(message) {
+  function initFieldValidation() {
+    for (const [sel, ok] of [...BASE_CHECKS, ...BILLING_CHECKS]) {
+      const input = $(sel);
+      if (!input) continue;
+      input.addEventListener("blur", () => {
+        if (input.value.trim() === "") return; // never scold an untouched field
+        input.setAttribute("aria-invalid", String(!ok(input.value.trim())));
+      });
+      input.addEventListener("input", () => input.removeAttribute("aria-invalid"));
+    }
+  }
+
+  function showError(message, { scroll = true } = {}) {
     const box = $(".js-ck-error");
     box.textContent = message;
     box.classList.toggle("hidden", !message);
+    if (message && scroll) box.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   function setSubmitting(on, kind) {
     submitting = on;
     const btn = $(".js-pay");
     btn.disabled = on;
-    $(".js-pay-label").textContent = on
-      ? "processing…"
-      : kind === "setup"
-        ? "start subscription · €0 today"
-        : "pay now";
+    btn.setAttribute("aria-busy", String(on));
+    const label = $(".js-pay-label");
+    if (on) {
+      label.innerHTML =
+        '<span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="size-5 animate-spin motion-reduce:animate-none" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 3a9 9 0 1 1-9 9" stroke-linecap="round"/></svg>processing…</span>';
+    } else {
+      label.textContent = kind === "setup" ? "start subscription · €0 today" : "pay now";
+    }
   }
 
   /* ---------- submit ---------- */
@@ -533,6 +556,21 @@
         paint();
       }
     });
+
+    // apply button wakes up only once a code is typed (summary re-renders,
+    // so this is delegated)
+    document.addEventListener("input", (event) => {
+      const input = event.target.closest(".js-promo-input");
+      if (!input) return;
+      const button = input.closest(".js-promo-form")?.querySelector('button[type="submit"]');
+      if (button && !promo) button.disabled = input.value.trim() === "";
+    });
+
+    initFieldValidation();
+
+    // Shopify starts the journey in the email field — desktop only, a popping
+    // mobile keyboard is hostile
+    if (window.matchMedia("(min-width: 1024px)").matches) $(".js-email")?.focus({ preventScroll: true });
   }
 
   init();
