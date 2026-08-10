@@ -3,12 +3,18 @@
 Pre-launch website for **bitez**, vegan protein gummies. _Candy that counts._
 
 Static multi-page site: brand home (`index.html`) plus product pages per
-flavor (`green-apple.html`, `strawberry.html`, `pineapple.html`). First-drop
-list model (phase 1, no payments): visitors pick a pack (one-time 3/6/9 or
-subscribe-and-save monthly), add it to the bag, and check out with just
-their email in the cart drawer. The shop emails a payment link when the
-first drop ships, 8–12 weeks out. Swap the drawer for real checkout when
-ready.
+flavor (`green-apple.html`, `strawberry.html`, `pineapple.html`), a
+Shopify-style checkout (`checkout.html` + `thanks.html`) and Stripe-backed
+serverless functions in `/api`. Visitors pick a pack (one-time 3/6/9 or
+subscribe-and-save monthly), add it to the bag, and pay real money at
+checkout:
+
+- **One-time packs** are charged today (PaymentIntent, EUR).
+- **Subscriptions** are €0 today: the card is saved via a trialing Stripe
+  subscription and the first charge happens when the first drop ships
+  (`SUB_TRIAL_DAYS`, default 70 days — see "Operating payments").
+- **Mixed bags** charge the one-time part today, save the card, and the
+  thanks page finalizes the subscription with the saved card.
 
 **Offer** in `green-apple.html` ("choose your bitez"): one-time 3-pack
 €26.99 · 6-pack €49.99 (most popular, free shipping) · 9-pack €69.99;
@@ -23,8 +29,9 @@ small/share sizes.
 ## Stack
 
 - Plain HTML (`index.html`) + [Tailwind CSS v4](https://tailwindcss.com) compiled to a single static stylesheet (`css/styles.css`)
-- Vanilla JS (`js/main.js`) — pack chooser, cart drawer, gummy confetti, sticky mobile CTA, asset fallbacks
-- Self-hosted Baloo 2 + Nunito (`fonts/`) — no third-party requests, no cookies, no trackers (keeps the site consent-banner-free in the EU)
+- Vanilla JS (`js/main.js`) — pack chooser, cart drawer, gummy confetti, sticky mobile CTA, asset fallbacks; `js/checkout.js` + `js/thanks.js` run the checkout
+- Vercel serverless functions (`api/*.js`, Node) + the `stripe` SDK for payments
+- Self-hosted Baloo 2 + Nunito (`fonts/`) — the store pages make no third-party requests and set no cookies. The exception is `checkout.html`/`thanks.html`, which load Stripe.js from js.stripe.com for payment processing (strictly necessary for the service, but mention Stripe in the privacy policy)
 
 ## Develop
 
@@ -47,18 +54,75 @@ gets the new files immediately.
 repository root (the site has no framework and no output folder). Any static
 host works the same way — build, then serve the repo root.
 
+## Operating payments (Stripe)
+
+**Environment variables (Vercel → Project → Settings → Environment
+Variables):**
+
+- `STRIPE_SECRET_KEY` — already set by the owner (sk_live_…).
+- `STRIPE_PUBLISHABLE_KEY` — ⚠️ **must be added** (pk_live_… from
+  https://dashboard.stripe.com/apikeys), then redeploy. Until it's set,
+  checkout shows a friendly "payments aren't switched on yet" notice and
+  takes no orders.
+
+**Where the money logic lives:** `api/_shared.js` is the single source of
+truth — SKU price table (must match the chooser in `green-apple.html`),
+flat shipping (`SHIPPING_FLAT_CENTS`, €4.90), free-shipping threshold
+(6 bags), subscription trial length (`SUB_TRIAL_DAYS`, 70 days ≈ the
+8–12-week ship window) and the EU-27 ship-to list. The client only ever
+sends SKUs + quantities; every amount is recomputed server-side.
+
+**Endpoints:** `GET /api/config` (publishable key + catalog),
+`POST /api/create-intent` (prices the bag, mints the PaymentIntent /
+trialing subscription), `POST /api/validate-code` (discount pre-check),
+`POST /api/complete` (idempotently starts the subscription part of a mixed
+order from the thanks page).
+
+**Owner to-dos in the Stripe Dashboard:**
+
+1. Register payment-method domains (Settings → Payment method domains):
+   `eatbitez.com`, `www.eatbitez.com` — otherwise the Apple Pay button
+   silently never appears.
+2. Enable the trial-ending reminder email (Billing → emails) so
+   subscribers get notified ~3 days before their first charge — card
+   networks expect this for €0-today trials.
+3. Enable failed-payment / receipt emails as desired.
+4. Discount codes: create Coupons + Promotion Codes in the Dashboard —
+   the site picks them up automatically (applies to one-time packs only
+   in v1).
+5. If the drop slips past ~10 weeks: bulk-extend `trial_end` on trialing
+   subscriptions (Dashboard or API) so nobody is charged before shipping.
+   The site copy promises "we email you before the first charge".
+6. Do **not** edit subscription prices in the Dashboard — the API guards
+   against price drift and will refuse checkout if Stripe's price differs
+   from the site's. Change `CATALOG` in `api/_shared.js` instead.
+
+**Known v1 limits (harden next):** no webhooks yet — if a mixed-cart buyer
+never returns to `thanks.html` (closed tab mid-redirect), the one-time part
+is charged but the subscription isn't started; the order details are stored
+in the PaymentIntent's metadata (`pending_subs`) so you can finish it from
+the Dashboard, and re-opening the thanks link fixes it automatically.
+First hardening step: a `payment_intent.succeeded` +
+`customer.subscription.*` webhook. Subscription orders always ship free in
+v1 (shipping is folded into the monthly price) — one-time packs under 6
+bags pay €4.90. Promotion-code redemption counts only tick on
+subscription legs, not one-time legs.
+
 ## Before launch checklist
 
-1. **List endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js`
-   to a Formspree/Mailchimp POST URL. The bag checkout posts email,
-   order (selection labels × qty) and total_eur per reservation. While
-   it's empty the form demos the success state without sending anything.
-   Flavor votes are front-end only.
+1. ~~Payments~~ — Stripe checkout is wired (see "Operating payments").
+   Remaining: add `STRIPE_PUBLISHABLE_KEY` env var + the Dashboard to-dos
+   above. Flavor votes are still front-end only.
 2. **Assets** — real pack shots for all three flavors are in `assets/`
    (see `assets/README.md`).
 3. ~~Absolute URLs~~ — done: eatbitez.com canonicals, og:url, absolute
    social images, robots.txt, sitemap.xml and Product schema are in.
+   `checkout.html`/`thanks.html` are noindex and out of the sitemap.
 4. **Legal** — replace `[legal company details placeholder]` in the footer.
+   ⚠️ Now that real money is charged, EU consumer law requires proper
+   trader identity, terms, privacy + withdrawal-right pages before scale —
+   the checkout's policy links currently point at the FAQ. Also confirm
+   VAT handling (site shows "prices include vat"; Stripe Tax is off).
 5. **Trust content that needs the owner** (conversion audit findings):
    the real ingredient list + sweetener + allergens in the "what's inside"
    accordion (it currently promises the list "before launch"), a support

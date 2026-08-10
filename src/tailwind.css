@@ -638,6 +638,144 @@
       visibility 0s;
   }
 
+  /* ---------- checkout (ck-*) — Shopify-style anatomy, bitez skin ---------- */
+  .ck-card {
+    @apply rounded-[22px_28px_24px_30px] border-[3px] border-white/70 bg-white/80 p-5 sm:p-6;
+    box-shadow: var(--shadow-soft);
+  }
+  .ck-h {
+    @apply font-display text-xl font-extrabold lowercase leading-tight;
+  }
+  /* floating-label field (Shopify pattern): label sits centered, shrinks to the
+     top on focus/fill. Selects and prefilled inputs force-float via .is-float. */
+  .ck-field {
+    @apply relative block;
+  }
+  .ck-input {
+    @apply block h-[54px] w-full rounded-xl border-2 border-forest/25 bg-white px-3.5 pt-4 text-base font-semibold text-forest transition-colors;
+  }
+  .ck-input::placeholder {
+    @apply text-transparent;
+  }
+  .ck-input:hover {
+    @apply border-forest/40;
+  }
+  .ck-input:focus {
+    @apply border-forest outline-none;
+  }
+  .ck-label {
+    @apply pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-base font-semibold text-forest/50 transition-all;
+  }
+  .ck-input:focus ~ .ck-label,
+  .ck-input:not(:placeholder-shown) ~ .ck-label,
+  .ck-field.is-float .ck-label {
+    @apply top-[13px] translate-y-0 text-[11px] font-bold;
+  }
+  .ck-select {
+    @apply appearance-none pr-9;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6.2 8 10l4-3.8' fill='none' stroke='%23225e30' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1rem;
+  }
+  .ck-input[aria-invalid="true"] {
+    @apply border-berry-deep;
+  }
+  .ck-field-error {
+    @apply mt-1 hidden text-xs font-bold text-berry-deep;
+  }
+  .ck-input[aria-invalid="true"] ~ .ck-field-error {
+    @apply block;
+  }
+  .ck-check {
+    @apply flex cursor-pointer items-start gap-2.5 text-sm font-semibold text-forest;
+  }
+  .ck-check input {
+    @apply mt-0.5 size-4.5 shrink-0 cursor-pointer appearance-none rounded-md border-2 border-forest/35 bg-white transition-colors;
+  }
+  .ck-check input:checked {
+    @apply border-forest bg-forest;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5 6.5 11.5 12.5 4.5' fill='none' stroke='%23faf5e8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 0.8rem;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /* radio rows (shipping method, billing address choice) */
+  .ck-option {
+    @apply relative flex cursor-pointer items-center gap-3 border-2 border-forest/20 bg-white p-3.5 text-sm font-semibold transition-colors;
+  }
+  .ck-option:first-of-type {
+    @apply rounded-t-xl;
+  }
+  .ck-option:last-of-type {
+    @apply rounded-b-xl;
+  }
+  .ck-option + .ck-option {
+    @apply -mt-0.5;
+  }
+  .ck-option:has(input:checked) {
+    @apply z-10 border-forest bg-tint-apple/60;
+  }
+  .ck-option:has(input:focus-visible) {
+    outline: 3px solid var(--color-apple);
+    outline-offset: 2px;
+  }
+  .ck-option input {
+    @apply size-4.5 shrink-0 appearance-none rounded-full border-2 border-forest/35 bg-white transition-colors;
+  }
+  .ck-option input:checked {
+    @apply border-[6px] border-forest;
+  }
+  /* "OR" divider around express checkout */
+  .ck-or {
+    @apply flex items-center gap-3 text-xs font-bold uppercase tracking-wide text-forest-soft;
+  }
+  .ck-or::before,
+  .ck-or::after {
+    content: "";
+    @apply h-0.5 flex-1 rounded-full bg-forest/15;
+  }
+  /* order summary */
+  .ck-summary-toggle {
+    @apply flex w-full items-center justify-between gap-3 rounded-2xl border-[3px] border-white/70 bg-white/80 p-4 text-left font-display text-base font-extrabold lowercase text-forest;
+    box-shadow: var(--shadow-soft);
+  }
+  .ck-summary-toggle svg {
+    @apply transition-transform;
+  }
+  .ck-summary-toggle[aria-expanded="true"] svg {
+    @apply rotate-180;
+  }
+  .ck-thumb {
+    @apply relative size-16 shrink-0 rounded-xl border-2 border-forest/15 bg-tint-apple object-cover;
+  }
+  .ck-qty-badge {
+    @apply absolute -right-2 -top-2 z-10 inline-flex size-5.5 items-center justify-center rounded-full bg-forest text-[11px] font-extrabold text-cream;
+  }
+  .ck-row {
+    @apply flex items-baseline justify-between gap-3 text-sm font-semibold text-forest-soft;
+  }
+  .ck-row > :last-child {
+    @apply text-right font-bold text-forest;
+  }
+  .ck-total {
+    @apply flex items-baseline justify-between gap-3 font-display text-xl font-extrabold lowercase text-forest;
+  }
+  .ck-tag {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-tint-apple px-2.5 py-1 text-xs font-extrabold lowercase text-forest;
+  }
+  .ck-error {
+    @apply rounded-xl border-2 border-berry/40 bg-tint-berry px-4 py-3 text-sm font-bold text-berry-deep;
+  }
+  .ck-secure {
+    @apply flex items-center justify-center gap-2 text-xs font-semibold text-forest-soft;
+  }
+  /* payment element skeleton while Stripe loads */
+  .ck-skel {
+    @apply rounded-xl bg-forest/10;
+    animation: ck-pulse 1.4s ease-in-out infinite;
+  }
+
   /* ---------- confetti ---------- */
   .confetti-bear {
     position: fixed;
@@ -664,6 +802,16 @@
   }
 }
 
+
+@keyframes ck-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
 
 @keyframes confetti-fall {
   0% {
@@ -692,6 +840,15 @@
   .mode-tab:active,
   .thumb-btn:active {
     transform: none;
+    transition: none;
+  }
+  .ck-skel {
+    animation: none;
+    opacity: 0.4;
+  }
+  .ck-summary-toggle svg,
+  .ck-label,
+  .ck-input {
     transition: none;
   }
   .float-slow,

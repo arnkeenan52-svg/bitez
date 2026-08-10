@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>order confirmed — bitez</title>
+  <meta name="description" content="your bitez pre-order confirmation." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1a4a26" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810f" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810f" />
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body id="top">
+  <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+    <a href="index.html" class="flex items-center no-underline" aria-label="bitez — home">
+      <span class="wordmark text-[2.2rem] sm:text-[2.6rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-forest" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
+    </a>
+  </header>
+
+  <main class="relative isolate">
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
+      <div class="absolute -left-24 top-[6%] h-72 w-72 rounded-[58%_42%_55%_45%/55%_48%_52%_45%] bg-tint-apple/50"></div>
+      <div class="absolute -right-28 top-[52%] h-80 w-80 rounded-[45%_55%_48%_52%/52%_45%_55%_48%] bg-tint-apple/40"></div>
+      <svg viewBox="0 0 120 140" class="absolute left-[6%] top-[24%] size-6 rotate-12 text-apple opacity-30"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[7%] top-[38%] size-5 -rotate-6 text-apple opacity-25"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[9%] top-[72%] size-7 rotate-6 text-apple opacity-25"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[5%] top-[86%] size-6 -rotate-12 text-apple opacity-25"><use href="#gummy-bear" /></svg>
+    </div>
+
+    <div class="mx-auto w-full max-w-2xl px-4 pb-20 pt-4 sm:px-6">
+      <!-- success -->
+      <div class="js-ok hidden">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full border-[3px] border-apple bg-tint-apple">
+            <svg viewBox="0 0 24 24" class="size-6 text-forest" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4.5 12.5 10 18 19.5 6.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <div>
+            <p class="js-order-ref text-sm font-bold text-forest-soft"></p>
+            <h1 class="font-display text-3xl font-extrabold lowercase leading-tight">order confirmed<span class="text-apple">.</span></h1>
+          </div>
+        </div>
+        <p class="js-ok-lede mt-4 font-semibold leading-relaxed text-forest-soft">thank you — your pre-order is locked in for the first drop. a receipt is on its way to your inbox.</p>
+        <p class="js-sub-finalizing mt-2 hidden text-sm font-bold text-forest-soft"></p>
+
+        <div class="js-recap mt-6 rounded-[22px_28px_24px_30px] border-[3px] border-white/70 bg-white/80 p-5 shadow-soft sm:p-6"></div>
+
+        <div class="mt-6 rounded-[26px_34px_30px_38px] border-[3px] border-white/70 bg-white/70 p-5 shadow-soft sm:p-6">
+          <h2 class="font-display text-xl font-extrabold lowercase">what happens next<span class="text-apple">.</span></h2>
+          <ol class="mt-3 flex flex-col gap-2.5 text-sm font-semibold text-forest-soft">
+            <li class="flex gap-2.5"><span class="font-display font-extrabold text-forest">1.</span> we finish the first batch and lab test it in denmark.</li>
+            <li class="flex gap-2.5"><span class="font-display font-extrabold text-forest">2.</span> your bags ship in 8–12 weeks, eu first — tracking lands in your inbox the moment they leave.</li>
+            <li class="flex gap-2.5"><span class="font-display font-extrabold text-forest">3.</span> taste them. if you don't love them, 14-day money-back guarantee from delivery.</li>
+          </ol>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <a href="index.html" class="btn btn-primary min-h-[52px] px-6 text-base lowercase">back to bitez</a>
+          <a href="strawberry.html" class="font-display font-bold lowercase text-forest underline underline-offset-4">vote the next flavor →</a>
+        </div>
+      </div>
+
+      <!-- processing -->
+      <div class="js-processing hidden">
+        <h1 class="font-display text-3xl font-extrabold lowercase">payment processing<span class="text-apple">…</span></h1>
+        <p class="mt-3 font-semibold leading-relaxed text-forest-soft">your bank is finishing up — this can take a moment with some payment methods. we'll email your confirmation as soon as it lands. you can safely close this page.</p>
+        <a href="index.html" class="btn btn-primary mt-6 min-h-[52px] px-6 text-base lowercase">back to bitez</a>
+      </div>
+
+      <!-- failed -->
+      <div class="js-failed hidden">
+        <h1 class="font-display text-3xl font-extrabold lowercase">that didn't go through<span class="text-berry">.</span></h1>
+        <p class="mt-3 font-semibold leading-relaxed text-forest-soft">no worries — nothing was charged and your bag is exactly as you left it. give it another go, or try a different payment method.</p>
+        <a href="checkout.html" class="btn btn-primary mt-6 min-h-[52px] px-6 text-base lowercase">back to checkout</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- svg defs -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true">
+    <defs>
+      <symbol id="gummy-bear" viewBox="0 0 120 140">
+        <g fill="currentColor">
+          <circle cx="34" cy="26" r="13" opacity="0.82" />
+          <circle cx="86" cy="26" r="13" opacity="0.82" />
+          <ellipse cx="60" cy="42" rx="30" ry="26" opacity="0.85" />
+          <ellipse cx="26" cy="80" rx="10" ry="18" transform="rotate(24 26 80)" opacity="0.82" />
+          <ellipse cx="94" cy="80" rx="10" ry="18" transform="rotate(-24 94 80)" opacity="0.82" />
+          <ellipse cx="60" cy="94" rx="31" ry="36" opacity="0.85" />
+          <ellipse cx="44" cy="125" rx="11" ry="13" opacity="0.82" />
+          <ellipse cx="76" cy="125" rx="11" ry="13" opacity="0.82" />
+        </g>
+        <ellipse cx="60" cy="52" rx="13" ry="9" fill="#ffffff" opacity="0.28" />
+        <ellipse cx="60" cy="97" rx="17" ry="23" fill="#ffffff" opacity="0.22" />
+        <ellipse cx="46" cy="32" rx="5" ry="9" transform="rotate(-22 46 32)" fill="#ffffff" opacity="0.5" />
+        <ellipse cx="45" cy="86" rx="4" ry="9" transform="rotate(-14 45 86)" fill="#ffffff" opacity="0.35" />
+        <g fill="#225e30" opacity="0.35">
+          <circle cx="50" cy="38" r="3" />
+          <circle cx="70" cy="38" r="3" />
+          <path d="M54 47 q6 5 12 0" fill="none" stroke="#225e30" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="js/thanks.js?v=20260810f" defer></script>
+</body>
+</html>

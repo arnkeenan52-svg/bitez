@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>checkout — bitez</title>
+  <meta name="description" content="secure checkout for your bitez pre-order." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1a4a26" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810f" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810f" />
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body id="top">
+  <!-- minimal checkout header: logo + secure badge, no store nav -->
+  <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+    <a href="index.html" class="flex items-center no-underline" aria-label="bitez — home">
+      <span class="wordmark text-[2.2rem] sm:text-[2.6rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-forest" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
+    </a>
+    <p class="flex items-center gap-2 text-sm font-bold lowercase text-forest-soft">
+      <svg viewBox="0 0 24 24" class="size-4.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" /><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7" /></svg>
+      secure checkout
+    </p>
+  </header>
+
+  <main class="relative isolate">
+    <!-- ambient background: behind everything, extra subtle on checkout -->
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
+      <div class="absolute -left-24 top-[8%] h-72 w-72 rounded-[58%_42%_55%_45%/55%_48%_52%_45%] bg-tint-apple/50"></div>
+      <div class="absolute -right-28 top-[42%] h-80 w-80 rounded-[45%_55%_48%_52%/52%_45%_55%_48%] bg-tint-apple/40"></div>
+      <div class="absolute -left-20 top-[78%] h-64 w-64 rounded-[52%_48%_45%_55%/48%_55%_45%_52%] bg-tint-mango/30"></div>
+      <svg viewBox="0 0 120 140" class="absolute left-[5%] top-[18%] size-6 rotate-12 text-apple opacity-25"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[30%] size-5 -rotate-6 text-apple opacity-20"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[8%] top-[58%] size-7 rotate-6 text-apple opacity-20"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[9%] top-[72%] size-5 rotate-12 text-apple opacity-25"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[4%] top-[92%] size-6 -rotate-12 text-apple opacity-20"><use href="#gummy-bear" /></svg>
+    </div>
+
+    <!-- empty-bag state (shown by JS when the bag is empty) -->
+    <div class="js-ck-empty mx-auto hidden w-full max-w-2xl px-4 py-16 text-center sm:px-6">
+      <h1 class="font-display text-3xl font-extrabold lowercase">your bag is empty<span class="text-apple">.</span></h1>
+      <p class="mt-3 font-semibold text-forest-soft">add some gummies first — then come straight back.</p>
+      <a href="green-apple.html#preorder" class="btn btn-primary mt-6 min-h-[52px] px-6 text-base lowercase">choose your bitez</a>
+    </div>
+
+    <div class="js-ck-page mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-10">
+      <!-- ============ left: the form ============ -->
+      <div class="min-w-0 pt-2">
+        <h1 class="sr-only">checkout</h1>
+
+        <!-- mobile order summary (collapsible, Shopify-style) -->
+        <div class="lg:hidden">
+          <button type="button" class="ck-summary-toggle js-summary-toggle" aria-expanded="false" aria-controls="summary-mobile">
+            <span class="flex items-center gap-2">
+              <svg viewBox="0 0 24 24" class="size-4 text-forest-soft" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6.2 7.5h11.6l.8 9.6a3.6 3.6 0 0 1-3.6 3.9H9a3.6 3.6 0 0 1-3.6-3.9z" stroke-linejoin="round" /><path d="M8.8 7.5a3.2 3.2 0 0 0 6.4 0" /></svg>
+              <span class="js-summary-label">show order summary</span>
+              <svg viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <span class="js-summary-total-mini">€0.00</span>
+          </button>
+          <div id="summary-mobile" class="js-summary-slot mt-3 hidden rounded-[22px_28px_24px_30px] border-[3px] border-white/70 bg-white/80 p-5 shadow-soft"></div>
+        </div>
+
+        <!-- express checkout -->
+        <div class="js-express-wrap mt-5 hidden">
+          <div id="express-checkout"></div>
+          <div class="ck-or mt-4">or</div>
+        </div>
+
+        <!-- payments-not-configured notice (shown by JS if keys are missing) -->
+        <div class="js-ck-offline mt-5 hidden">
+          <div class="ck-error" role="status">checkout is warming up — payments aren't switched on yet. your bag is saved, try again soon.</div>
+        </div>
+
+        <form class="js-ck-form mt-5 flex flex-col gap-4" novalidate>
+          <!-- contact -->
+          <section class="ck-card" aria-labelledby="ck-contact-h">
+            <h2 id="ck-contact-h" class="ck-h">contact</h2>
+            <label class="ck-field mt-3">
+              <input class="ck-input js-email" type="email" name="email" placeholder="email" autocomplete="email" required inputmode="email" />
+              <span class="ck-label">email</span>
+              <span class="ck-field-error">enter a valid email so we can send your order confirmation</span>
+            </label>
+            <label class="ck-check mt-3">
+              <input type="checkbox" name="newsletter" class="js-newsletter" checked />
+              <span>email me drop news and offers (no spam, unsubscribe anytime)</span>
+            </label>
+          </section>
+
+          <!-- delivery -->
+          <section class="ck-card" aria-labelledby="ck-delivery-h">
+            <h2 id="ck-delivery-h" class="ck-h">delivery</h2>
+            <div class="mt-3 flex flex-col gap-3">
+              <label class="ck-field is-float">
+                <select class="ck-input ck-select js-country" name="country" autocomplete="country" required aria-label="country/region"></select>
+                <span class="ck-label">country/region</span>
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="ck-field">
+                  <input class="ck-input js-first" type="text" name="first" placeholder="first name" autocomplete="given-name" required />
+                  <span class="ck-label">first name</span>
+                  <span class="ck-field-error">enter a first name</span>
+                </label>
+                <label class="ck-field">
+                  <input class="ck-input js-last" type="text" name="last" placeholder="last name" autocomplete="family-name" required />
+                  <span class="ck-label">last name</span>
+                  <span class="ck-field-error">enter a last name</span>
+                </label>
+              </div>
+              <label class="ck-field">
+                <input class="ck-input js-address" type="text" name="address" placeholder="address" autocomplete="street-address" required />
+                <span class="ck-label">address</span>
+                <span class="ck-field-error">enter your address</span>
+              </label>
+              <label class="ck-field">
+                <input class="ck-input js-address2" type="text" name="address2" placeholder="apartment" autocomplete="address-line2" />
+                <span class="ck-label">apartment, suite, etc. (optional)</span>
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="ck-field">
+                  <input class="ck-input js-postal" type="text" name="postal" placeholder="postal code" autocomplete="postal-code" required />
+                  <span class="ck-label">postal code</span>
+                  <span class="ck-field-error">enter a postal code</span>
+                </label>
+                <label class="ck-field">
+                  <input class="ck-input js-city" type="text" name="city" placeholder="city" autocomplete="address-level2" required />
+                  <span class="ck-label">city</span>
+                  <span class="ck-field-error">enter a city</span>
+                </label>
+              </div>
+              <label class="ck-field">
+                <input class="ck-input js-phone" type="tel" name="phone" placeholder="phone" autocomplete="tel" inputmode="tel" />
+                <span class="ck-label">phone (optional) — only for delivery questions</span>
+              </label>
+            </div>
+          </section>
+
+          <!-- shipping method -->
+          <section class="ck-card" aria-labelledby="ck-ship-h">
+            <h2 id="ck-ship-h" class="ck-h">shipping method</h2>
+            <div class="js-ship-options mt-3" role="radiogroup" aria-label="shipping method"></div>
+            <p class="js-ship-note mt-3 hidden text-xs font-semibold text-forest-soft">first drop ships in 8–12 weeks, eu first — we email tracking the moment it leaves.</p>
+          </section>
+
+          <!-- payment -->
+          <section class="ck-card" aria-labelledby="ck-pay-h">
+            <h2 id="ck-pay-h" class="ck-h">payment</h2>
+            <p class="mt-1.5 flex items-center gap-1.5 text-xs font-semibold text-forest-soft">
+              <svg viewBox="0 0 24 24" class="size-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" /><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7" /></svg>
+              all transactions are secure and encrypted.
+            </p>
+            <div class="js-payment-mount mt-4">
+              <div class="ck-skel h-14"></div>
+              <div class="ck-skel mt-2 h-14"></div>
+            </div>
+
+            <h3 class="mt-5 text-sm font-extrabold lowercase">billing address</h3>
+            <div class="mt-2" role="radiogroup" aria-label="billing address">
+              <label class="ck-option">
+                <input type="radio" name="billing-choice" value="same" checked />
+                <span>same as shipping address</span>
+              </label>
+              <label class="ck-option">
+                <input type="radio" name="billing-choice" value="different" />
+                <span>use a different billing address</span>
+              </label>
+            </div>
+            <div class="js-billing-fields mt-3 hidden flex-col gap-3">
+              <label class="ck-field is-float">
+                <select class="ck-input ck-select js-bill-country" name="bill-country" autocomplete="billing country" aria-label="billing country/region"></select>
+                <span class="ck-label">country/region</span>
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="ck-field">
+                  <input class="ck-input js-bill-first" type="text" name="bill-first" placeholder="first name" autocomplete="billing given-name" />
+                  <span class="ck-label">first name</span>
+                </label>
+                <label class="ck-field">
+                  <input class="ck-input js-bill-last" type="text" name="bill-last" placeholder="last name" autocomplete="billing family-name" />
+                  <span class="ck-label">last name</span>
+                </label>
+              </div>
+              <label class="ck-field">
+                <input class="ck-input js-bill-address" type="text" name="bill-address" placeholder="address" autocomplete="billing street-address" />
+                <span class="ck-label">address</span>
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="ck-field">
+                  <input class="ck-input js-bill-postal" type="text" name="bill-postal" placeholder="postal code" autocomplete="billing postal-code" />
+                  <span class="ck-label">postal code</span>
+                </label>
+                <label class="ck-field">
+                  <input class="ck-input js-bill-city" type="text" name="bill-city" placeholder="city" autocomplete="billing address-level2" />
+                  <span class="ck-label">city</span>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <div class="js-ck-error ck-error hidden" role="alert" aria-live="assertive"></div>
+
+          <button type="submit" class="js-pay btn btn-primary min-h-[58px] w-full text-lg lowercase" disabled>
+            <span class="js-pay-label">pay now</span>
+          </button>
+          <p class="js-ck-legal text-center text-xs font-semibold leading-relaxed text-forest-soft">
+            pre-order: the first drop ships in 8–12 weeks, eu first. 14-day money-back guarantee from delivery.
+          </p>
+        </form>
+
+        <!-- policy links, Shopify-style footer row -->
+        <nav class="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t-2 border-forest/10 pt-4 text-xs font-bold lowercase text-forest-soft" aria-label="policies">
+          <a href="index.html#faq" class="no-underline hover:underline hover:underline-offset-4">refund policy</a>
+          <a href="index.html#faq" class="no-underline hover:underline hover:underline-offset-4">shipping policy</a>
+          <a href="index.html#faq" class="no-underline hover:underline hover:underline-offset-4">privacy policy</a>
+          <a href="index.html#faq" class="no-underline hover:underline hover:underline-offset-4">terms of service</a>
+        </nav>
+      </div>
+
+      <!-- ============ right: order summary (desktop) ============ -->
+      <aside class="mt-8 hidden min-w-0 lg:mt-2 lg:block" aria-label="order summary">
+        <div class="js-summary-slot sticky top-6 rounded-[22px_28px_24px_30px] border-[3px] border-white/70 bg-white/80 p-6 shadow-soft"></div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- svg defs -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true">
+    <defs>
+      <symbol id="gummy-bear" viewBox="0 0 120 140">
+        <g fill="currentColor">
+          <circle cx="34" cy="26" r="13" opacity="0.82" />
+          <circle cx="86" cy="26" r="13" opacity="0.82" />
+          <ellipse cx="60" cy="42" rx="30" ry="26" opacity="0.85" />
+          <ellipse cx="26" cy="80" rx="10" ry="18" transform="rotate(24 26 80)" opacity="0.82" />
+          <ellipse cx="94" cy="80" rx="10" ry="18" transform="rotate(-24 94 80)" opacity="0.82" />
+          <ellipse cx="60" cy="94" rx="31" ry="36" opacity="0.85" />
+          <ellipse cx="44" cy="125" rx="11" ry="13" opacity="0.82" />
+          <ellipse cx="76" cy="125" rx="11" ry="13" opacity="0.82" />
+        </g>
+        <ellipse cx="60" cy="52" rx="13" ry="9" fill="#ffffff" opacity="0.28" />
+        <ellipse cx="60" cy="97" rx="17" ry="23" fill="#ffffff" opacity="0.22" />
+        <ellipse cx="46" cy="32" rx="5" ry="9" transform="rotate(-22 46 32)" fill="#ffffff" opacity="0.5" />
+        <ellipse cx="45" cy="86" rx="4" ry="9" transform="rotate(-14 45 86)" fill="#ffffff" opacity="0.35" />
+        <g fill="#225e30" opacity="0.35">
+          <circle cx="50" cy="38" r="3" />
+          <circle cx="70" cy="38" r="3" />
+          <path d="M54 47 q6 5 12 0" fill="none" stroke="#225e30" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="js/checkout.js?v=20260810f" defer></script>
+</body>
+</html>

@@ -1,14 +1,5 @@
 /* bitez — launch site interactions */
 
-/**
- * First-drop list endpoint (Formspree/Mailchimp-style POST target).
- * The bag checkout posts: email, order (e.g. "green apple 6-pack ·
- * €49.99 x1"), total_eur. No payments are taken on the site.
- * Leave empty to demo the success state without a backend.
- * Example: const FORM_ENDPOINT = "https://formspree.io/f/yourFormId";
- */
-const FORM_ENDPOINT = "";
-
 const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const GUMMY_COLORS = ["#a4d65e", "#e63950", "#f5c242"];
 
@@ -73,15 +64,7 @@ function gummyConfetti(count = 26) {
   }
 }
 
-/* ---------- first-drop list form ---------- */
-function showError(form, message) {
-  const status = form.querySelector(".js-form-status") || form.parentElement.querySelector(".js-form-status");
-  if (!status) return;
-  status.innerHTML = message
-    ? `<p class="inline-block rounded-full bg-white px-4 py-2 text-sm font-bold text-berry-deep">${message}</p>`
-    : "";
-}
-
+/* ---------- pack chooser ---------- */
 function initChooser() {
   const section = document.getElementById("preorder");
   if (!section) return;
@@ -187,6 +170,8 @@ function closeCart() {
 function renderCart(items = cartLoad()) {
   const count = items.reduce((n, i) => n + i.qty, 0);
   const total = items.reduce((t, i) => t + i.price * i.qty, 0).toFixed(2);
+  // "onetime-6" / "sub-9" → bags per unit, for the free-shipping hint
+  const bags = items.reduce((n, i) => n + (parseInt(String(i.size).split("-")[1], 10) || 0) * i.qty, 0);
 
   const badge = document.querySelector(".js-cart-count");
   if (badge) {
@@ -222,6 +207,13 @@ function renderCart(items = cartLoad()) {
     .join("");
   const totalEl = document.querySelector(".js-cart-total");
   if (totalEl) totalEl.textContent = `€${total}`;
+  const shipEl = document.querySelector(".js-cart-ship");
+  if (shipEl) {
+    shipEl.textContent =
+      bags >= 6
+        ? "free eu shipping unlocked 🍏"
+        : `add ${6 - bags} more bag${6 - bags === 1 ? "" : "s"} for free eu shipping — standard shipping added at checkout.`;
+  }
 }
 
 function initCart() {
@@ -246,17 +238,15 @@ function initCart() {
       <div class="js-cart-items flex flex-1 flex-col gap-3 overflow-y-auto p-5"></div>
       <div class="js-cart-footer border-t-2 border-forest/10 p-5" hidden>
         <div class="flex items-baseline justify-between font-display text-xl font-extrabold lowercase">
-          <span>total</span>
+          <span>subtotal</span>
           <span class="js-cart-total">€0.00</span>
         </div>
-        <form class="js-cart-checkout mt-4 flex flex-col gap-3" novalidate>
-          <label for="cart-email" class="sr-only">email address</label>
-          <input id="cart-email" name="email" type="email" required autocomplete="email" placeholder="your email"
-            class="min-h-[52px] rounded-2xl border-[3px] border-forest/25 bg-white px-5 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-forest" />
-          <button type="submit" class="btn btn-primary min-h-[52px] text-lg lowercase">reserve pre-order</button>
-        </form>
-        <div class="js-form-status mt-3" role="status" aria-live="polite"></div>
-        <p class="mt-3 text-xs font-semibold text-forest-soft">no card details, just your email. we send a payment link when your order ships, 8–12 weeks out. nothing charged today.</p>
+        <p class="js-cart-ship mt-2 text-xs font-semibold text-forest-soft"></p>
+        <a href="checkout.html" class="btn btn-primary mt-4 flex min-h-[52px] w-full items-center justify-center text-lg lowercase">checkout</a>
+        <p class="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-forest-soft">
+          <svg viewBox="0 0 24 24" class="size-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" /><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7" /></svg>
+          secure checkout by stripe · first drop ships in 8–12 weeks
+        </p>
       </div>
     </aside>`;
   document.body.appendChild(wrap);
@@ -272,50 +262,6 @@ function initCart() {
     const plus = e.target.closest(".js-cart-plus");
     if (minus) cartSetQty(Number(minus.dataset.index), cartLoad()[Number(minus.dataset.index)].qty - 1);
     if (plus) cartSetQty(Number(plus.dataset.index), Math.min(10, cartLoad()[Number(plus.dataset.index)].qty + 1));
-  });
-
-  const checkout = wrap.querySelector(".js-cart-checkout");
-  checkout.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const input = checkout.querySelector('input[type="email"]');
-    const email = input.value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showError(checkout, "that email doesn't look right. mind checking it?");
-      input.focus();
-      return;
-    }
-    showError(checkout, "");
-    const items = cartLoad();
-    const total = items.reduce((t, i) => t + i.price * i.qty, 0).toFixed(2);
-    const button = checkout.querySelector('button[type="submit"]');
-    button.disabled = true;
-    button.textContent = "reserving…";
-    try {
-      if (FORM_ENDPOINT) {
-        const data = new FormData();
-        data.set("email", email);
-        data.set("order", items.map((i) => `${i.flavor} ${i.sizeLabel} x${i.qty}`).join("; "));
-        data.set("total_eur", total);
-        const response = await fetch(FORM_ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: data });
-        if (!response.ok) throw new Error(`endpoint responded ${response.status}`);
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 450));
-      }
-      cartSave([]);
-      const status = wrap.querySelector(".js-form-status");
-      const list = wrap.querySelector(".js-cart-items");
-      list.innerHTML = `
-        <p class="rounded-2xl border-[3px] border-apple bg-white/70 px-5 py-4 font-display text-xl font-bold lowercase text-forest">
-          pre-order reserved 🍏 · €${total}
-          <span class="mt-1 block font-body text-sm font-semibold text-forest-soft">nothing charged today. your payment link lands in your inbox before your order ships, 8–12 weeks out.</span>
-        </p>`;
-      status.innerHTML = "";
-      gummyConfetti();
-    } catch (error) {
-      showError(checkout, "something went wrong. mind trying again?");
-      button.disabled = false;
-      button.textContent = "reserve pre-order";
-    }
   });
 
   renderCart();
