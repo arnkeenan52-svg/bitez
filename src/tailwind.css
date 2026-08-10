@@ -231,22 +231,6 @@
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
   }
 
-  /* ---------- numbered steps ---------- */
-  .steps {
-    @apply relative flex flex-col gap-5;
-  }
-  .steps::before {
-    content: "";
-    @apply absolute bottom-10 left-7 top-10 w-[3px] rounded bg-forest/15;
-  }
-  .step-icon {
-    @apply relative z-10 grid size-14 shrink-0 place-items-center rounded-full bg-forest text-cream;
-  }
-  .step-card {
-    @apply flex-1 rounded-2xl bg-white p-4 sm:p-5;
-    box-shadow: 0 4px 12px -6px rgba(34, 94, 48, 0.18);
-  }
-
   /* ---------- old way vs bitez ---------- */
   .vs-card {
     @apply grid grid-cols-2 overflow-hidden rounded-3xl;
