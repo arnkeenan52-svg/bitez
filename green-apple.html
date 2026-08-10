@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809o" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809o" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809p" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809p" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,13 +78,13 @@
           <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">sour green apple, translucent like real candy. the first bitez flavor.</p>
         </div>
         <div class="lg:sticky lg:top-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-start">
-          <div class="overflow-hidden rounded-3xl bg-white p-3 sm:p-4">
+          <div class="overflow-hidden rounded-[20px] bg-white p-3 sm:p-4">
             <picture>
               <source type="image/webp" srcset="assets/greenapple-front-500.webp 500w, assets/greenapple-front.webp 1000w" sizes="(min-width: 1024px) 540px, 92vw" />
-              <img src="assets/greenapple-front.jpg" srcset="assets/greenapple-front-500.jpg 500w, assets/greenapple-front.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="green apple bitez pouch, front view on cream studio background" class="js-pdp-main w-full rounded-2xl object-cover" width="1000" height="1000" fetchpriority="high" decoding="async" />
+              <img src="assets/greenapple-front.jpg" srcset="assets/greenapple-front-500.jpg 500w, assets/greenapple-front.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="green apple bitez pouch, front view on cream studio background" class="js-pdp-main aspect-square w-full rounded-2xl bg-cream object-contain" width="1000" height="1000" fetchpriority="high" decoding="async" />
             </picture>
           </div>
-          <div class="mt-3 flex gap-3" role="group" aria-label="product photos">
+          <div class="mt-3 flex gap-2" role="group" aria-label="product photos">
             <button type="button" class="js-thumb thumb-btn" aria-current="true" data-full="assets/greenapple-front.jpg" data-webp="assets/greenapple-front.webp" data-alt="green apple bitez pouch, front view on cream studio background">
               <img src="assets/greenapple-front-500.jpg" alt="pouch, front view" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
@@ -98,109 +98,144 @@
         </div>
 
         <div class="lg:col-start-2">
-          <div id="preorder" class="max-w-md scroll-mt-28">
-            <h2 class="text-2xl lowercase sm:text-3xl">choose your bitez<span class="text-apple">.</span></h2>
+          <div id="preorder" class="relative isolate max-w-md scroll-mt-28">
+            <!-- soft blob + gummy accents behind the chooser -->
+            <div class="pointer-events-none absolute inset-x-[-14px] top-[-44px] -z-10 h-[430px] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
+            <div class="pointer-events-none absolute -right-2 bottom-24 -z-10 size-40 rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-apple/15" aria-hidden="true"></div>
+            <svg viewBox="0 0 120 140" class="pointer-events-none absolute -top-2 right-2 size-6 rotate-12 text-apple opacity-70" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="pointer-events-none absolute -right-3 top-[300px] size-7 rotate-6 text-apple opacity-40" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <svg viewBox="0 0 120 140" class="pointer-events-none absolute -left-4 bottom-36 size-5 -rotate-12 text-apple opacity-50" aria-hidden="true"><use href="#gummy-bear" /></svg>
 
-            <div class="mode-toggle mt-4" role="group" aria-label="one-time or subscription">
+            <h2 class="pt-2 text-3xl lowercase sm:text-4xl">choose your bitez<span class="text-apple">.</span></h2>
+
+            <div class="mode-toggle mt-5" role="group" aria-label="one-time or subscription">
               <button type="button" class="js-mode-tab mode-tab is-active" data-mode="onetime" aria-pressed="true">one-time</button>
               <button type="button" class="js-mode-tab mode-tab" data-mode="sub" aria-pressed="false">subscribe &amp; save 15%</button>
             </div>
 
-            <div class="js-mode-panel mt-4 flex flex-col gap-3" data-mode="onetime">
-            <div class="choice-card is-hot lg:order-2">
-              <span class="choice-flag">most popular · free shipping</span>
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="font-display text-xl font-extrabold lowercase">6 pack</p>
-                  <p class="text-sm font-semibold text-forest-soft">6 × 96g · €8.33 / bag</p>
-                </div>
-                <p class="font-display text-xl font-extrabold">€49.99</p>
-              </div>
-              <button type="button" class="js-choose btn btn-primary mt-3 w-full px-4 py-2.5 text-sm lowercase" data-selection="onetime-6" data-label="6-pack · €49.99">join the first drop</button>
-            </div>
-            <div class="choice-card lg:order-1">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="font-display text-xl font-extrabold lowercase">3 pack</p>
-                  <p class="text-sm font-semibold text-forest-soft">3 × 96g · €9.00 / bag</p>
-                </div>
-                <p class="font-display text-xl font-extrabold">€26.99</p>
-              </div>
-              <button type="button" class="js-choose btn btn-primary mt-3 w-full px-4 py-2.5 text-sm lowercase" data-selection="onetime-3" data-label="3-pack · €26.99">join the first drop</button>
-            </div>
-            <div class="choice-card lg:order-3">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="font-display text-xl font-extrabold lowercase">9 pack</p>
-                  <p class="text-sm font-semibold text-forest-soft">9 × 96g · €7.78 / bag</p>
-                </div>
-                <p class="font-display text-xl font-extrabold">€69.99</p>
-              </div>
-              <button type="button" class="js-choose btn btn-primary mt-3 w-full px-4 py-2.5 text-sm lowercase" data-selection="onetime-9" data-label="9-pack · €69.99">join the first drop</button>
-            </div>
-              <p class="text-sm font-semibold text-forest-soft lg:order-4">free shipping on 6-packs and up · ships eu-wide</p>
-            </div>
-
-            <div class="js-mode-panel mt-4 flex flex-col gap-3" data-mode="sub" hidden>
-            <div class="choice-card is-hot lg:order-2">
-              <span class="choice-flag">most popular · free shipping</span>
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="font-display text-xl font-extrabold lowercase">6 bags / month</p>
-                  <p class="text-sm font-semibold text-forest-soft">6 × 96g monthly · save 15%</p>
-                </div>
-                <p class="font-display text-xl font-extrabold">€42.49</p>
-              </div>
-              <button type="button" class="js-choose btn btn-primary mt-3 w-full px-4 py-2.5 text-sm lowercase" data-selection="sub-6" data-label="6 bags / month · €42.49">reserve my subscription</button>
-            </div>
-            <div class="choice-card lg:order-1">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="font-display text-xl font-extrabold lowercase">3 bags / month</p>
-                  <p class="text-sm font-semibold text-forest-soft">3 × 96g monthly · save 15%</p>
-                </div>
-                <p class="font-display text-xl font-extrabold">€22.99</p>
-              </div>
-              <button type="button" class="js-choose btn btn-primary mt-3 w-full px-4 py-2.5 text-sm lowercase" data-selection="sub-3" data-label="3 bags / month · €22.99">reserve my subscription</button>
-            </div>
-            <div class="choice-card lg:order-3">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="font-display text-xl font-extrabold lowercase">9 bags / month</p>
-                  <p class="text-sm font-semibold text-forest-soft">9 × 96g monthly · save 16%</p>
-                </div>
-                <p class="font-display text-xl font-extrabold">€58.99</p>
-              </div>
-              <button type="button" class="js-choose btn btn-primary mt-3 w-full px-4 py-2.5 text-sm lowercase" data-selection="sub-9" data-label="9 bags / month · €58.99">reserve my subscription</button>
-            </div>
-              <div class="lg:order-4">
-                <p class="text-sm font-semibold text-forest-soft">pause or cancel anytime. two taps, no email needed, no guilt.</p>
-                <p class="mt-1 text-sm font-semibold text-forest-soft">subscriptions open with our second batch. join the list and you're first.</p>
-              </div>
+            <div class="js-mode-panel pick-group mt-4" data-mode="onetime" role="radiogroup" aria-label="one-time pack size">
+              <label class="pick-row">
+                <input type="radio" name="pick-onetime" value="onetime-3" data-label="3-pack · €26.99" data-short="3-pack €26.99" class="sr-only" />
+                <span class="grid grid-cols-[1fr_auto] items-center gap-x-3">
+                  <span>
+                    <span class="block font-display text-xl font-extrabold lowercase leading-tight">3 pack</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-forest-soft">3 × 96g · €9.00 / bag</span>
+                  </span>
+                  <span class="flex flex-col items-end">
+                    <span class="flex items-center gap-2">
+                      <span class="font-display text-xl font-extrabold">€26.99</span>
+                      <span class="pick-check" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-3"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+              <label class="pick-row">
+                <input type="radio" name="pick-onetime" value="onetime-6" data-label="6-pack · €49.99" data-short="6-pack €49.99" class="sr-only" checked />
+                <span class="flex flex-col gap-1">
+                  <span class="pick-flag self-end">most popular · free shipping</span>
+                  <span class="grid grid-cols-[1fr_auto] items-center gap-x-3">
+                  <span>
+                    <span class="block font-display text-xl font-extrabold lowercase leading-tight">6 pack</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-forest-soft">6 × 96g · €8.33 / bag</span>
+                  </span>
+                  <span class="flex flex-col items-end">
+                    <span class="flex items-center gap-2">
+                      <span class="font-display text-xl font-extrabold">€49.99</span>
+                      <span class="pick-check" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-3"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </span>
+                  </span>
+                </span>
+              </span></label>
+              <label class="pick-row">
+                <input type="radio" name="pick-onetime" value="onetime-9" data-label="9-pack · €69.99" data-short="9-pack €69.99" class="sr-only" />
+                <span class="grid grid-cols-[1fr_auto] items-center gap-x-3">
+                  <span>
+                    <span class="block font-display text-xl font-extrabold lowercase leading-tight">9 pack</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-forest-soft">9 × 96g · €7.78 / bag</span>
+                  </span>
+                  <span class="flex flex-col items-end">
+                    <span class="flex items-center gap-2">
+                      <span class="font-display text-xl font-extrabold">€69.99</span>
+                      <span class="pick-check" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-3"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </span>
+                  </span>
+                </span>
+              </label>
             </div>
 
-            <p class="mt-4 flex flex-wrap items-center gap-2 text-sm font-semibold">
+            <div class="js-mode-panel pick-group mt-4" data-mode="sub" role="radiogroup" aria-label="monthly subscription size" hidden>
+              <label class="pick-row">
+                <input type="radio" name="pick-sub" value="sub-3" data-label="3 bags / month · €22.99" data-short="3 bags/mo €22.99" class="sr-only" />
+                <span class="grid grid-cols-[1fr_auto] items-center gap-x-3">
+                  <span>
+                    <span class="block font-display text-xl font-extrabold lowercase leading-tight">3 bags / month</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-forest-soft">3 × 96g monthly · save 15%</span>
+                  </span>
+                  <span class="flex flex-col items-end">
+                    <span class="flex items-center gap-2">
+                      <span class="font-display text-xl font-extrabold">€22.99</span>
+                      <span class="pick-check" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-3"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+              <label class="pick-row">
+                <input type="radio" name="pick-sub" value="sub-6" data-label="6 bags / month · €42.49" data-short="6 bags/mo €42.49" class="sr-only" checked />
+                <span class="flex flex-col gap-1">
+                  <span class="pick-flag self-end">most popular · free shipping</span>
+                  <span class="grid grid-cols-[1fr_auto] items-center gap-x-3">
+                  <span>
+                    <span class="block font-display text-xl font-extrabold lowercase leading-tight">6 bags / month</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-forest-soft">6 × 96g monthly · save 15%</span>
+                  </span>
+                  <span class="flex flex-col items-end">
+                    <span class="flex items-center gap-2">
+                      <span class="font-display text-xl font-extrabold">€42.49</span>
+                      <span class="pick-check" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-3"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </span>
+                  </span>
+                </span>
+              </span></label>
+              <label class="pick-row">
+                <input type="radio" name="pick-sub" value="sub-9" data-label="9 bags / month · €58.99" data-short="9 bags/mo €58.99" class="sr-only" />
+                <span class="grid grid-cols-[1fr_auto] items-center gap-x-3">
+                  <span>
+                    <span class="block font-display text-xl font-extrabold lowercase leading-tight">9 bags / month</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-forest-soft">9 × 96g monthly · save 16%</span>
+                  </span>
+                  <span class="flex flex-col items-end">
+                    <span class="flex items-center gap-2">
+                      <span class="font-display text-xl font-extrabold">€58.99</span>
+                      <span class="pick-check" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-3"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+            </div>
+
+            <form class="js-join-form mt-3 flex flex-col gap-2.5" novalidate>
+              <input type="hidden" name="selection" value="onetime-6" />
+              <input type="hidden" name="selection_label" value="6-pack · €49.99" />
+              <label for="join-email" class="sr-only">email address</label>
+              <input id="join-email" name="email" type="email" required autocomplete="email" placeholder="your email"
+                class="min-h-[52px] rounded-2xl border-2 border-forest/25 bg-white px-5 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-forest" />
+              <button type="submit" class="btn btn-primary min-h-[56px] w-full px-4 text-base lowercase sm:text-lg">join the first drop · 6-pack €49.99</button>
+              <p class="js-form-status" role="status" aria-live="polite"></p>
+              <p class="text-xs font-semibold text-forest-soft">no payment, no card. just your email and your spot in the first drop.</p>
+            </form>
+
+            <p class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold text-forest-soft">
               <span class="relative inline-flex size-2.5" aria-hidden="true">
                 <span class="absolute inline-flex size-full animate-ping rounded-full bg-apple opacity-75 motion-reduce:animate-none"></span>
                 <span class="relative inline-flex size-2.5 rounded-full bg-apple shadow-[0_0_8px_2px_rgba(164,214,94,0.6)]"></span>
               </span>
-              first drop ships in
-              <span class="rounded-full bg-forest px-2.5 py-0.5 font-bold text-cream">8–12 weeks</span>
-              · EU first
+              free shipping on 6-packs and up · first drop ships in 8–12 weeks · EU first
             </p>
-            <p class="mt-2 text-sm font-semibold text-forest-soft">the first batch is small and goes out in list order. earlier on the list, earlier bag.</p>
+            <div class="js-sub-lines invisible mt-2 min-h-9 text-xs font-semibold text-forest-soft">
+              <p>pause or cancel anytime. two taps, no email needed, no guilt.</p>
+              <p class="mt-0.5">subscriptions open with our second batch. join the list and you're first.</p>
+            </div>
 
-            <form class="js-join-form mt-5 flex flex-col gap-3" novalidate>
-              <input type="hidden" name="selection" value="onetime-6" />
-              <input type="hidden" name="selection_label" value="6-pack · €49.99" />
-              <p class="js-selection-note text-sm font-semibold text-forest-soft">your pick: 6-pack · €49.99</p>
-              <label for="join-email" class="sr-only">email address</label>
-              <input id="join-email" name="email" type="email" required autocomplete="email" placeholder="your email"
-                class="min-h-[52px] rounded-2xl border-[3px] border-forest/25 bg-white px-5 text-base font-semibold text-forest placeholder:text-forest/45 focus:border-forest" />
-              <button type="submit" class="btn btn-primary min-h-[52px] text-lg lowercase">join the first drop</button>
-              <p class="js-form-status" role="status" aria-live="polite"></p>
-              <p class="text-xs font-semibold text-forest-soft">no payment, no card. just your email and your spot in the first drop.</p>
-            </form>
             <!-- trust emblems -->
             <div class="mt-5 grid grid-cols-3 gap-2 border-t-2 border-forest/10 pt-5">
               <div class="flex flex-col items-center gap-2 text-center">
@@ -430,6 +465,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809o" defer></script>
+  <script src="js/main.js?v=20260809p" defer></script>
 </body>
 </html>

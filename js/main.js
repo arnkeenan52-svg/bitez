@@ -91,10 +91,22 @@ function initChooser() {
   if (!tabs.length || !panels.length || !form) return;
   const selectionInput = form.querySelector('input[name="selection"]');
   const selectionLabel = form.querySelector('input[name="selection_label"]');
-  const selectionNote = form.querySelector(".js-selection-note");
   const submit = form.querySelector('button[type="submit"]');
+  const subLines = section.querySelector(".js-sub-lines");
+  let mode = "onetime";
 
-  const setMode = (mode) => {
+  const updateCta = () => {
+    const panel = panels.find((p) => p.dataset.mode === mode);
+    const picked = panel && panel.querySelector("input:checked");
+    if (!picked) return;
+    selectionInput.value = picked.value;
+    selectionLabel.value = picked.dataset.label;
+    const verb = mode === "sub" ? "reserve my subscription" : "join the first drop";
+    submit.textContent = `${verb} · ${picked.dataset.short}`;
+  };
+
+  const setMode = (next) => {
+    mode = next;
     tabs.forEach((tab) => {
       const active = tab.dataset.mode === mode;
       tab.setAttribute("aria-pressed", String(active));
@@ -103,20 +115,13 @@ function initChooser() {
     panels.forEach((panel) => {
       panel.hidden = panel.dataset.mode !== mode;
     });
+    if (subLines) subLines.classList.toggle("invisible", mode !== "sub");
+    updateCta();
   };
-  tabs.forEach((tab) => tab.addEventListener("click", () => setMode(tab.dataset.mode)));
 
-  section.querySelectorAll(".js-choose").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      selectionInput.value = btn.dataset.selection;
-      selectionLabel.value = btn.dataset.label;
-      selectionNote.textContent = `your pick: ${btn.dataset.label}`;
-      submit.textContent = btn.dataset.selection.startsWith("sub") ? "reserve my subscription" : "join the first drop";
-      form.scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "center" });
-      const email = form.querySelector('input[type="email"]');
-      setTimeout(() => email.focus({ preventScroll: true }), REDUCED_MOTION ? 0 : 350);
-    });
-  });
+  tabs.forEach((tab) => tab.addEventListener("click", () => setMode(tab.dataset.mode)));
+  panels.forEach((panel) => panel.addEventListener("change", updateCta));
+  setMode("onetime");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -140,7 +145,7 @@ function initChooser() {
         await new Promise((resolve) => setTimeout(resolve, 450));
       }
       form.innerHTML = `
-        <p class="rounded-2xl border-[3px] border-apple bg-white/70 px-5 py-4 font-display text-xl font-bold lowercase text-forest">
+        <p class="rounded-2xl border-2 border-apple bg-white/70 px-5 py-4 font-display text-xl font-bold lowercase text-forest">
           you're on the list 🍏
           <span class="mt-1 block font-body text-sm font-semibold text-forest-soft">first drop goes to you before anyone else.</span>
         </p>`;
