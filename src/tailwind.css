@@ -463,6 +463,10 @@
     outline: 3px solid var(--color-apple);
     outline-offset: 2px;
   }
+  .mode-tab:active {
+    transform: scale(0.96);
+    transition: transform 90ms ease-out;
+  }
 
   /* one selector, one button: radio-group rows */
   .pick-group {
@@ -474,7 +478,14 @@
     display: none;
   }
   .pick-row {
-    @apply relative block cursor-pointer select-none rounded-2xl border-2 border-forest/15 bg-transparent px-3.5 py-3 transition-colors duration-150;
+    @apply relative block cursor-pointer select-none rounded-2xl border-2 border-forest/15 bg-transparent px-3.5 py-3;
+    transition:
+      border-color 150ms ease-out,
+      background-color 150ms ease-out,
+      transform 200ms var(--ease-spring);
+  }
+  .pick-row:active {
+    transform: scale(0.99);
   }
   .pick-row:hover {
     @apply border-forest/45;
@@ -553,6 +564,10 @@
   }
   .thumb-btn[aria-current="true"] {
     @apply border-apple;
+  }
+  .thumb-btn:active {
+    transform: scale(0.94);
+    transition: transform 90ms ease-out;
   }
   .cart-item {
     @apply flex items-center justify-between gap-3 rounded-2xl border-2 border-white/70 bg-white/70 p-3;
@@ -652,6 +667,13 @@
   }
   .faq-item summary,
   .faq-item::details-content {
+    transition: none;
+  }
+  .pick-row,
+  .pick-row:active,
+  .mode-tab:active,
+  .thumb-btn:active {
+    transform: none;
     transition: none;
   }
   .float-slow,

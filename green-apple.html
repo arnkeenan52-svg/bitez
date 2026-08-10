@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810c" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810c" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810d" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810d" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,6 +77,11 @@
       <svg viewBox="0 0 120 140" class="absolute right-[8%] top-[46%] size-5 -rotate-12 text-apple opacity-40"><use href="#gummy-bear" /></svg>
       <svg viewBox="0 0 120 140" class="absolute left-[10%] top-[68%] size-7 rotate-6 text-apple opacity-40"><use href="#gummy-bear" /></svg>
       <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[88%] size-6 -rotate-6 text-apple opacity-50"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[10%] top-[8%] size-5 -rotate-6 text-apple opacity-35"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[4%] top-[34%] size-8 rotate-3 text-apple opacity-30"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[4%] top-[56%] size-5 rotate-12 text-apple opacity-45"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[8%] top-[80%] size-6 -rotate-3 text-apple opacity-40"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[12%] top-[95%] size-5 rotate-6 text-apple opacity-35"><use href="#gummy-bear" /></svg>
     </div>
     <!-- product hero -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
@@ -235,21 +240,21 @@
 
             <!-- trust emblems -->
             <div class="mt-5 grid grid-cols-3 gap-2 border-t-2 border-forest/10 pt-5">
-              <div class="flex flex-col items-center gap-2 text-center">
+              <div class="reveal flex flex-col items-center gap-2 text-center">
                 <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                   <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                   <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18C6 10.5 10.5 6 18.5 5.5 18 13.5 13.5 18 6 18Z" /><path d="M6 18c2.5-4.5 5.5-7.5 9-9.5" /></svg>
                 </span>
                 <span class="text-xs font-extrabold lowercase leading-tight">100% vegan<br /><span class="font-semibold text-forest-soft">pectin base</span></span>
               </div>
-              <div class="flex flex-col items-center gap-2 text-center">
+              <div class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.1s">
                 <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                   <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                   <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.9 7.7-7 9.4C7.9 18.7 5 15.4 5 11V6z" /><path d="M9 11.6l2.2 2.2 4-4.6" /></svg>
                 </span>
                 <span class="text-xs font-extrabold lowercase leading-tight">14-day guarantee<br /><span class="font-semibold text-forest-soft">money back</span></span>
               </div>
-              <div class="flex flex-col items-center gap-2 text-center">
+              <div class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.2s">
                 <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                   <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                   <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9h-11z" /><path d="M13.5 9.5h4l3 3v3h-7" /><circle cx="6.5" cy="17.5" r="1.8" /><circle cx="16.5" cy="17.5" r="1.8" /></svg>
@@ -260,6 +265,7 @@
           </div>
           <!-- product facts -->
           <div class="mt-8 flex max-w-md flex-col gap-3">
+            <div class="reveal">
             <details class="faq-item" name="pdp">
               <summary>nutrition facts<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <div class="faq-body">
@@ -277,22 +283,31 @@
                 </div>
               </div>
             </details>
+            </div>
+            <div class="reveal" style="--reveal-delay:0.08s">
             <details class="faq-item" name="pdp">
               <summary>what's inside<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <p class="faq-body">vegan pea protein for the numbers, pectin for the chew. no gelatin, nothing from animals. the full ingredient list goes on the printed label and on this page before launch. an independent lab in denmark tests every batch and we publish the reports.</p>
             </details>
+            </div>
+            <div class="reveal" style="--reveal-delay:0.16s">
             <details class="faq-item" name="pdp">
               <summary>what if i don't like it?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <p class="faq-body">worried it tastes like a protein bar? that's what the guarantee is for. if you don't love it, you have 14 days from delivery to get your money back.</p>
             </details>
+            </div>
+            <div class="reveal" style="--reveal-delay:0.24s">
             <details class="faq-item" name="pdp">
               <summary>is it really vegan?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <p class="faq-body">yes. the protein is hydrolyzed pea protein and the gummy base is pectin, a fruit fibre. no gelatin, nothing from animals.</p>
             </details>
+            </div>
+            <div class="reveal" style="--reveal-delay:0.32s">
             <details class="faq-item" name="pdp">
               <summary>shipping &amp; pre-order<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <p class="faq-body">the first drop ships in 8–12 weeks, EU first. nothing is charged today: when your bags are ready, we email you a payment link. pay then, and they ship. change your mind? ignore the email and your spot lapses. if the first drop slips past 12 weeks, we email you straight away. you've paid nothing, so you can wait or let your spot lapse. your call.</p>
             </details>
+            </div>
           </div>
           <p class="mt-3 text-sm font-semibold text-forest-soft">more questions? <a href="index.html#faq" class="font-bold text-forest underline underline-offset-4">read the faq</a></p>
         </div>
@@ -545,6 +560,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260810c" defer></script>
+  <script src="js/main.js?v=20260810d" defer></script>
 </body>
 </html>

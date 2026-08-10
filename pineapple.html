@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810c" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810c" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810d" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810d" />
 </head>
 
 <body id="top">
@@ -57,6 +57,9 @@
       <div class="absolute left-[-140px] top-[70%] h-[340px] w-[340px] -rotate-6 rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-tint-mango"></div>
       <svg viewBox="0 0 120 140" class="absolute left-[8%] top-[52%] size-6 rotate-12 text-mango opacity-50"><use href="#gummy-bear" /></svg>
       <svg viewBox="0 0 120 140" class="absolute right-[7%] top-[82%] size-5 -rotate-6 text-mango opacity-50"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[24%] size-5 rotate-6 text-mango opacity-35"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[5%] top-[38%] size-7 -rotate-6 text-mango opacity-30"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[11%] top-[64%] size-6 rotate-12 text-mango opacity-35"><use href="#gummy-bear" /></svg>
     </div>
     <!-- product hero -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
@@ -79,21 +82,21 @@
         <div class="lg:col-start-2">
 
           <ul class="mt-6 flex gap-6 sm:gap-8" role="list">
-            <li class="flex flex-col items-center gap-2 text-center">
+            <li class="reveal flex flex-col items-center gap-2 text-center">
               <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                 <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                 <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18C6 10.5 10.5 6 18.5 5.5 18 13.5 13.5 18 6 18Z" /><path d="M6 18c2.5-4.5 5.5-7.5 9-9.5" /></svg>
               </span>
               <span class="text-xs font-extrabold lowercase leading-tight">100% vegan</span>
             </li>
-            <li class="flex flex-col items-center gap-2 text-center">
+            <li class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.1s">
               <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                 <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                 <svg viewBox="0 0 120 140" class="w-7" aria-hidden="true"><use href="#gummy-bear" /></svg>
               </span>
               <span class="text-xs font-extrabold lowercase leading-tight">no gelatin</span>
             </li>
-            <li class="flex flex-col items-center gap-2 text-center">
+            <li class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.2s">
               <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
                 <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
                 <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6" /><path d="M10.5 3v5.5L5.8 17.8a1.9 1.9 0 0 0 1.7 2.7h9a1.9 1.9 0 0 0 1.7-2.7L13.5 8.5V3" /><path d="M7.7 14.8h8.6" /></svg>
@@ -112,6 +115,7 @@
           </div>
           <!-- product facts -->
           <div class="mt-8 flex flex-col gap-3">
+            <div class="reveal">
             <details class="faq-item" name="pdp">
               <summary>nutrition facts<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <div class="faq-body">
@@ -129,14 +133,19 @@
                 </div>
               </div>
             </details>
+            </div>
+            <div class="reveal" style="--reveal-delay:0.08s">
             <details class="faq-item" name="pdp">
               <summary>what's inside<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <p class="faq-body">vegan pea protein for the numbers, pectin for the chew. no gelatin, nothing from animals. the full ingredient list goes on the printed label and on this page before launch. an independent lab in denmark tests every batch and we publish the reports.</p>
             </details>
+            </div>
+            <div class="reveal" style="--reveal-delay:0.16s">
             <details class="faq-item" name="pdp">
               <summary>shipping &amp; pre-order<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span></summary>
               <p class="faq-body">pre-orders ship in 8–12 weeks, EU first. nothing is charged today: when your order is ready, we email you a payment link. pay then, and it ships. change your mind? ignore the email and the order lapses.</p>
             </details>
+            </div>
           </div>
         </div>
       </div>
@@ -227,6 +236,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260810c" defer></script>
+  <script src="js/main.js?v=20260810d" defer></script>
 </body>
 </html>
