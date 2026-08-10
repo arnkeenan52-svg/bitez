@@ -231,39 +231,68 @@
     @apply flex items-baseline justify-between gap-4 border-b-2 border-forest/15 py-2 text-[15px] font-semibold last:border-b-0;
   }
 
-  /* ---------- old way vs bitez ---------- */
-  .vs-card {
-    @apply grid grid-cols-2 overflow-hidden rounded-3xl;
-    box-shadow: 0 8px 20px -12px rgba(34, 94, 48, 0.25);
-  }
-  .vs-col-old {
-    @apply bg-white/70;
-  }
-  .vs-col-new {
-    @apply bg-tint-apple;
-  }
-  .vs-row {
-    @apply flex items-center gap-2.5 border-b-2 border-forest/10 px-3 py-3.5 text-sm font-semibold last:border-b-0 sm:px-5 sm:text-base;
-  }
-  .vs-head {
-    @apply flex min-h-14 items-center justify-center border-b-2 border-forest/10 px-3 py-3 text-center sm:px-5;
-  }
-  .vs-x {
-    @apply grid size-6 shrink-0 place-items-center rounded-full bg-forest/10 text-forest-soft;
-  }
-  .vs-check {
-    @apply grid size-6 shrink-0 place-items-center rounded-full bg-forest text-apple;
+  /* ---------- product story: sticker label, swap card, stat bars, closing cta ---------- */
+  /* candy sticker: tilted pill label above the section heading */
+  .sticker {
+    @apply inline-flex items-center gap-1.5 rounded-full border-[3px] border-white bg-forest px-3.5 py-1 font-display text-sm font-bold lowercase text-cream;
+    box-shadow: 0 4px 12px -6px rgba(34, 94, 48, 0.4);
   }
 
-  /* ---------- perk band ---------- */
-  .perk-band {
-    @apply flex flex-col gap-3 rounded-3xl bg-forest-deep p-5 sm:p-6;
+  /* swap card (old way -> bitez): die-cut sticker skin over translucent white
+     so the ambient blob field ghosts through */
+  .swap-card {
+    @apply flex flex-col gap-2 rounded-[26px_34px_30px_38px] border-[3px] border-white/70 bg-white/70 p-3 sm:p-4;
+    box-shadow: var(--shadow-clay);
   }
-  .perk-card {
-    @apply flex items-center gap-4 rounded-2xl bg-forest p-4 text-cream;
+  .swap-row {
+    @apply grid grid-cols-[1fr_auto_1fr] items-center gap-2.5 rounded-2xl bg-white/70 px-3 py-3 sm:gap-3 sm:px-4;
   }
-  .perk-icon {
-    @apply grid size-11 shrink-0 place-items-center rounded-full bg-apple text-forest;
+  .swap-old {
+    @apply text-sm font-semibold leading-snug text-forest-soft line-through decoration-forest-soft/50 decoration-2 sm:text-[15px];
+  }
+  .swap-arrow {
+    @apply grid size-7 shrink-0 place-items-center rounded-full bg-forest text-apple;
+  }
+  .swap-new {
+    @apply text-right text-sm font-extrabold leading-snug sm:text-[15px];
+  }
+
+  /* per-100g stat bars: paired scale per metric, apple fill always marks bitez.
+     all in-bar text stays text-forest for AA on track and both fills. */
+  .stat-card {
+    @apply flex flex-col gap-5 rounded-[30px_24px_36px_28px] border-[3px] border-white/70 bg-white/70 p-4 sm:p-5;
+    box-shadow: var(--shadow-clay);
+  }
+  .stat-row {
+    @apply flex flex-col gap-1.5;
+  }
+  .stat-bar {
+    @apply relative flex h-8 items-center overflow-hidden rounded-full bg-forest/10;
+  }
+  .stat-fill {
+    @apply absolute inset-y-0 left-0 rounded-full;
+  }
+  .stat-name {
+    @apply relative pl-3 text-xs font-bold lowercase text-forest;
+  }
+  .stat-num {
+    @apply relative ml-auto pr-3 text-xs font-extrabold text-forest;
+  }
+  .stat-take {
+    @apply inline-flex items-center whitespace-nowrap rounded-full bg-apple px-2.5 py-1 font-body text-[11px] font-extrabold lowercase leading-none text-forest;
+  }
+
+  /* closing conversion card: the one dark mid-page moment. forest, not
+     forest-deep, so the footer band below reads as a distinct reprise. */
+  .cta-card {
+    @apply rounded-3xl bg-forest p-6 text-cream sm:p-8 lg:p-10;
+    box-shadow: var(--shadow-pop);
+  }
+  .cta-perk {
+    @apply flex items-start gap-3 text-base font-bold sm:text-lg;
+  }
+  .cta-tick {
+    @apply mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-apple text-forest;
   }
 
   /* ---------- choose your bitez (mode toggle + pack cards) ---------- */

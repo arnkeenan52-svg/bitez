@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809q" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809q" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809r" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809r" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,6 +67,17 @@
       <div class="h-[440px] bg-apple/25 sm:h-80"></div>
       <svg class="block w-full rotate-180 text-apple/25" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" /></svg>
     </div>
+    <!-- ambient blob field: behind all content, cream to footer -->
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
+      <div class="absolute right-[-120px] top-[16%] h-[420px] w-[420px] rotate-6 rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple"></div>
+      <div class="absolute left-[-140px] top-[36%] h-[380px] w-[380px] -rotate-6 rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-apple/15"></div>
+      <div class="absolute right-[-100px] top-[58%] h-[340px] w-[340px] rotate-12 rounded-[48%_52%_55%_45%/55%_48%_52%_45%] bg-tint-apple"></div>
+      <div class="absolute left-[-120px] top-[78%] h-[400px] w-[400px] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-apple/15"></div>
+      <svg viewBox="0 0 120 140" class="absolute left-[6%] top-[24%] size-6 rotate-12 text-apple opacity-50"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[8%] top-[46%] size-5 -rotate-12 text-apple opacity-40"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[10%] top-[68%] size-7 rotate-6 text-apple opacity-40"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[88%] size-6 -rotate-6 text-apple opacity-50"><use href="#gummy-bear" /></svg>
+    </div>
     <!-- product hero -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
       <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
@@ -98,14 +109,8 @@
         </div>
 
         <div class="lg:col-start-2">
-          <div id="preorder" class="relative isolate max-w-md scroll-mt-28">
+          <div id="preorder" class="max-w-md scroll-mt-28">
             <!-- soft blob + gummy accents behind the chooser -->
-            <div class="pointer-events-none absolute inset-x-[-14px] top-[-44px] -z-10 h-[430px] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
-            <div class="pointer-events-none absolute -right-2 bottom-24 -z-10 size-40 rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-apple/15" aria-hidden="true"></div>
-            <svg viewBox="0 0 120 140" class="pointer-events-none absolute -top-2 right-2 size-6 rotate-12 text-apple opacity-70" aria-hidden="true"><use href="#gummy-bear" /></svg>
-            <svg viewBox="0 0 120 140" class="pointer-events-none absolute -right-3 top-[300px] size-7 rotate-6 text-apple opacity-40" aria-hidden="true"><use href="#gummy-bear" /></svg>
-            <svg viewBox="0 0 120 140" class="pointer-events-none absolute -left-4 bottom-36 size-5 -rotate-12 text-apple opacity-50" aria-hidden="true"><use href="#gummy-bear" /></svg>
-
             <h2 class="pt-2 text-3xl lowercase sm:text-4xl">choose your bitez<span class="text-apple">.</span></h2>
 
             <div class="mode-toggle mt-5" role="group" aria-label="one-time or subscription">
@@ -294,81 +299,133 @@
       </div>
     </section>
 
-    <!-- product story -->
+    <!-- product story: one comparison moment + one conversion moment -->
     <section class="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6" aria-labelledby="story-heading">
-      <!-- old way vs bitez -->
-      <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-12">
-        <div>
-          <h2 id="story-heading" class="text-[clamp(2rem,6vw,3rem)] lowercase">made to replace the protein bar<span class="text-apple">.</span></h2>
-          <div class="vs-card mt-6 max-w-3xl">
-        <p class="vs-head vs-col-old text-xs font-extrabold uppercase tracking-[0.15em] text-forest-soft sm:text-sm">the old way</p>
-        <p class="vs-head vs-col-new font-display text-xl font-extrabold lowercase">bitez</p>
-        <div class="vs-row vs-col-old"><span class="vs-x"><svg viewBox="0 0 24 24" class="size-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></span>chalky protein bars</div>
-        <div class="vs-row vs-col-new"><span class="vs-check"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg></span>real candy, real chew</div>
-        <div class="vs-row vs-col-old"><span class="vs-x"><svg viewBox="0 0 24 24" class="size-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></span>shaker bottles to wash</div>
-        <div class="vs-row vs-col-new"><span class="vs-check"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg></span>straight from the bag</div>
-        <div class="vs-row vs-col-old"><span class="vs-x"><svg viewBox="0 0 24 24" class="size-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></span>gelatin gummies</div>
-        <div class="vs-row vs-col-new"><span class="vs-check"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg></span>pectin, 100% vegan</div>
-        <div class="vs-row vs-col-old border-b-0"><span class="vs-x"><svg viewBox="0 0 24 24" class="size-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></span>microscopic label print</div>
-        <div class="vs-row vs-col-new border-b-0"><span class="vs-check"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg></span>numbers up front</div>
+      <div class="reveal">
+        <span class="sticker -rotate-2">the swap</span>
+        <h2 id="story-heading" class="mt-3 max-w-3xl text-[clamp(2rem,6vw,3rem)] lowercase">made to replace the protein bar<span class="text-apple">.</span></h2>
+        <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+        <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed text-forest-soft">you already like candy. this bag just carries 20g of protein, ~8g sugar and ~200 kcal. no chalk, no shaker, nothing to wash up.</p>
       </div>
 
+      <div class="mt-8 grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-x-12">
+        <div class="reveal relative">
+          <svg viewBox="0 0 120 140" class="absolute -top-6 right-6 z-10 size-10 rotate-12 text-apple sm:-top-8 sm:right-7 sm:size-12" aria-hidden="true"><use href="#gummy-bear" /></svg>
+          <div class="swap-card lg:-rotate-1">
+            <p class="px-3 pb-1 pt-2 text-xs font-extrabold uppercase tracking-[0.15em] text-forest-soft sm:px-4">the old way → <span class="text-forest">bitez</span></p>
+        <div class="swap-row">
+          <span class="swap-old">chalky protein bars</span>
+          <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+          <span class="swap-new"><span class="sr-only">becomes </span>real candy, real chew</span>
         </div>
-        <div>
-          <h2 class="mt-14 text-[clamp(2rem,6vw,3rem)] lowercase lg:mt-0">how it compares<span class="text-apple">.</span></h2>
-          <div class="compare-card mt-6 max-w-3xl">
-        <div class="compare-row bg-forest text-cream">
-          <span class="font-bold uppercase tracking-[0.1em] text-xs sm:text-sm">per 100g</span>
-          <span class="!bg-transparent text-center font-display text-lg font-extrabold lowercase !text-cream">bitez</span>
-          <span class="text-center font-bold lowercase !text-cream/80">sugar gummies*</span>
+        <div class="swap-row">
+          <span class="swap-old">shaker bottles to wash</span>
+          <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+          <span class="swap-new"><span class="sr-only">becomes </span>straight from the bag</span>
         </div>
-        <div class="compare-row"><span>protein</span><span>~21 g</span><span>~7 g</span></div>
-        <div class="compare-row"><span>sugar</span><span>~8 g</span><span>~46 g</span></div>
-        <div class="compare-row"><span>energy</span><span>~210 kcal</span><span>~340 kcal</span></div>
-        <div class="compare-row"><span>gummy base</span><span>pectin · vegan</span><span>gelatin</span></div>
-        <div class="compare-row"><span>lab reports published</span><span>yes</span><span>no</span></div>
-      </div>
-          <p class="mt-3 max-w-3xl text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
+        <div class="swap-row">
+          <span class="swap-old">gelatin gummies</span>
+          <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+          <span class="swap-new"><span class="sr-only">becomes </span>pectin, 100% vegan</span>
+        </div>
+        <div class="swap-row">
+          <span class="swap-old">microscopic label print</span>
+          <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+          <span class="swap-new"><span class="sr-only">becomes </span>lab-tested numbers up front</span>
+        </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="--reveal-delay:0.1s">
+          <div class="stat-card lg:rotate-1">
+            <p class="text-xs font-extrabold uppercase tracking-[0.15em] text-forest-soft">per 100g · <span class="text-forest">bitez</span> vs sugar gummies*</p>
+        <div class="stat-row">
+          <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <h3 class="text-lg lowercase">protein</h3>
+            <span class="stat-take">3× the protein</span>
+          </div>
+          <div class="stat-bar">
+            <span class="stat-fill w-full bg-apple" aria-hidden="true"></span>
+            <span class="stat-name">bitez</span>
+            <span class="stat-num">~21 g</span>
+          </div>
+          <div class="stat-bar">
+            <span class="stat-fill w-1/3 bg-forest/20" aria-hidden="true"></span>
+            <span class="stat-name">sugar gummies*</span>
+            <span class="stat-num">~7 g</span>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <h3 class="text-lg lowercase">sugar</h3>
+            <span class="stat-take">under a fifth of the sugar</span>
+          </div>
+          <div class="stat-bar">
+            <span class="stat-fill w-[17%] bg-apple" aria-hidden="true"></span>
+            <span class="stat-name">bitez</span>
+            <span class="stat-num">~8 g</span>
+          </div>
+          <div class="stat-bar">
+            <span class="stat-fill w-full bg-forest/20" aria-hidden="true"></span>
+            <span class="stat-name">sugar gummies*</span>
+            <span class="stat-num">~46 g</span>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <h3 class="text-lg lowercase">energy</h3>
+            <span class="stat-take">~130 kcal fewer</span>
+          </div>
+          <div class="stat-bar">
+            <span class="stat-fill w-[62%] bg-apple" aria-hidden="true"></span>
+            <span class="stat-name">bitez</span>
+            <span class="stat-num">~210 kcal</span>
+          </div>
+          <div class="stat-bar">
+            <span class="stat-fill w-full bg-forest/20" aria-hidden="true"></span>
+            <span class="stat-name">sugar gummies*</span>
+            <span class="stat-num">~340 kcal</span>
+          </div>
+        </div>
+          </div>
+          <p class="mt-3 text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
         </div>
       </div>
 
-      <!-- pre-order perks -->
-      <h2 class="mt-14 text-[clamp(2rem,6vw,3rem)] lowercase">pre-order perks<span class="text-apple">.</span></h2>
-      <div class="perk-band mt-6 max-w-3xl lg:max-w-none lg:flex-row">
-        <div class="perk-card lg:flex-1">
-          <div class="perk-icon">
-            <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 17.5 17.5 6.5" /><circle cx="7.5" cy="7.5" r="2.4" /><circle cx="16.5" cy="16.5" r="2.4" /></svg>
-          </div>
+      <div class="cta-card reveal mt-12 sm:mt-14">
+        <div class="lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-x-12">
           <div>
-            <h3 class="text-xl lowercase text-white">subscribe &amp; save 15%</h3>
-            <p class="text-sm font-semibold text-cream/85">bigger packs already cost less per bag. subscriptions take another 15% off.</p>
+            <h2 class="text-[clamp(1.9rem,5.5vw,2.6rem)] lowercase text-white">why join the first drop<span class="text-apple">.</span></h2>
+            <ul class="mt-5 flex flex-col gap-3">
+              <li class="cta-perk">
+                <span class="cta-tick" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11" /></svg></span>
+                <span>subscribe &amp; save 15% <span class="font-semibold text-cream/80">on top of pack prices</span></span>
+              </li>
+              <li class="cta-perk">
+                <span class="cta-tick" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11" /></svg></span>
+                <span>free eu shipping <span class="font-semibold text-cream/80">on every 6-pack and up</span></span>
+              </li>
+              <li class="cta-perk">
+                <span class="cta-tick" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11" /></svg></span>
+                <span>nothing charged today <span class="font-semibold text-cream/80">· 14-day money-back guarantee</span></span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 lg:mt-0 lg:justify-self-end">
+            <div class="flex items-end justify-center gap-2 lg:justify-end" aria-hidden="true">
+              <svg viewBox="0 0 120 140" class="size-5 -rotate-12 text-apple opacity-55"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="size-7 rotate-6 text-apple opacity-75"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="size-9 -rotate-3 text-apple"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="size-7 rotate-12 text-apple opacity-75"><use href="#gummy-bear" /></svg>
+              <svg viewBox="0 0 120 140" class="size-5 -rotate-6 text-apple opacity-55"><use href="#gummy-bear" /></svg>
+            </div>
+            <a href="#preorder" class="btn mt-4 min-h-[56px] w-full bg-apple px-8 text-lg lowercase text-forest hover:bg-cream lg:w-auto">
+              <svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+              join the first drop
+            </a>
+            <p class="mt-3 text-sm font-semibold text-cream/85 lg:max-w-[280px]">no card details now, just your email. payment link when your bags ship. first drop ships in 8–12 weeks, eu first.</p>
           </div>
         </div>
-        <div class="perk-card lg:flex-1">
-          <div class="perk-icon">
-            <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9h-11z" /><path d="M13.5 9.5h4l3 3v3h-7" /><circle cx="6.5" cy="17.5" r="1.8" /><circle cx="16.5" cy="17.5" r="1.8" /></svg>
-          </div>
-          <div>
-            <h3 class="text-xl lowercase text-white">free eu shipping</h3>
-            <p class="text-sm font-semibold text-cream/85">on every 6-pack and up, anywhere in the eu.</p>
-          </div>
-        </div>
-        <div class="perk-card lg:flex-1">
-          <div class="perk-icon">
-            <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.9 7.7-7 9.4C7.9 18.7 5 15.4 5 11V6z" /><path d="M9 11.6l2.2 2.2 4-4.6" /></svg>
-          </div>
-          <div>
-            <h3 class="text-xl lowercase text-white">nothing charged today</h3>
-            <p class="text-sm font-semibold text-cream/85">no card details now, just your email. payment link when it ships. 14-day money-back guarantee.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 lg:text-center">
-        <a href="#preorder" class="btn btn-primary min-h-[56px] w-full px-8 text-lg lowercase sm:w-auto">
-          <svg viewBox="0 0 120 140" class="size-5 text-apple" aria-hidden="true"><use href="#gummy-bear" /></svg>
-          join the first drop
-        </a>
       </div>
     </section>
 
@@ -457,6 +514,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809q" defer></script>
+  <script src="js/main.js?v=20260809r" defer></script>
 </body>
 </html>

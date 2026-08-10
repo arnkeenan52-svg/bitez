@@ -23,8 +23,8 @@
 
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809q" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809q" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260809r" />
+  <link rel="stylesheet" href="css/styles.css?v=20260809r" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -68,7 +68,18 @@
 
   <svg class="-mb-px block h-auto w-full" viewBox="0 0 1440 30" aria-hidden="true"><path class="fill-apple/25" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8 L1452,30 L-12,30 Z" /><path class="text-forest" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>
 
-  <main>
+  <main class="relative isolate">
+    <!-- ambient blob field: behind all content, cream to footer -->
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
+      <div class="absolute right-[-120px] top-[16%] h-[420px] w-[420px] rotate-6 rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple"></div>
+      <div class="absolute left-[-140px] top-[36%] h-[380px] w-[380px] -rotate-6 rounded-[52%_48%_45%_55%/45%_52%_48%_55%] bg-apple/15"></div>
+      <div class="absolute right-[-100px] top-[58%] h-[340px] w-[340px] rotate-12 rounded-[48%_52%_55%_45%/55%_48%_52%_45%] bg-tint-apple"></div>
+      <div class="absolute left-[-120px] top-[78%] h-[400px] w-[400px] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-apple/15"></div>
+      <svg viewBox="0 0 120 140" class="absolute left-[6%] top-[24%] size-6 rotate-12 text-apple opacity-50"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[8%] top-[46%] size-5 -rotate-12 text-apple opacity-40"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute left-[10%] top-[68%] size-7 rotate-6 text-apple opacity-40"><use href="#gummy-bear" /></svg>
+      <svg viewBox="0 0 120 140" class="absolute right-[6%] top-[88%] size-6 -rotate-6 text-apple opacity-50"><use href="#gummy-bear" /></svg>
+    </div>
     <!-- ============ hero ============ -->
     <section class="relative isolate overflow-hidden" aria-labelledby="hero-heading">
       <div class="pointer-events-none absolute inset-0 -z-10 flex flex-col" aria-hidden="true">
@@ -519,6 +530,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809q" defer></script>
+  <script src="js/main.js?v=20260809r" defer></script>
 </body>
 </html>
