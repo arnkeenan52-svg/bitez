@@ -56,6 +56,31 @@
     overflow-x: clip;
   }
 
+  /* iOS rubber-band guards: fixed strips parked just outside the viewport.
+     position:fixed never grows the scrollable area (an absolute guard below
+     the footer did), but during the bounce Safari translates the whole layer,
+     sliding these into the revealed gap: red above the page, footer green
+     below it. Invisible everywhere else. */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset-inline: 0;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+  }
+  body::before {
+    top: 0;
+    background: var(--color-berry);
+    transform: translateY(-100%);
+  }
+  body::after {
+    bottom: 0;
+    background: var(--color-forest-deep);
+    transform: translateY(100%);
+  }
+
   ::selection {
     background: var(--color-apple);
     color: var(--color-forest);
