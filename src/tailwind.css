@@ -266,128 +266,33 @@
     @apply grid size-11 shrink-0 place-items-center rounded-full bg-apple text-forest;
   }
 
-  /* ---------- pack tiers ---------- */
-  .pack-option {
-    @apply relative block cursor-pointer select-none rounded-2xl border-[3px] border-forest/15 bg-white p-4;
+  /* ---------- choose your bitez (mode toggle + pack cards) ---------- */
+  .mode-toggle {
+    @apply flex gap-1 rounded-full border-[3px] border-forest/15 bg-white/70 p-1;
+  }
+  .mode-tab {
+    @apply flex-1 cursor-pointer rounded-full px-3 py-2 text-center font-display text-sm font-bold lowercase text-forest transition-colors duration-150;
+  }
+  .mode-tab:hover {
+    @apply bg-forest/10;
+  }
+  .mode-tab.is-active {
+    @apply bg-forest text-cream;
+  }
+  .mode-tab:focus-visible {
+    outline: 3px solid var(--color-apple);
+    outline-offset: 2px;
+  }
+  .choice-card {
+    @apply relative rounded-2xl border-[3px] border-forest/15 bg-white p-4;
     box-shadow: 0 2px 6px -2px rgba(34, 94, 48, 0.12);
-    transition:
-      transform 150ms ease-out,
-      border-color 150ms ease-out,
-      box-shadow 150ms ease-out;
   }
-  .pack-option:hover {
-    @apply border-forest/40;
+  .choice-card.is-hot {
+    @apply border-apple;
+    box-shadow: 0 8px 20px -10px rgba(34, 94, 48, 0.35);
   }
-  .pack-option:active {
-    transform: scale(0.98);
-  }
-  .pack-option:has(input:checked) {
-    @apply border-forest;
-    box-shadow: 0 8px 20px -10px rgba(34, 94, 48, 0.4);
-  }
-  .pack-option:has(input:focus-visible) {
-    outline: 3px solid var(--color-apple);
-    outline-offset: 3px;
-  }
-  .pack-dot {
-    @apply grid size-6 shrink-0 place-items-center rounded-full border-[3px] border-forest/25 bg-white transition-colors duration-150;
-  }
-  .pack-option:has(input:checked) .pack-dot {
-    @apply border-forest;
-  }
-  .pack-dot::after {
-    content: "";
-    @apply size-3 scale-0 rounded-full bg-forest transition-transform duration-150;
-  }
-  .pack-option:has(input:checked) .pack-dot::after {
-    @apply scale-100;
-  }
-  .pack-flag {
-    @apply absolute -top-3 right-4 rounded-full bg-berry px-3 py-0.5 font-body text-xs font-extrabold uppercase tracking-[0.1em] text-white;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .pack-option,
-    .pack-option:active {
-      transform: none;
-      transition: none;
-    }
-  }
-
-  /* ---------- pre-order form (size chips behave like buttons: fast ease-out, press squish) ---------- */
-  .size-chip {
-    @apply flex cursor-pointer flex-col items-center gap-0.5 rounded-2xl border-[3px] border-forest/15 bg-white px-2 py-3 text-center select-none;
-    box-shadow: 0 2px 6px -2px rgba(34, 94, 48, 0.15);
-    transition:
-      transform 150ms ease-out,
-      background-color 150ms ease-out,
-      border-color 150ms ease-out,
-      box-shadow 150ms ease-out;
-  }
-  .size-chip:hover {
-    @apply border-forest/40;
-    transform: translateY(-1px);
-  }
-  .size-chip:active {
-    transform: scale(0.96);
-  }
-  .size-chip:has(input:checked) {
-    @apply border-forest bg-forest text-cream;
-    box-shadow:
-      0 4px 10px -4px rgba(34, 94, 48, 0.4),
-      inset 0 2px 4px rgba(255, 255, 255, 0.22);
-  }
-  .size-chip:has(input:focus-visible) {
-    outline: 3px solid var(--color-apple);
-    outline-offset: 3px;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .size-chip,
-    .size-chip:hover,
-    .size-chip:active {
-      transform: none;
-      transition: none;
-    }
-  }
-  .qty-btn {
-    @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;
-  }
-  .qty-btn:hover {
-    @apply border-forest;
-  }
-
-  /* ---------- cart ---------- */
-  .cart-btn {
-    @apply relative grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 text-forest transition-colors duration-150;
-  }
-  .cart-btn:hover {
-    @apply border-forest;
-  }
-  .cart-badge {
-    @apply absolute -right-1.5 -top-1.5 grid min-w-5 place-items-center rounded-full bg-berry px-1 font-body text-xs font-extrabold leading-5 text-white;
-  }
-  .cart-badge[hidden] {
-    display: none;
-  }
-  .cart-overlay {
-    @apply pointer-events-none fixed inset-0 z-40 bg-forest-deep/50 opacity-0 transition-opacity duration-300;
-  }
-  .cart-drawer {
-    @apply fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream shadow-2xl;
-    transform: translateX(100%);
-    visibility: hidden;
-    transition:
-      transform 0.3s ease-out,
-      visibility 0s linear 0.3s;
-  }
-  .cart-open .cart-overlay {
-    @apply pointer-events-auto opacity-100;
-  }
-  .cart-open .cart-drawer {
-    transform: translateX(0);
-    visibility: visible;
-    transition:
-      transform 0.3s ease-out,
-      visibility 0s;
+  .choice-flag {
+    @apply absolute -top-3 right-4 rounded-full bg-apple px-3 py-0.5 font-body text-[11px] font-extrabold uppercase tracking-[0.08em] text-forest;
   }
 
   /* ---------- product gallery ---------- */
@@ -400,16 +305,6 @@
   .thumb-btn[aria-current="true"] {
     @apply border-apple;
   }
-  .cart-item {
-    @apply flex items-center justify-between gap-3 rounded-2xl border-2 border-white/70 bg-white/70 p-3;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .cart-drawer,
-    .cart-overlay {
-      transition: none;
-    }
-  }
-
   /* ---------- comparison table ---------- */
   .compare-card {
     @apply overflow-hidden rounded-3xl border-[3px] border-forest bg-white;

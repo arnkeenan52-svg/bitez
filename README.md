@@ -3,16 +3,18 @@
 Pre-launch website for **bitez**, vegan protein gummies. _Candy that counts._
 
 Static multi-page site: brand home (`index.html`) plus product pages per
-flavor (`green-apple.html`, `strawberry.html`, `pineapple.html`). Pre-order
-model: visitors reserve bags (size × qty + email, nothing charged); the shop
-emails a payment link when the order ships, 8–12 weeks out. No payment
-processing on the site — swap the reservation form for Shopify/Stripe
-checkout when ready.
+flavor (`green-apple.html`, `strawberry.html`, `pineapple.html`). First-drop
+list model (phase 1, no payments): visitors pick a pack (one-time 3/6/9 or
+subscribe-and-save monthly), and the choice is stored with their email via
+the join form. The shop emails a payment link when the first drop ships,
+8–12 weeks out. Swap the join form for real checkout when ready.
 
-**Offer** in `green-apple.html`: the buy box sells the 96g bag in packs —
-1 bag €9.99 (owner-set) · 3-pack €26.99 (save 10%, free EU shipping) ·
-6-pack €47.99 (save 20%). ⚠️ The bundle prices/discounts and the
-free-shipping promise are still placeholders — confirm before launch.
+**Offer** in `green-apple.html` ("choose your bitez"): one-time 3-pack
+€26.99 · 6-pack €49.99 (most popular, free shipping) · 9-pack €69.99;
+subscribe & save 15%: 3/month €22.99 · 6/month €42.49 · 9/month €58.99.
+Free shipping on 6-packs and up. No single-bag price on the site (singles
+sell elsewhere). ⚠️ Confirm prices and the free-shipping threshold before
+launch.
 The 14-day money-back guarantee shown on the product page was added at
 the owner's request. The 96g bag is the only size — there are no
 small/share sizes.
@@ -20,7 +22,7 @@ small/share sizes.
 ## Stack
 
 - Plain HTML (`index.html`) + [Tailwind CSS v4](https://tailwindcss.com) compiled to a single static stylesheet (`css/styles.css`)
-- Vanilla JS (`js/main.js`) — pre-order forms, cart drawer, gummy confetti, sticky mobile CTA, asset fallbacks
+- Vanilla JS (`js/main.js`) — pack chooser + first-drop join form, gummy confetti, sticky mobile CTA, asset fallbacks
 - Self-hosted Baloo 2 + Nunito (`fonts/`) — no third-party requests, no cookies, no trackers (keeps the site consent-banner-free in the EU)
 
 ## Develop
@@ -46,10 +48,11 @@ host works the same way — build, then serve the repo root.
 
 ## Before launch checklist
 
-1. **Pre-order endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js`
-   to a Formspree/Mailchimp POST URL. It receives size, qty, email and
-   total_eur per reservation. While it's empty the form demos the success
-   state without sending anything. Flavor votes are front-end only.
+1. **List endpoint** — set `FORM_ENDPOINT` at the top of `js/main.js`
+   to a Formspree/Mailchimp POST URL. It receives email, selection
+   (e.g. "onetime-6" / "sub-9") and selection_label per signup. While
+   it's empty the form demos the success state without sending anything.
+   Flavor votes are front-end only.
 2. **Assets** — real pack shots for all three flavors are in `assets/`
    (see `assets/README.md`).
 3. ~~Absolute URLs~~ — done: eatbitez.com canonicals, og:url, absolute
