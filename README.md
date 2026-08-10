@@ -65,6 +65,13 @@ host works the same way — build, then serve the repo root.
    email in the footer, a short "who's making this" founder note, and a
    lab-reports page (or lab name) to back the "we publish the reports"
    claim.
+6. **Reviews (after the first drop delivers)** — the `#reviews` section on
+   `index.html` and `green-apple.html` ships with an honest "no reviews
+   yet" card. Each page has a commented-out `REAL-REVIEW TEMPLATE` card
+   right below it: copy it once per review, fill it with the customer's
+   actual words, then delete the empty-state card. Verified purchases
+   only — publishing invented reviews is illegal in the EU (Directive
+   2019/2161) and against the brand guardrails.
 
 ## Design system
 

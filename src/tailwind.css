@@ -427,6 +427,24 @@
     }
   }
 
+  /* ---------- reviews (real ones only; empty state until the first drop) ---------- */
+  .review-card {
+    @apply rounded-[26px_34px_30px_38px] border-[3px] border-white/70 bg-white/70 p-5 sm:p-7;
+    box-shadow: var(--shadow-clay);
+  }
+  .review-star {
+    @apply size-6 shrink-0 text-apple sm:size-7;
+  }
+  .review-star.is-empty {
+    @apply text-forest/15;
+  }
+  .review-verified {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-tint-apple px-2.5 py-0.5 text-xs font-extrabold lowercase text-forest;
+  }
+  .review-helpful {
+    @apply inline-flex items-center gap-1.5 text-sm font-bold text-forest-soft;
+  }
+
   /* photo tiles: die-cut clay skin for catalogue shots in the story */
   .photo-card {
     @apply overflow-hidden rounded-[26px_34px_30px_38px] border-[3px] border-white/70 bg-white/70;
