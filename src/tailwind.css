@@ -52,7 +52,13 @@
   }
 
   body {
-    @apply bg-cream font-body text-forest antialiased;
+    @apply font-body text-forest antialiased;
+    /* iOS Safari paints the area around its bottom bar from body's computed
+       background-color (ignoring html and theme-color). Keep that color
+       footer green and paint the page's actual cream via a background-image
+       so the rendered page is unchanged. */
+    background-color: var(--color-forest-deep);
+    background-image: linear-gradient(var(--color-cream), var(--color-cream));
     overflow-x: clip;
   }
 
