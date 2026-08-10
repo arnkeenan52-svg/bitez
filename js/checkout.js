@@ -45,6 +45,8 @@
   let paymentElement = null;
   let promo = null; // {code, discountCents}
   let submitting = false;
+  let elementsKind = null; // "payment" | "setup" — cart shape the elements were built for
+  let elementsHadSubs = false;
 
   /* ---------- bag ---------- */
   function loadLines() {
@@ -116,7 +118,6 @@
           <span>total due today</span>
           <span class="flex items-baseline gap-1.5"><span class="text-xs font-bold text-forest-soft">EUR</span>${eur(t.dueTodayCents)}</span>
         </div>
-        <p class="text-xs font-semibold text-forest-soft">prices include vat.</p>
         ${t.subs.length ? `<p class="text-xs font-semibold leading-relaxed text-forest-soft">subscription is €0 today — card saved now, first charge of ${eur(t.subMonthlyCents)} around ${firstChargeDate()} (~${weeks} weeks, when the first drop ships). we email you before it happens. pause or cancel anytime.</p>` : ""}
       </div>`;
   }
@@ -136,7 +137,16 @@
     $(".js-summary-total-mini").textContent = eur(t.dueTodayCents);
     renderShipping(t);
     const pay = $(".js-pay-label");
-    pay.textContent = kindOf(t) === "setup" ? "reserve subscription · €0 today" : "pay now";
+    pay.textContent = kindOf(t) === "setup" ? "start subscription · €0 today" : "pay now";
+    // recurring terms must sit next to the pay button, not only inside the
+    // (mobile-collapsed) summary — EU consumer + card-network requirement
+    const legal = $(".js-ck-legal");
+    if (legal) {
+      const base = "pre-order: the first drop ships in 8–12 weeks, eu first. 14-day money-back guarantee from delivery — your statutory eu rights are unaffected.";
+      legal.textContent = t.subs.length
+        ? `${base} subscription: €0 today — first charge of ${eur(t.subMonthlyCents)} around ${firstChargeDate()}, then monthly until you cancel. pause or cancel anytime.`
+        : base;
+    }
     if (elements && kindOf(t) === "payment") elements.update({ amount: t.dueTodayCents });
     return t;
   }
@@ -209,6 +219,8 @@
     }
     stripe = Stripe(config.publishableKey);
     const kind = kindOf(t);
+    elementsKind = kind;
+    elementsHadSubs = t.subs.length > 0;
     const options = {
       appearance: appearance(),
       fonts: [{ cssSrc: `${location.origin}/fonts/fonts.css` }],
@@ -216,7 +228,7 @@
       currency: config.currency,
       ...(kind === "payment"
         ? { mode: "payment", amount: t.dueTodayCents, ...(t.subs.length ? { setupFutureUsage: "off_session" } : {}) }
-        : { mode: "setup" }),
+        : { mode: "setup", paymentMethodTypes: ["card"] }), // matches the subscription's payment_settings server-side
     };
     elements = stripe.elements(options);
 
@@ -234,9 +246,10 @@
 
     // express checkout (apple pay / google pay / link) — collects its own
     // contact + shipping, so it can skip the form entirely, Shopify-style.
-    // one-time carts only: wallet support for €0-today setup flows is patchy,
-    // so subscription carts always go through the form.
-    if (kind !== "payment") return;
+    // one-time-ONLY carts: any cart with a subscription goes through the form,
+    // where the recurring amount, first-charge date and cancel terms are
+    // disclosed before paying — a wallet sheet shows none of that.
+    if (kind !== "payment" || t.subs.length > 0) return;
     try {
       const express = elements.create("expressCheckout", {
         emailRequired: true,
@@ -277,18 +290,21 @@
     };
   }
 
+  const billingDifferent = () => $('input[name="billing-choice"]:checked')?.value === "different";
+
   function collectBilling(shipping, email) {
-    const different = $('input[name="billing-choice"]:checked')?.value === "different";
-    if (!different) return { name: shipping.name, email, phone: shipping.phone || undefined, address: shipping.address };
+    if (!billingDifferent()) return { name: shipping.name, email, phone: shipping.phone || undefined, address: shipping.address };
+    // validated by validateForm() — a chosen "different" address is never
+    // silently swapped for the shipping one
     return {
-      name: `${$(".js-bill-first").value.trim()} ${$(".js-bill-last").value.trim()}`.trim() || shipping.name,
+      name: `${$(".js-bill-first").value.trim()} ${$(".js-bill-last").value.trim()}`.trim(),
       email,
       address: {
-        line1: $(".js-bill-address").value.trim() || shipping.address.line1,
+        line1: $(".js-bill-address").value.trim(),
         line2: "",
-        city: $(".js-bill-city").value.trim() || shipping.address.city,
-        postal_code: $(".js-bill-postal").value.trim() || shipping.address.postal_code,
-        country: $(".js-bill-country").value || shipping.address.country,
+        city: $(".js-bill-city").value.trim(),
+        postal_code: $(".js-bill-postal").value.trim(),
+        country: $(".js-bill-country").value,
       },
     };
   }
@@ -302,6 +318,15 @@
       [".js-address", (v) => v.length > 1],
       [".js-postal", (v) => v.length > 1],
       [".js-city", (v) => v.length > 0],
+      ...(billingDifferent()
+        ? [
+            [".js-bill-first", (v) => v.length > 0],
+            [".js-bill-last", (v) => v.length > 0],
+            [".js-bill-address", (v) => v.length > 1],
+            [".js-bill-postal", (v) => v.length > 1],
+            [".js-bill-city", (v) => v.length > 0],
+          ]
+        : []),
     ];
     for (const [sel, ok] of required) {
       const input = $(sel);
@@ -330,7 +355,7 @@
     $(".js-pay-label").textContent = on
       ? "processing…"
       : kind === "setup"
-        ? "reserve subscription · €0 today"
+        ? "start subscription · €0 today"
         : "pay now";
   }
 
@@ -346,6 +371,14 @@
       showError("payments aren't switched on yet — your bag is saved, try again in a bit.");
       return;
     }
+    // the bag may have changed in another tab since this page initialized —
+    // deferred elements must match the intent exactly, so re-sync or reload
+    if (kind !== elementsKind || (kind === "payment" && t.subs.length > 0 !== elementsHadSubs)) {
+      showError("your bag changed — refreshing so the totals are right.");
+      setTimeout(() => location.reload(), 1200);
+      return;
+    }
+    if (kind === "payment") elements.update({ amount: t.dueTodayCents });
 
     let email;
     let shipping;
@@ -420,7 +453,13 @@
 
   /* ---------- promo ---------- */
   async function applyPromo(code) {
-    const msg = $(".js-promo-msg");
+    // the summary (incl. .js-promo-msg) exists twice — desktop aside + mobile
+    // panel — so error text must land in both
+    const say = (text) =>
+      $$(".js-promo-msg").forEach((msg) => {
+        msg.textContent = text;
+        msg.classList.remove("hidden");
+      });
     try {
       const lines = loadLines();
       const response = await fetch("/api/validate-code", {
@@ -433,12 +472,10 @@
         promo = { code: data.code, discountCents: data.discountCents };
         paint();
       } else {
-        msg.textContent = data.reason || data.error || "that code isn't valid";
-        msg.classList.remove("hidden");
+        say(data.reason || data.error || "that code isn't valid");
       }
     } catch {
-      msg.textContent = "couldn't check that code — please try again";
-      msg.classList.remove("hidden");
+      say("couldn't check that code — please try again");
     }
   }
 

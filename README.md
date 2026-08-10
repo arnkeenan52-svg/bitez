@@ -76,7 +76,8 @@ sends SKUs + quantities; every amount is recomputed server-side.
 `POST /api/create-intent` (prices the bag, mints the PaymentIntent /
 trialing subscription), `POST /api/validate-code` (discount pre-check),
 `POST /api/complete` (idempotently starts the subscription part of a mixed
-order from the thanks page).
+order from the thanks page), `POST /api/webhook` (Stripe webhook — the
+reliable path for the same finalization; see below).
 
 **Owner to-dos in the Stripe Dashboard:**
 
@@ -87,26 +88,45 @@ order from the thanks page).
    subscribers get notified ~3 days before their first charge — card
    networks expect this for €0-today trials.
 3. Enable failed-payment / receipt emails as desired.
-4. Discount codes: create Coupons + Promotion Codes in the Dashboard —
+4. **Webhook (strongly recommended):** Developers → Webhooks → add
+   endpoint `https://eatbitez.com/api/webhook` listening to
+   `payment_intent.succeeded`, then add the signing secret as
+   `STRIPE_WEBHOOK_SECRET` in Vercel env. This guarantees mixed-cart
+   subscriptions start even when the buyer never returns to the thanks
+   page. Until it's set, check the Dashboard weekly for PaymentIntents
+   with `pending_subs` metadata that have no matching subscription
+   (metadata `source_payment_intent`), and re-run them by opening the
+   order's thanks link or creating the subscription manually.
+5. Discount codes: create Coupons + Promotion Codes in the Dashboard —
    the site picks them up automatically (applies to one-time packs only
-   in v1).
-5. If the drop slips past ~10 weeks: bulk-extend `trial_end` on trialing
+   in v1). Codes with `max_redemptions` or first-time-customer
+   restrictions are rejected at checkout, because one-time-leg discounts
+   are applied as adjusted amounts and never register a Stripe redemption
+   — the caps couldn't be enforced. Use expiry dates instead.
+6. Subscriptions accept **cards only** in v1 (the checkout and the
+   subscription's SetupIntent are pinned to matching payment-method
+   lists). Mixed carts paid via iDEAL/Bancontact are handled: the
+   generated SEPA debit is used for the subscription.
+7. If the drop slips past ~10 weeks: bulk-extend `trial_end` on trialing
    subscriptions (Dashboard or API) so nobody is charged before shipping.
    The site copy promises "we email you before the first charge".
-6. Do **not** edit subscription prices in the Dashboard — the API guards
+8. Do **not** edit subscription prices in the Dashboard — the API guards
    against price drift and will refuse checkout if Stripe's price differs
    from the site's. Change `CATALOG` in `api/_shared.js` instead.
+9. ⚠️ **VAT**: the site currently makes no VAT statement at checkout.
+   B2C prices in the EU must be VAT-inclusive — confirm your VAT
+   registration/handling (and consider Stripe Tax), then a "prices
+   include vat" line can be added to the summary.
+10. Sanity-check once in live mode: place one €22.99 subscription order
+    yourself end-to-end (card save, €0 charge, trialing subscription
+    appears) before announcing the drop.
 
-**Known v1 limits (harden next):** no webhooks yet — if a mixed-cart buyer
-never returns to `thanks.html` (closed tab mid-redirect), the one-time part
-is charged but the subscription isn't started; the order details are stored
-in the PaymentIntent's metadata (`pending_subs`) so you can finish it from
-the Dashboard, and re-opening the thanks link fixes it automatically.
-First hardening step: a `payment_intent.succeeded` +
-`customer.subscription.*` webhook. Subscription orders always ship free in
-v1 (shipping is folded into the monthly price) — one-time packs under 6
-bags pay €4.90. Promotion-code redemption counts only tick on
-subscription legs, not one-time legs.
+**Known v1 limits:** subscription orders always ship free (shipping is
+folded into the monthly price) — one-time packs under 6 bags pay €4.90.
+Ship-to countries are the EU-27 (enforced server-side). Sub-only orders
+store their delivery address in the subscription's `ship_to` metadata.
+Without the webhook configured, mixed-cart finalization depends on the
+buyer reaching the thanks page (see Dashboard to-do 4).
 
 ## Before launch checklist
 

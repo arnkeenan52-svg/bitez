@@ -115,18 +115,22 @@
       color 0.2s ease-out,
       box-shadow 0.2s ease-out;
   }
-  .btn:hover {
+  .btn:hover:not(:disabled) {
     transform: translateY(-2px) scale(1.03);
   }
-  .btn:active {
+  .btn:active:not(:disabled) {
     transform: translateY(1px) scale(0.95);
     transition-duration: 90ms;
+  }
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
+    transform: none;
   }
   .btn-primary {
     @apply bg-forest text-white;
     box-shadow: var(--shadow-clay-btn);
   }
-  .btn-primary:hover {
+  .btn-primary:hover:not(:disabled) {
     @apply bg-apple text-forest;
     box-shadow:
       0 8px 18px -8px rgba(34, 94, 48, 0.35),
@@ -664,7 +668,7 @@
     @apply border-forest outline-none;
   }
   .ck-label {
-    @apply pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-base font-semibold text-forest/50 transition-all;
+    @apply pointer-events-none absolute left-3.5 right-9 top-1/2 -translate-y-1/2 truncate text-base font-semibold text-forest-soft transition-all;
   }
   .ck-input:focus ~ .ck-label,
   .ck-input:not(:placeholder-shown) ~ .ck-label,

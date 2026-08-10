@@ -74,7 +74,8 @@
     // only relevant for mixed carts; the server no-ops otherwise
     const snap = loadSnapshot();
     if (snap?.lines?.some((l) => l.mode === "subscription")) {
-      note.textContent = "your subscription is still being set up — it's saved with your payment and we'll finish it for you. nothing you need to do.";
+      note.textContent =
+        "your subscription is still being set up — your card is saved and the order details are attached to your payment. if you don't get a subscription confirmation within a day, reply to your receipt email and we'll sort it.";
       note.classList.remove("hidden");
     }
   }
@@ -88,8 +89,10 @@
     if (refId) $(".js-order-ref").textContent = `order ${refId.slice(-8).toUpperCase()}`;
     const snap = loadSnapshot();
     renderRecap(snap);
-    if (snap && snap.kind === "setup") {
-      $(".js-ok-lede").textContent = "your subscription is reserved — card saved, €0 charged today. the first charge happens when your bags ship, and we email you before it does.";
+    // the setup_intent param marks a subscription-only order even when the
+    // sessionStorage snapshot didn't survive the redirect
+    if (siId || (snap && snap.kind === "setup")) {
+      $(".js-ok-lede").textContent = "your subscription is set — card saved, €0 charged today. the first charge happens when your bags ship, and we email you before it does.";
     }
     show(".js-ok");
     finalizeSubscriptions();

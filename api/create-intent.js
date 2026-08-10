@@ -65,6 +65,9 @@ module.exports = async (req, res) => {
 
   const shipping = shippingParam(body.shipping);
   const t = totals(lines);
+  // physical goods need somewhere to go — and the country whitelist is
+  // enforced inside shippingParam, so a null here also covers non-EU tampering
+  if (!shipping) return send(res, 400, { error: "we need a delivery address in an eu country we ship to" });
 
   try {
     let promo = null;
@@ -78,6 +81,11 @@ module.exports = async (req, res) => {
       discount = applied.discount;
       itemsCents = applied.itemsCents;
       if (discount === 0) return send(res, 400, { error: "that code needs a larger order", code: "bad_promo" });
+      // Stripe's minimum charge is €0.50 — a code that (nearly) zeroes the
+      // order can't be processed as a payment
+      if (itemsCents + t.shippingCents < 50) {
+        return send(res, 400, { error: "that code covers the whole order — email us and we'll sort it personally", code: "bad_promo" });
+      }
     }
 
     const amounts = {
@@ -103,17 +111,28 @@ module.exports = async (req, res) => {
         const price = await ensureSubPrice(stripe, line);
         items.push({ price: price.id, quantity: line.qty });
       }
-      const subscription = await stripe.subscriptions.create({
-        customer: customer.id,
-        items,
-        payment_behavior: "default_incomplete",
-        trial_end: Math.floor(Date.now() / 1000) + SUB_TRIAL_DAYS * 86400,
-        trial_settings: { end_behavior: { missing_payment_method: "cancel" } },
-        payment_settings: { save_default_payment_method: "on_subscription" },
-        proration_behavior: "none",
-        metadata: meta,
-        expand: ["pending_setup_intent"],
-      });
+      // ship-to lives in metadata: the shared Customer object is never
+      // mutated by unauthenticated checkouts
+      meta.ship_to = `${shipping.name}, ${shipping.address.line1}${shipping.address.line2 ? " " + shipping.address.line2 : ""}, ${shipping.address.postal_code} ${shipping.address.city}, ${shipping.address.country}`.slice(0, 490);
+      const day = new Date().toISOString().slice(0, 10);
+      const skuSig = t.subs.map((l) => `${l.sku}x${l.qty}`).join("-");
+      const subscription = await stripe.subscriptions.create(
+        {
+          customer: customer.id,
+          items,
+          payment_behavior: "default_incomplete",
+          trial_end: Math.floor(Date.now() / 1000) + SUB_TRIAL_DAYS * 86400,
+          trial_settings: { end_behavior: { missing_payment_method: "cancel" } },
+          // explicit types keep the subscription's SetupIntent aligned with
+          // the Payment Element (js/checkout.js pins the same list)
+          payment_settings: { save_default_payment_method: "on_subscription", payment_method_types: ["card"] },
+          proration_behavior: "none",
+          metadata: meta,
+          expand: ["pending_setup_intent"],
+        },
+        // same customer + same cart + same day → reuse, don't duplicate
+        { idempotencyKey: `bitez-subonly-${customer.id}-${skuSig}-${day}` }
+      );
       const si = subscription.pending_setup_intent;
       if (!si || !si.client_secret) throw new Error("subscription created without a pending setup intent");
       return send(res, 200, { kind: "setup", clientSecret: si.client_secret, amounts });

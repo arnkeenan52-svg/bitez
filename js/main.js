@@ -82,7 +82,7 @@ function initChooser() {
   const updateCta = () => {
     const radio = picked();
     if (!radio) return;
-    const verb = mode === "sub" ? "reserve my subscription" : "join the first drop";
+    const verb = mode === "sub" ? "start my subscription" : "join the first drop";
     cta.textContent = `${verb} · ${radio.dataset.short}`;
   };
   const setMode = (next) => {
@@ -169,7 +169,12 @@ function closeCart() {
 
 function renderCart(items = cartLoad()) {
   const count = items.reduce((n, i) => n + i.qty, 0);
-  const total = items.reduce((t, i) => t + i.price * i.qty, 0).toFixed(2);
+  const isSub = (i) => String(i.size).startsWith("sub");
+  // one-time packs are due today; subscription lines are monthly (€0 today) —
+  // never fold the two into one number
+  const oneTimeTotal = items.filter((i) => !isSub(i)).reduce((t, i) => t + i.price * i.qty, 0);
+  const monthlyTotal = items.filter(isSub).reduce((t, i) => t + i.price * i.qty, 0);
+  const hasOneTime = items.some((i) => !isSub(i));
   // "onetime-6" / "sub-9" → bags per unit, for the free-shipping hint
   const bags = items.reduce((n, i) => n + (parseInt(String(i.size).split("-")[1], 10) || 0) * i.qty, 0);
 
@@ -195,7 +200,7 @@ function renderCart(items = cartLoad()) {
       <div class="cart-item">
         <div class="min-w-0">
           <p class="truncate font-display font-bold lowercase">${item.flavor}</p>
-          <p class="text-sm font-semibold text-forest-soft">${item.sizeLabel} · €${item.price.toFixed(2)}</p>
+          <p class="text-sm font-semibold text-forest-soft">${item.sizeLabel} · €${item.price.toFixed(2)}${String(item.size).startsWith("sub") ? "/mo" : ""}</p>
         </div>
         <div class="flex shrink-0 items-center gap-2">
           <button type="button" class="js-cart-minus qty-btn !text-base" data-index="${i}" aria-label="one fewer ${item.flavor}">−</button>
@@ -206,11 +211,17 @@ function renderCart(items = cartLoad()) {
     )
     .join("");
   const totalEl = document.querySelector(".js-cart-total");
-  if (totalEl) totalEl.textContent = `€${total}`;
+  if (totalEl) totalEl.textContent = `€${oneTimeTotal.toFixed(2)}`;
+  const monthlyEl = document.querySelector(".js-cart-monthly");
+  if (monthlyEl) {
+    monthlyEl.textContent = monthlyTotal > 0 ? `+ €${monthlyTotal.toFixed(2)}/month from when your bags ship · €0 today` : "";
+    monthlyEl.hidden = monthlyTotal === 0;
+  }
   const shipEl = document.querySelector(".js-cart-ship");
   if (shipEl) {
-    shipEl.textContent =
-      bags >= 6
+    shipEl.textContent = !hasOneTime
+      ? "subscription deliveries ship free — shipping is on us."
+      : bags >= 6
         ? "free eu shipping unlocked 🍏"
         : `add ${6 - bags} more bag${6 - bags === 1 ? "" : "s"} for free eu shipping — standard shipping added at checkout.`;
   }
@@ -238,9 +249,10 @@ function initCart() {
       <div class="js-cart-items flex flex-1 flex-col gap-3 overflow-y-auto p-5"></div>
       <div class="js-cart-footer border-t-2 border-forest/10 p-5" hidden>
         <div class="flex items-baseline justify-between font-display text-xl font-extrabold lowercase">
-          <span>subtotal</span>
+          <span>due today</span>
           <span class="js-cart-total">€0.00</span>
         </div>
+        <p class="js-cart-monthly text-sm font-bold text-forest-soft" hidden></p>
         <p class="js-cart-ship mt-2 text-xs font-semibold text-forest-soft"></p>
         <a href="checkout.html" class="btn btn-primary mt-4 flex min-h-[52px] w-full items-center justify-center text-lg lowercase">checkout</a>
         <p class="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-forest-soft">
