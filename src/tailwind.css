@@ -316,6 +316,48 @@
     }
   }
 
+  .qty-btn {
+    @apply grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 font-display text-xl font-bold text-forest transition-colors duration-150;
+  }
+  .qty-btn:hover {
+    @apply border-forest;
+  }
+
+  /* ---------- cart ---------- */
+  .cart-btn {
+    @apply relative grid size-11 shrink-0 cursor-pointer place-items-center rounded-xl border-[3px] border-forest/20 bg-white/70 text-forest transition-colors duration-150;
+  }
+  .cart-btn:hover {
+    @apply border-forest;
+  }
+  .cart-badge {
+    @apply absolute -right-1.5 -top-1.5 grid min-w-5 place-items-center rounded-full bg-berry px-1 font-body text-xs font-extrabold leading-5 text-white;
+  }
+  .cart-badge[hidden] {
+    display: none;
+  }
+  .cart-overlay {
+    @apply pointer-events-none fixed inset-0 z-40 bg-forest-deep/50 opacity-0 transition-opacity duration-300;
+  }
+  .cart-drawer {
+    @apply fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream shadow-2xl;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.3s ease-out,
+      visibility 0s linear 0.3s;
+  }
+  .cart-open .cart-overlay {
+    @apply pointer-events-auto opacity-100;
+  }
+  .cart-open .cart-drawer {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.3s ease-out,
+      visibility 0s;
+  }
+
   /* ---------- product gallery ---------- */
   .thumb-btn {
     @apply w-20 cursor-pointer overflow-hidden rounded-xl border-[3px] border-white/70 bg-white/60 p-0 transition-colors duration-150;
@@ -326,6 +368,16 @@
   .thumb-btn[aria-current="true"] {
     @apply border-apple;
   }
+  .cart-item {
+    @apply flex items-center justify-between gap-3 rounded-2xl border-2 border-white/70 bg-white/70 p-3;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cart-drawer,
+    .cart-overlay {
+      transition: none;
+    }
+  }
+
   /* ---------- comparison table ---------- */
   .compare-card {
     @apply overflow-hidden rounded-3xl border-[3px] border-forest bg-white;
