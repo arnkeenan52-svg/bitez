@@ -313,6 +313,52 @@
     @apply inline-flex items-center whitespace-nowrap rounded-full bg-apple px-2.5 py-1 font-body text-[11px] font-extrabold lowercase leading-none text-forest;
   }
 
+  /* stat bars grow in when their card scrolls into view */
+  .js-enabled .reveal .stat-fill {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.25s;
+  }
+  .js-enabled .reveal.is-inview .stat-fill {
+    transform: scaleX(1);
+  }
+
+  /* rolling brand marquee strip */
+  .marquee-wrap {
+    @apply overflow-hidden rounded-2xl bg-apple py-2.5;
+    box-shadow: var(--shadow-clay);
+  }
+  .marquee {
+    @apply flex w-max;
+    animation: marquee 26s linear infinite;
+  }
+  .marquee-group {
+    @apply flex items-center gap-6 pr-6 font-display text-lg font-extrabold lowercase text-forest sm:gap-8 sm:pr-8 sm:text-xl;
+  }
+  .marquee-group svg {
+    @apply shrink-0;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      animation: none;
+    }
+    .js-enabled .reveal .stat-fill {
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* photo tiles: die-cut clay skin for catalogue shots in the story */
+  .photo-card {
+    @apply overflow-hidden rounded-[26px_34px_30px_38px] border-[3px] border-white/70 bg-white/70;
+    box-shadow: var(--shadow-clay);
+  }
+
   /* closing conversion card: the one dark mid-page moment. forest, not
      forest-deep, so the footer band below reads as a distinct reprise. */
   .cta-card {

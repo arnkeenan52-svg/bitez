@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260809u" />
-  <link rel="stylesheet" href="css/styles.css?v=20260809u" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810b" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810b" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -313,22 +313,22 @@
           <svg viewBox="0 0 120 140" class="absolute -top-6 right-6 z-10 size-10 rotate-12 text-apple sm:-top-8 sm:right-7 sm:size-12" aria-hidden="true"><use href="#gummy-bear" /></svg>
           <div class="swap-card lg:-rotate-1">
             <p class="px-3 pb-1 pt-2 text-xs font-extrabold uppercase tracking-[0.15em] text-forest-soft sm:px-4">the old way → <span class="text-forest">bitez</span></p>
-        <div class="swap-row">
+        <div class="swap-row reveal">
           <span class="swap-old">chalky protein bars</span>
           <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
           <span class="swap-new"><span class="sr-only">becomes </span>real candy, real chew</span>
         </div>
-        <div class="swap-row">
+        <div class="swap-row reveal" style="--reveal-delay:0.08s">
           <span class="swap-old">shaker bottles to wash</span>
           <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
           <span class="swap-new"><span class="sr-only">becomes </span>straight from the bag</span>
         </div>
-        <div class="swap-row">
+        <div class="swap-row reveal" style="--reveal-delay:0.16s">
           <span class="swap-old">gelatin gummies</span>
           <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
           <span class="swap-new"><span class="sr-only">becomes </span>pectin, 100% vegan</span>
         </div>
-        <div class="swap-row">
+        <div class="swap-row reveal" style="--reveal-delay:0.24s">
           <span class="swap-old">microscopic label print</span>
           <span class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
           <span class="swap-new"><span class="sr-only">becomes </span>lab-tested numbers up front</span>
@@ -391,6 +391,37 @@
         </div>
       </div>
       <p class="reveal mt-4 max-w-3xl text-sm font-semibold text-forest-soft">*typical values from the published labels of leading sugar gummy bears. bitez values from the 96g bag, scaled to 100g.</p>
+
+      <!-- straight from the bag: single photo moment -->
+      <div class="reveal relative mx-auto mt-10 max-w-3xl lg:mx-0">
+        <div class="photo-card">
+          <picture>
+            <source type="image/webp" srcset="assets/flatlay-700.webp 700w, assets/flatlay.webp 1000w" sizes="(min-width: 768px) 736px, 92vw" />
+            <img src="assets/flatlay.jpg" alt="green apple bitez pouch with translucent green gummy bears spilled out and a hand picking one up" class="w-full" width="1000" height="1000" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <span class="sticker absolute -top-3 left-5 -rotate-2 sm:left-7">straight from the bag</span>
+      </div>
+
+      <!-- marquee: rolling brand strip -->
+      <div class="marquee-wrap reveal mt-12 -rotate-1">
+        <div class="marquee">
+          <div class="marquee-group">
+            <span>20g protein</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>tastes like real candy</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>100% vegan</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>lab tested</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+            <span>~8g sugar</span><svg viewBox="0 0 120 140" class="size-5" aria-hidden="true"><use href="#gummy-bear" /></svg>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <span>20g protein</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>tastes like real candy</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>100% vegan</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>lab tested</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+            <span>~8g sugar</span><svg viewBox="0 0 120 140" class="size-5"><use href="#gummy-bear" /></svg>
+          </div>
+        </div>
+      </div>
 
       <div class="cta-card reveal mt-12 sm:mt-14">
         <div class="lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-x-12">
@@ -514,6 +545,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260809u" defer></script>
+  <script src="js/main.js?v=20260810b" defer></script>
 </body>
 </html>
