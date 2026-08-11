@@ -156,13 +156,23 @@
     return t;
   }
 
+  /* Shopify behavior: shipping options stay hidden behind a placeholder until
+   * the delivery address is actually filled in. */
+  const addressComplete = () =>
+    $(".js-address").value.trim().length > 1 && $(".js-postal").value.trim().length > 1 && $(".js-city").value.trim().length > 0;
+
   function renderShipping(t) {
     const wrap = $(".js-ship-options");
+    if (!addressComplete()) {
+      wrap.innerHTML = `<p class="rounded-[10px] border-[1.5px] border-dashed border-forest/30 bg-white/50 p-3.5 text-sm font-semibold text-forest-soft">enter your delivery address to see shipping options.</p>`;
+      $(".js-ship-note").classList.add("hidden");
+      return;
+    }
     if (!t.oneTime.length) {
-      wrap.innerHTML = `<p class="rounded-xl border-2 border-forest/15 bg-tint-apple/40 p-3.5 text-sm font-semibold text-forest-soft">subscription deliveries ship monthly once the first drop lands — shipping is on us.</p>`;
+      wrap.innerHTML = `<p class="rounded-[10px] border-[1.5px] border-forest/20 bg-tint-apple/40 p-3.5 text-sm font-semibold text-forest-soft">subscription deliveries ship monthly once the first drop lands — shipping is on us.</p>`;
     } else {
       wrap.innerHTML = `
-        <label class="ck-option rounded-xl">
+        <label class="ck-option rounded-[10px]">
           <input type="radio" name="ship-method" value="standard" checked />
           <span class="min-w-0 flex-1">standard shipping (eu) <span class="block text-xs font-semibold text-forest-soft">arrives with the first drop, 8–12 weeks</span></span>
           <span class="shrink-0 font-bold">${t.shippingCents === 0 ? "free" : eur(t.shippingCents)}</span>
@@ -567,6 +577,12 @@
     });
 
     initFieldValidation();
+
+    // reveal shipping options live as the address gets completed
+    [".js-address", ".js-postal", ".js-city"].forEach((sel) =>
+      $(sel).addEventListener("input", () => renderShipping(totals(loadLines())))
+    );
+    $(".js-country").addEventListener("change", () => renderShipping(totals(loadLines())));
 
     // Shopify starts the journey in the email field — desktop only, a popping
     // mobile keyboard is hostile
