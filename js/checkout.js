@@ -17,10 +17,10 @@
     publishableKey: "",
     currency: "eur",
     catalog: {
-      "onetime-3": { label: "green apple · 3-pack (3 × 96g)", cents: 2699, bags: 3, mode: "payment" },
+      "onetime-3": { label: "green apple · 3-pack (3 × 96g)", cents: 1999, bags: 3, mode: "payment" },
       "onetime-6": { label: "green apple · 6-pack (6 × 96g)", cents: 4999, bags: 6, mode: "payment" },
       "onetime-9": { label: "green apple · 9-pack (9 × 96g)", cents: 6999, bags: 9, mode: "payment" },
-      "sub-3": { label: "green apple · 3 bags / month", cents: 2299, bags: 3, mode: "subscription" },
+      "sub-3": { label: "green apple · 3 bags / month", cents: 1699, bags: 3, mode: "subscription" },
       "sub-6": { label: "green apple · 6 bags / month", cents: 4249, bags: 6, mode: "subscription" },
       "sub-9": { label: "green apple · 9 bags / month", cents: 5899, bags: 9, mode: "subscription" },
     },

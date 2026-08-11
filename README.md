@@ -17,8 +17,8 @@ checkout:
   thanks page finalizes the subscription with the saved card.
 
 **Offer** in `green-apple.html` ("choose your bitez"): one-time 3-pack
-€26.99 · 6-pack €49.99 (most popular, free shipping) · 9-pack €69.99;
-subscribe & save 15%: 3/month €22.99 · 6/month €42.49 · 9/month €58.99.
+€19.99 · 6-pack €49.99 (most popular, free shipping) · 9-pack €69.99;
+subscribe & save 15%: 3/month €16.99 · 6/month €42.49 · 9/month €58.99.
 Free shipping on 6-packs and up. No single-bag price on the site (singles
 sell elsewhere). ⚠️ Confirm prices and the free-shipping threshold before
 launch.
@@ -117,7 +117,7 @@ reliable path for the same finalization; see below).
    B2C prices in the EU must be VAT-inclusive — confirm your VAT
    registration/handling (and consider Stripe Tax), then a "prices
    include vat" line can be added to the summary.
-10. Sanity-check once in live mode: place one €22.99 subscription order
+10. Sanity-check once in live mode: place one €16.99 subscription order
     yourself end-to-end (card save, €0 charge, trialing subscription
     appears) before announcing the drop.
 
