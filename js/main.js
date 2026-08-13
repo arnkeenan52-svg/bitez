@@ -84,6 +84,8 @@ function initChooser() {
     if (!radio) return;
     const verb = mode === "sub" ? "start my subscription" : "join the first drop";
     cta.textContent = `${verb} · ${radio.dataset.short}`;
+    const sticky = document.querySelector(".js-sticky-label");
+    if (sticky) sticky.textContent = `${verb} · ${radio.dataset.short}`;
   };
   const setMode = (next) => {
     mode = next;
@@ -95,7 +97,7 @@ function initChooser() {
     panels.forEach((panel) => {
       panel.hidden = panel.dataset.mode !== mode;
     });
-    if (subLines) subLines.classList.toggle("invisible", mode !== "sub");
+    if (subLines) subLines.classList.toggle("hidden", mode !== "sub");
     updateCta();
   };
   tabs.forEach((tab) => tab.addEventListener("click", () => setMode(tab.dataset.mode)));

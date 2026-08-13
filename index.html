@@ -25,8 +25,8 @@
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" as="image" type="image/webp" media="(max-width: 767px)" href="assets/hero-banner-m-768.webp" />
   <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)" href="assets/hero-banner-sq-1024.webp" />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810r" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810r" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810s" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810s" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -53,6 +53,7 @@
   </a>
 
   <!-- ============ header ============ -->
+  <div class="z-40 md:sticky md:top-0 md:bg-cream/95 md:backdrop-blur">
   <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
     <a href="#top" class="flex items-center no-underline" aria-label="bitez — home">
       <span class="wordmark text-[2.5rem] sm:text-[2.9rem]">bitez<svg viewBox="0 0 40 40" class="wordmark-spark text-forest" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"><path d="M9 21 L14 7" /><path d="M17 28 L28 17" /><path d="M23 35 L38 31" /></g></svg></span>
@@ -67,6 +68,7 @@
       <a href="green-apple.html" class="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm lowercase sm:px-5 sm:text-base">pre-order</a>
     </div>
   </header>
+  </div>
 
   <main class="relative isolate">
     <!-- ambient blob field: behind all content, cream to footer -->
@@ -104,9 +106,14 @@
       </svg>
 
       <!-- text: over the art's clean top on phones; its own solid panel (art-matched green) on desktop -->
-      <div class="mx-auto w-full max-w-6xl px-4 pb-16 pt-4 sm:px-6 md:col-start-1 md:row-start-1 md:m-0 md:flex md:w-full md:max-w-none md:items-center md:justify-center md:bg-[#aacf55] md:px-10 md:py-16 lg:px-14">
+      <div class="mx-auto w-full max-w-6xl px-4 pb-16 pt-4 sm:px-6 md:relative md:col-start-1 md:row-start-1 md:m-0 md:flex md:w-full md:max-w-none md:items-center md:justify-center md:bg-[#aacf55] md:px-10 md:py-16 lg:px-14">
+        <div class="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true">
+          <svg viewBox="0 0 120 140" class="absolute left-[9%] top-[13%] size-9 -rotate-12 text-forest/15"><use href="#gummy-bear" /></svg>
+          <svg viewBox="0 0 120 140" class="absolute bottom-[11%] left-[16%] size-7 rotate-6 text-cream/60"><use href="#gummy-bear" /></svg>
+          <svg viewBox="0 0 120 140" class="absolute bottom-[18%] right-[10%] size-8 rotate-12 text-forest/10"><use href="#gummy-bear" /></svg>
+        </div>
         <div class="mx-auto max-w-xl text-center md:mx-0 md:max-w-md">
-          <p class="text-sm font-extrabold lowercase tracking-wide text-forest-deep">the first drop is open</p>
+          <span class="sticker -rotate-2">the first drop is open</span>
           <h1 id="hero-heading" class="hero-title mt-3 text-[clamp(2.7rem,4.6vw,3.8rem)] leading-[0.98]">
             candy that counts.
           </h1>
@@ -116,12 +123,18 @@
           <div id="cta" class="mt-7 scroll-mt-28">
             <a href="green-apple.html" class="btn-hero">pre-order now</a>
           </div>
+          <ul class="mt-6 hidden items-center justify-center gap-2 md:flex" role="list">
+            <li class="pill px-4 text-sm">20g protein</li>
+            <li class="pill px-4 text-sm">~8g sugar</li>
+            <li class="pill px-4 text-sm">~200 kcal</li>
+          </ul>
+          <p class="mt-4 hidden text-sm font-extrabold lowercase text-forest-deep/90 md:block">from €19.99 · secure checkout · 14-day money-back guarantee</p>
         </div>
       </div>
     </section>
 
     <!-- rolling brand strip: the first scroll moment -->
-    <div class="mx-auto mt-8 w-full max-w-6xl px-4 sm:mt-10 sm:px-6">
+    <div class="relative z-10 mx-auto mt-8 w-full max-w-6xl px-4 sm:mt-10 md:-mt-10 md:px-6">
       <div class="marquee-wrap reveal -rotate-1">
         <div class="marquee">
           <div class="marquee-group">
@@ -171,6 +184,7 @@
           <p class="mt-2 font-semibold leading-relaxed">sharp, sour, translucent green. 20g of protein hiding in plain sight.</p>
           <div class="mt-4 md:mt-auto md:pt-4">
             <a href="green-apple.html" class="btn btn-primary px-5 py-2.5 text-base lowercase">pre-order →</a>
+          <p class="mt-2 text-sm font-semibold text-forest-soft">3-pack €19.99 · subscribe from €16.99/mo</p>
           </div>
         </article>
         </div>
@@ -189,7 +203,7 @@
               <svg viewBox="0 0 120 140" class="absolute right-[12%] top-[60%] w-[18%] rotate-[16deg] text-berry" aria-hidden="true"><use href="#gummy-bear" /></svg>
             </div>
           </div>
-          <span class="tag tag-urgent mt-5 self-start">coming soon · vote</span>
+          <span class="tag tag-status mt-5 self-start">coming soon · vote</span>
           <h3 class="mt-3 text-3xl lowercase"><a href="strawberry.html" class="text-forest no-underline hover:underline hover:underline-offset-4">strawberry</a></h3>
           <p class="mt-2 font-semibold leading-relaxed">sweet, a little sour, very red. vote it in and it drops next.</p>
           <a href="strawberry.html" class="mt-3 inline-flex items-center gap-1 font-display font-bold lowercase text-forest underline underline-offset-4 hover:text-forest-soft">see the flavor →</a>
@@ -217,7 +231,7 @@
               <svg viewBox="0 0 120 140" class="absolute left-[14%] top-[16%] w-[16%] rotate-[20deg] text-mango" aria-hidden="true"><use href="#gummy-bear" /></svg>
             </div>
           </div>
-          <span class="tag tag-urgent mt-5 self-start">coming soon · vote</span>
+          <span class="tag tag-status mt-5 self-start">coming soon · vote</span>
           <h3 class="mt-3 text-3xl lowercase"><a href="pineapple.html" class="text-forest no-underline hover:underline hover:underline-offset-4">pineapple</a></h3>
           <p class="mt-2 font-semibold leading-relaxed">tropical, golden, a little wild. vote it in and it drops next.</p>
           <a href="pineapple.html" class="mt-3 inline-flex items-center gap-1 font-display font-bold lowercase text-forest underline underline-offset-4 hover:text-forest-soft">see the flavor →</a>
@@ -232,59 +246,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ reviews (real ones only) ============ -->
-    <section id="reviews" class="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6" aria-labelledby="reviews-heading">
-      <span class="sticker rotate-2">the reviews</span>
-      <h2 id="reviews-heading" class="mt-3 text-[clamp(2rem,6vw,3rem)] lowercase">what people say<span class="text-apple">.</span></h2>
-      <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
-
-      <div class="review-card reveal mt-6 max-w-3xl lg:-rotate-1">
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <div class="flex gap-1" role="img" aria-label="no star ratings yet">
-            <svg viewBox="0 0 24 24" class="review-star is-empty" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="currentColor"/></svg>
-            <svg viewBox="0 0 24 24" class="review-star is-empty" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="currentColor"/></svg>
-            <svg viewBox="0 0 24 24" class="review-star is-empty" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="currentColor"/></svg>
-            <svg viewBox="0 0 24 24" class="review-star is-empty" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="currentColor"/></svg>
-            <svg viewBox="0 0 24 24" class="review-star is-empty" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="currentColor"/></svg>
-          </div>
-          <span class="review-verified">
-            <svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg>
-            verified orders only
-          </span>
-        </div>
-        <h3 class="mt-4 text-2xl lowercase">no reviews yet. on purpose<span class="text-apple">.</span></h3>
-        <p class="mt-2 max-w-lg font-semibold leading-relaxed text-forest-soft">nobody outside our kitchen has tasted bitez, so there is nothing to review. when the first drop lands, verified reviews from real orders show up right here, unedited. no rented five-star wall before that.</p>
-        <div class="mt-5 flex flex-wrap items-center gap-4">
-          <a href="green-apple.html#preorder" class="btn btn-primary min-h-[52px] px-6 text-base lowercase">join the first drop</a>
-          <p class="text-sm font-semibold text-forest-soft">first orders get the first word.</p>
-        </div>
-      </div>
-
-      <!-- REAL-REVIEW TEMPLATE (owner: after the first drop delivers, copy this card
-           per review, fill it with the customer's actual words, and delete the
-           empty-state card above. never publish invented reviews. stars: use
-           class "review-star" for filled, "review-star is-empty" for unfilled.
-      <div class="review-card reveal mt-6 max-w-3xl">
-        <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-          <p class="font-display text-lg font-extrabold lowercase">firstname l.
-            <span class="review-verified ml-2">
-              <svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg>
-              verified order
-            </span>
-          </p>
-          <p class="text-sm font-semibold text-forest-soft">month year</p>
-        </div>
-        <div class="mt-2 flex gap-1" role="img" aria-label="5 out of 5 stars">
-          [five star svgs]
-        </div>
-        <h3 class="mt-3 text-xl lowercase">review title</h3>
-        <p class="mt-1 font-semibold leading-relaxed text-forest-soft">review body, verbatim.</p>
-        <p class="mt-3 text-sm font-bold">bottom line: <span class="font-semibold text-forest-soft">i recommend this product</span></p>
-      </div>
-      -->
-    </section>
-
 
     <!-- wave: cream → tint-apple -->
     <svg class="block w-full text-tint-apple" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
@@ -328,9 +289,9 @@
               <svg viewBox="0 0 100 100" class="w-[92px]">
                 <circle cx="50" cy="50" r="48" fill="#225e30" />
                 <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
-                <path id="badge-arc" d="M50,50 m-33,0 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0" fill="none" />
-                <text class="font-body" fill="#faf5e8" font-size="8.5" font-weight="800" letter-spacing="1.4">
-                  <textPath href="#badge-arc">lab tested · every batch · denmark ·</textPath>
+                <path id="badge-arc" d="M17,50 a33,33 0 0 1 66,0" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="8.5" font-weight="800" letter-spacing="1.4" text-anchor="middle">
+                  <textPath href="#badge-arc" startOffset="50%">lab tested · every batch</textPath>
                 </text>
                 <path d="M40 50 l8 8 l14 -16" fill="none" stroke="#a4d65e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -440,6 +401,56 @@
     </section>
 
     <!-- ============ faq ============ -->
+    <!-- ============ reviews (real ones only) ============ -->
+    <section id="reviews" class="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6" aria-labelledby="reviews-heading">
+      <span class="sticker rotate-2">the reviews</span>
+      <h2 id="reviews-heading" class="mt-3 text-[clamp(2rem,6vw,3rem)] lowercase">what people say<span class="text-apple">.</span></h2>
+      <svg viewBox="0 0 104 12" class="mt-2 h-2.5 w-24 text-apple" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+
+      <div class="review-card reveal relative mt-6 max-w-3xl lg:-rotate-1">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <span class="review-verified">
+            <svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg>
+            verified orders only
+          </span>
+        </div>
+        <h3 class="mt-4 text-2xl lowercase">no reviews yet. on purpose<span class="text-apple">.</span></h3>
+        <p class="mt-2 max-w-xl font-semibold leading-relaxed text-forest-soft">nobody outside our kitchen has tasted bitez, so there is nothing to review. when the first drop lands, verified reviews from real orders show up right here, unedited. no rented five-star wall before that.</p>
+        <div class="mt-5 flex flex-wrap items-center gap-4">
+          <a href="green-apple.html#preorder" class="btn btn-primary min-h-[52px] px-6 text-base lowercase">join the first drop</a>
+          <p class="text-sm font-semibold text-forest-soft">first orders get the first word.</p>
+        </div>
+        <div class="pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 items-center gap-3 lg:flex" aria-hidden="true">
+          <svg viewBox="0 0 120 140" class="size-16 rotate-6 text-apple opacity-60"><use href="#gummy-bear" /></svg>
+          <svg viewBox="0 0 120 140" class="size-11 -rotate-12 text-berry opacity-30"><use href="#gummy-bear" /></svg>
+          <svg viewBox="0 0 120 140" class="size-9 rotate-12 text-mango opacity-40"><use href="#gummy-bear" /></svg>
+        </div>
+      </div>
+
+      <!-- REAL-REVIEW TEMPLATE (owner: after the first drop delivers, copy this card
+           per review, fill it with the customer's actual words, and delete the
+           empty-state card above. never publish invented reviews. stars: use
+           class "review-star" for filled, "review-star is-empty" for unfilled.
+      <div class="review-card reveal mt-6 max-w-3xl">
+        <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+          <p class="font-display text-lg font-extrabold lowercase">firstname l.
+            <span class="review-verified ml-2">
+              <svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" /></svg>
+              verified order
+            </span>
+          </p>
+          <p class="text-sm font-semibold text-forest-soft">month year</p>
+        </div>
+        <div class="mt-2 flex gap-1" role="img" aria-label="5 out of 5 stars">
+          [five star svgs]
+        </div>
+        <h3 class="mt-3 text-xl lowercase">review title</h3>
+        <p class="mt-1 font-semibold leading-relaxed text-forest-soft">review body, verbatim.</p>
+        <p class="mt-3 text-sm font-bold">bottom line: <span class="font-semibold text-forest-soft">i recommend this product</span></p>
+      </div>
+      -->
+    </section>
+
     <section id="faq" class="mx-auto w-full max-w-6xl scroll-mt-24 px-4 pb-20 pt-4 sm:px-6 lg:pb-28" aria-labelledby="faq-heading">
       <span class="sticker -rotate-2">faq</span>
       <h2 id="faq-heading" class="mt-3 text-[clamp(2.4rem,7vw,3.8rem)] lowercase">fair questions<span class="text-apple">.</span></h2>
@@ -482,7 +493,7 @@
             where do you ship?
             <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 16 16" class="size-4"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></span>
           </summary>
-          <p class="faq-body">we ship to the EU first. more countries after that.</p>
+          <p class="faq-body">we ship to the EU first — free eu shipping on orders of 6+ bags. more countries after that.</p>
         </details>
         </div>
 
@@ -592,6 +603,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260810r" defer></script>
+  <script src="js/main.js?v=20260810s" defer></script>
 </body>
 </html>

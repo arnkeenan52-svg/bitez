@@ -499,9 +499,6 @@
   }
   /* subscribe trust lines: fully collapsed in one-time mode (no dead gap);
      the small shift on toggling is user-initiated and below the CTA */
-  .js-sub-lines.invisible {
-    display: none;
-  }
   .pick-row {
     @apply relative block cursor-pointer select-none rounded-2xl border-2 border-forest/15 bg-transparent px-3.5 py-3;
     transition:
