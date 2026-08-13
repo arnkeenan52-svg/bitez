@@ -4,7 +4,7 @@ Product photography used by the site.
 
 | File | Used for |
 |---|---|
-| `hero-banner-1920/-1280(.webp), hero-banner-1600.jpg` | front-page hero — flying apples + gummies banner, desktop (2K upscaled) |
+| `hero-banner-sq-1024(.webp/.jpg)` | front-page hero — dense square apples + gummies art, desktop half |
 | `hero-banner-m-768(.webp/.jpg)` | front-page hero — portrait banner for phones (clean top for the headline) |
 | `hero-trio(.webp/-550.webp/-550.png)` | former text-hero product image — kept for reuse (all three bags, transparent background) |
 | `greenapple.jpg` | green apple flavor card + OG/social image |
