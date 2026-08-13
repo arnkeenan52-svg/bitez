@@ -4,8 +4,7 @@ Product photography used by the site.
 
 | File | Used for |
 |---|---|
-| `hero-banner-1920/-1280(.webp), hero-banner-1600.jpg` | front-page hero banner, desktop (AI scene built from the green apple pack shot, 2K upscaled) |
-| `hero-banner-m-768(.webp/.jpg)` | front-page hero banner, portrait crop for phones |
+| `bag-cutout-560/-900(.webp), bag-cutout-560.png` | front-page hero — the green apple bag, background removed (cutout floats on the flat apple field) |
 | `hero-trio(.webp/-550.webp/-550.png)` | former text-hero product image — kept for reuse (all three bags, transparent background) |
 | `greenapple.jpg` | green apple flavor card + OG/social image |
 | `greenapple-front/-bears/-macro(.jpg/.webp/-500.jpg)` | green apple product gallery |

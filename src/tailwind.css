@@ -643,6 +643,33 @@
       visibility 0s;
   }
 
+  /* ---------- hero (flat brand-color field, candy-DTC formula) ---------- */
+  /* headline set like the wordmark: white bubble letters, deep-forest outline +
+     downward offset shadow so it lifts off the apple field */
+  .hero-title {
+    @apply font-display font-extrabold lowercase text-white;
+    -webkit-text-stroke: 0.04em var(--color-forest-deep);
+    paint-order: stroke fill;
+    text-shadow: 0.05em 0.07em 0 var(--color-forest-deep);
+  }
+  /* single hero CTA: white pill, forest text, hard offset shadow that presses in */
+  .btn-hero {
+    @apply inline-flex min-h-[58px] cursor-pointer select-none items-center justify-center rounded-full bg-white px-9 font-display text-lg font-extrabold lowercase text-forest no-underline;
+    box-shadow: 0 5px 0 var(--color-forest-deep);
+    transition:
+      transform 0.15s var(--ease-spring),
+      box-shadow 0.15s ease-out;
+  }
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 var(--color-forest-deep);
+  }
+  .btn-hero:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--color-forest-deep);
+    transition-duration: 80ms;
+  }
+
   /* ---------- checkout (ck-*) — Shopify-style anatomy, bitez skin ----------
      Sections are FLAT on the page (no cards) — only inputs carry borders,
      exactly like Shopify's checkout. */
@@ -849,6 +876,12 @@
   .ck-skel {
     animation: none;
     opacity: 0.4;
+  }
+  .btn-hero,
+  .btn-hero:hover,
+  .btn-hero:active {
+    transform: none;
+    transition: none;
   }
   .ck-summary-toggle svg,
   .ck-label,
