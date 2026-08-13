@@ -18,8 +18,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260813b" />
-  <link rel="stylesheet" href="css/styles.css?v=20260813b" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260813c" />
+  <link rel="stylesheet" href="css/styles.css?v=20260813c" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,18 +87,11 @@
     <section class="mx-auto w-full max-w-6xl px-4 pb-14 pt-4 sm:px-6 lg:pb-20">
       <a href="index.html#flavors" class="inline-flex items-center gap-1 font-bold lowercase text-forest-soft no-underline hover:text-forest hover:underline hover:underline-offset-4">← all flavors</a>
 
-      <div class="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-x-14 lg:gap-y-5">
+      <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start lg:gap-x-14 lg:gap-y-5">
         <div class="lg:col-start-2">
           <span class="tag tag-status">launch flavor · first drop</span>
           <h1 class="mt-4 text-[clamp(2.8rem,9vw,4.6rem)] lowercase">green apple<span class="text-apple">.</span></h1>
           <p class="mt-4 max-w-lg text-lg font-semibold leading-relaxed sm:text-xl">sour green apple, translucent like real candy. the first bitez flavor.</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="stat-take">20g protein / bag</span>
-            <span class="stat-take">~8g sugar</span>
-            <span class="stat-take">~200 kcal</span>
-            <span class="stat-take">100% vegan</span>
-          </div>
-          <p class="mt-3 text-sm font-bold text-forest-soft">from €19.99 · free eu shipping on 6+ bags</p>
         </div>
         <div class="lg:sticky lg:top-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-start">
           <div class="clay overflow-hidden rounded-[20px] bg-white p-3 sm:p-4">
@@ -107,23 +100,23 @@
               <img src="assets/greenapple-front.jpg" srcset="assets/greenapple-front-500.jpg 500w, assets/greenapple-front.jpg 1000w" sizes="(min-width: 1024px) 540px, 92vw" alt="green apple bitez pouch, front view on cream studio background" class="js-pdp-main aspect-square w-full rounded-2xl bg-cream object-contain" width="1000" height="1000" fetchpriority="high" decoding="async" />
             </picture>
           </div>
-          <div class="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6" role="group" aria-label="product photos">
-            <button type="button" class="js-thumb thumb-btn w-full" aria-current="true" data-full="assets/greenapple-front.jpg" data-webp="assets/greenapple-front.webp" data-alt="green apple bitez pouch, front view on cream studio background">
+          <div class="mt-3 flex snap-x gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-6 sm:overflow-visible sm:pb-0" role="group" aria-label="product photos">
+            <button type="button" class="js-thumb thumb-btn w-16 shrink-0 snap-start sm:w-full" aria-current="true" data-full="assets/greenapple-front.jpg" data-webp="assets/greenapple-front.webp" data-alt="green apple bitez pouch, front view on cream studio background">
               <img src="assets/greenapple-front-500.jpg" alt="pouch, front view" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
-            <button type="button" class="js-thumb thumb-btn w-full" aria-current="false" data-full="assets/greenapple-bears.jpg" data-webp="assets/greenapple-bears.webp" data-alt="green apple bitez pouch with five translucent green gummy bears in front">
+            <button type="button" class="js-thumb thumb-btn w-16 shrink-0 snap-start sm:w-full" aria-current="false" data-full="assets/greenapple-bears.jpg" data-webp="assets/greenapple-bears.webp" data-alt="green apple bitez pouch with five translucent green gummy bears in front">
               <img src="assets/greenapple-bears-500.jpg" alt="pouch with gummies" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
-            <button type="button" class="js-thumb thumb-btn w-full" aria-current="false" data-full="assets/greenapple-macro.jpg" data-webp="assets/greenapple-macro.webp" data-alt="macro close-up of translucent green apple gummy bears, backlit">
+            <button type="button" class="js-thumb thumb-btn w-16 shrink-0 snap-start sm:w-full" aria-current="false" data-full="assets/greenapple-macro.jpg" data-webp="assets/greenapple-macro.webp" data-alt="macro close-up of translucent green apple gummy bears, backlit">
               <img src="assets/greenapple-macro-500.jpg" alt="gummy close-up" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
-            <button type="button" class="js-thumb thumb-btn w-full" aria-current="false" data-full="assets/fact-protein.jpg" data-webp="assets/fact-protein.webp" data-alt="20g protein per 96g bag — bitez fact card">
+            <button type="button" class="js-thumb thumb-btn w-16 shrink-0 snap-start sm:w-full" aria-current="false" data-full="assets/fact-protein.jpg" data-webp="assets/fact-protein.webp" data-alt="20g protein per 96g bag — bitez fact card">
               <img src="assets/fact-protein-500.jpg" alt="20g protein fact card" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
-            <button type="button" class="js-thumb thumb-btn w-full" aria-current="false" data-full="assets/fact-sugar.jpg" data-webp="assets/fact-sugar.webp" data-alt="around 8g sugar and around 200 kcal per bag — bitez fact card">
+            <button type="button" class="js-thumb thumb-btn w-16 shrink-0 snap-start sm:w-full" aria-current="false" data-full="assets/fact-sugar.jpg" data-webp="assets/fact-sugar.webp" data-alt="around 8g sugar and around 200 kcal per bag — bitez fact card">
               <img src="assets/fact-sugar-500.jpg" alt="~8g sugar fact card" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
-            <button type="button" class="js-thumb thumb-btn w-full" aria-current="false" data-full="assets/fact-vegan.jpg" data-webp="assets/fact-vegan.webp" data-alt="100% vegan, pectin base, no gelatin — bitez fact card">
+            <button type="button" class="js-thumb thumb-btn w-16 shrink-0 snap-start sm:w-full" aria-current="false" data-full="assets/fact-vegan.jpg" data-webp="assets/fact-vegan.webp" data-alt="100% vegan, pectin base, no gelatin — bitez fact card">
               <img src="assets/fact-vegan-500.jpg" alt="100% vegan fact card" class="aspect-square w-full object-cover" width="500" height="500" loading="lazy" decoding="async" />
             </button>
           </div>
@@ -628,6 +621,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260813b" defer></script>
+  <script src="js/main.js?v=20260813c" defer></script>
 </body>
 </html>
