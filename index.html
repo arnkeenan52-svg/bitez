@@ -23,9 +23,10 @@
 
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/bag-cutout-560.webp 560w, assets/bag-cutout-900.webp 900w" imagesizes="(min-width: 1024px) 400px, 288px" />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810l" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810l" />
+  <link rel="preload" as="image" type="image/webp" media="(max-width: 767px)" href="assets/hero-banner-m-768.webp" />
+  <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)" imagesrcset="assets/hero-banner-1280.webp 1280w, assets/hero-banner-1920.webp 1920w" imagesizes="100vw" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810m" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810m" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -67,8 +68,6 @@
     </div>
   </header>
 
-  <svg class="-mb-px block h-auto w-full" viewBox="0 0 1440 30" aria-hidden="true"><path class="fill-apple" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8 L1452,30 L-12,30 Z" /><path class="text-forest" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>
-
   <main class="relative isolate">
     <!-- ambient blob field: behind all content, cream to footer -->
     <div class="pointer-events-none absolute inset-0 -z-10 overflow-clip" aria-hidden="true">
@@ -87,24 +86,26 @@
       <svg viewBox="0 0 120 140" class="absolute left-[5%] top-[84%] size-5 rotate-6 text-mango opacity-35"><use href="#gummy-bear" /></svg>
     </div>
     <!-- ============ hero ============ -->
-    <section class="relative isolate overflow-hidden bg-apple" aria-labelledby="hero-heading">
-      <!-- flat saturated field; vertical-only gradient keeps the top edge exactly
-           --color-apple so the header wave connects seamlessly -->
-      <div class="pointer-events-none absolute inset-0 -z-10" style="background: linear-gradient(180deg, #a4d65e 0%, #a4d65e 34%, #afdd6d 100%)" aria-hidden="true"></div>
-      <!-- cream sparkles, edges only, desktop only -->
-      <div class="pointer-events-none absolute inset-0 -z-10 hidden text-cream md:block" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="absolute left-[7%] top-[16%] size-4 opacity-80" fill="currentColor"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z"/></svg>
-        <svg viewBox="0 0 24 24" class="absolute left-[15%] top-[64%] size-3 opacity-60" fill="currentColor"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z"/></svg>
-        <svg viewBox="0 0 24 24" class="absolute right-[9%] top-[22%] size-3.5 opacity-70" fill="currentColor"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z"/></svg>
-        <svg viewBox="0 0 24 24" class="absolute right-[18%] top-[72%] size-4 opacity-60" fill="currentColor"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z"/></svg>
-        <svg viewBox="0 0 24 24" class="absolute right-[42%] top-[10%] size-3 opacity-50" fill="currentColor"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z"/></svg>
-      </div>
+    <section class="relative isolate flex min-h-[86vh] items-start overflow-hidden pt-10 md:min-h-[82vh] md:items-center md:pt-0" aria-labelledby="hero-heading">
+      <!-- the banner art: flying apples + gummies. portrait crop on phones, wide on desktop -->
+      <picture>
+        <source media="(max-width: 767px)" type="image/webp" srcset="assets/hero-banner-m-768.webp" />
+        <source media="(max-width: 767px)" srcset="assets/hero-banner-m-768.jpg" />
+        <source type="image/webp" srcset="assets/hero-banner-1280.webp 1280w, assets/hero-banner-1920.webp 1920w" sizes="100vw" />
+        <img src="assets/hero-banner-1600.jpg" alt="a bitez green apple protein gummies bag surrounded by flying gummy bears and fresh apple slices" class="absolute inset-0 -z-10 h-full w-full object-cover object-top md:object-[62%_center]" width="1920" height="1076" fetchpriority="high" decoding="async" />
+      </picture>
+      <!-- the header wave rides ON the image: cream above the line, art below —
+           the line is always connected, at every width -->
+      <svg class="pointer-events-none absolute inset-x-0 top-0 block h-auto w-full" viewBox="0 0 1440 30" aria-hidden="true">
+        <path class="fill-cream" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8 L1452,-40 L-12,-40 Z" />
+        <path class="text-forest" d="M-12,16 C200,30 440,4 720,12 C1000,20 1250,26 1452,8" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" />
+      </svg>
 
-      <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 lg:min-h-[80vh] lg:grid-cols-[44%_1fr] lg:gap-8 lg:py-14">
-        <!-- text stack: first on mobile, right column on desktop — always centered -->
-        <div class="text-center lg:order-2">
+      <div class="mx-auto w-full max-w-6xl px-4 pb-16 pt-4 sm:px-6 md:py-16">
+        <!-- centered stack on phones (over the art's clean top), centered column in the clean left half on desktop -->
+        <div class="mx-auto max-w-xl text-center md:mx-0 md:max-w-lg lg:max-w-xl">
           <p class="text-sm font-extrabold lowercase tracking-wide text-forest-deep">the first drop is open</p>
-          <h1 id="hero-heading" class="hero-title mx-auto mt-3 max-w-xl text-[clamp(2.7rem,4.8vw,3.7rem)] leading-[0.98]">
+          <h1 id="hero-heading" class="hero-title mt-3 text-[clamp(2.7rem,5vw,3.9rem)] leading-[0.98]">
             candy that counts.
           </h1>
           <p class="mx-auto mt-4 max-w-xs text-base font-bold leading-snug text-forest-deep sm:max-w-sm sm:text-lg">
@@ -113,17 +114,6 @@
           <div id="cta" class="mt-7 scroll-mt-28">
             <a href="green-apple.html" class="btn-hero">pre-order now</a>
           </div>
-        </div>
-
-        <!-- product zone: its own column, flat bear props tucked behind the bag -->
-        <div class="relative mx-auto w-full max-w-[288px] sm:max-w-[320px] lg:order-1 lg:max-w-[400px]">
-          <svg viewBox="0 0 120 140" class="absolute -left-[16%] top-[16%] w-[30%] -rotate-12 text-forest/20" aria-hidden="true"><use href="#gummy-bear" /></svg>
-          <svg viewBox="0 0 120 140" class="absolute -right-[14%] top-[52%] w-[26%] rotate-12 text-cream/70" aria-hidden="true"><use href="#gummy-bear" /></svg>
-          <svg viewBox="0 0 120 140" class="absolute -left-[8%] bottom-[4%] w-[20%] rotate-6 text-forest-deep/15" aria-hidden="true"><use href="#gummy-bear" /></svg>
-          <picture>
-            <source type="image/webp" srcset="assets/bag-cutout-560.webp 560w, assets/bag-cutout-900.webp 900w" sizes="(min-width: 1024px) 400px, 288px" />
-            <img src="assets/bag-cutout-560.png" alt="a bag of bitez green apple protein gummies" class="float-slower relative z-10 w-full -rotate-3 drop-shadow-[0_22px_24px_rgba(26,74,38,0.35)]" width="560" height="751" fetchpriority="high" decoding="async" />
-          </picture>
         </div>
       </div>
     </section>
@@ -600,6 +590,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260810l" defer></script>
+  <script src="js/main.js?v=20260810m" defer></script>
 </body>
 </html>
