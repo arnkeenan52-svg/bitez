@@ -6,7 +6,7 @@ Product photography used by the site.
 |---|---|
 | `hero-banner-sq-1024(.webp/.jpg)` | front-page hero — dense square apples + gummies art, desktop half |
 | `hero-banner-m-768(.webp/.jpg)` | front-page hero — portrait banner for phones (clean top for the headline) |
-| `seal-protein/-sugar/-kcal(.webp/.png)` | front-page hero — starburst fact badges (transparent cutouts, match the bag's printed badge) |
+| `seal-protein/-sugar/-kcal(.webp/.png)` | spare — starburst fact badges in the bag's printed-badge style (transparent cutouts, currently unused) |
 | `hero-trio(.webp/-550.webp/-550.png)` | former text-hero product image — kept for reuse (all three bags, transparent background) |
 | `greenapple.jpg` | green apple flavor card + OG/social image |
 | `greenapple-front/-bears/-macro(.jpg/.webp/-500.jpg)` | green apple product gallery |
