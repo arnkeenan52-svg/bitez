@@ -25,8 +25,8 @@
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" as="image" type="image/webp" media="(max-width: 767px)" href="assets/hero-banner-m-768.webp" />
   <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)" href="assets/hero-banner-sq-1024.webp" />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260813a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260813a" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260813b" />
+  <link rel="stylesheet" href="css/styles.css?v=20260813b" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -125,10 +125,46 @@
           <div id="cta" class="mt-7 scroll-mt-28">
             <a href="green-apple.html" class="btn-hero">pre-order now</a>
           </div>
-          <ul class="mt-6 hidden items-center justify-center gap-2 md:flex" role="list">
-            <li class="pill px-4 text-sm">20g protein</li>
-            <li class="pill px-4 text-sm">~8g sugar</li>
-            <li class="pill px-4 text-sm">~200 kcal</li>
+          <ul class="mt-6 hidden items-center justify-center gap-3 md:flex" role="list">
+            <li class="-rotate-3">
+              <svg viewBox="0 0 100 104" class="w-[104px]" role="img" aria-label="20g protein per bag">
+                <circle cx="50" cy="53" r="48" fill="#1a4a26" />
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="seal-arc-protein" d="M17,50 a33,33 0 0 1 66,0" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="8.5" font-weight="800" letter-spacing="1.4" text-anchor="middle"><textPath href="#seal-arc-protein" startOffset="50%">protein</textPath></text>
+                <text class="font-display" x="50" y="58" fill="#faf5e8" font-size="22" font-weight="800" text-anchor="middle">20g</text>
+                <path id="seal-underarc-protein" d="M22,50 a28,28 0 0 0 56,0" fill="none" />
+                <text class="font-body" fill="#a4d65e" font-size="7.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#seal-underarc-protein" startOffset="50%">per bag</textPath></text>
+                <circle cx="22" cy="52" r="2" fill="#a4d65e" /><circle cx="78" cy="52" r="2" fill="#a4d65e" />
+              </svg>
+            </li>
+            <li class="rotate-1">
+              <svg viewBox="0 0 100 104" class="w-[104px]" role="img" aria-label="around 8g sugar per bag">
+                <circle cx="50" cy="53" r="48" fill="#1a4a26" />
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="seal-arc-sugar" d="M17,50 a33,33 0 0 1 66,0" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="8.5" font-weight="800" letter-spacing="1.4" text-anchor="middle"><textPath href="#seal-arc-sugar" startOffset="50%">sugar</textPath></text>
+                <text class="font-display" x="50" y="58" fill="#faf5e8" font-size="22" font-weight="800" text-anchor="middle">~8g</text>
+                <path id="seal-underarc-sugar" d="M22,50 a28,28 0 0 0 56,0" fill="none" />
+                <text class="font-body" fill="#a4d65e" font-size="7.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#seal-underarc-sugar" startOffset="50%">per bag</textPath></text>
+                <circle cx="22" cy="52" r="2" fill="#a4d65e" /><circle cx="78" cy="52" r="2" fill="#a4d65e" />
+              </svg>
+            </li>
+            <li class="rotate-3">
+              <svg viewBox="0 0 100 104" class="w-[104px]" role="img" aria-label="around 200 kcal per bag">
+                <circle cx="50" cy="53" r="48" fill="#1a4a26" />
+                <circle cx="50" cy="50" r="48" fill="#225e30" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#faf5e8" stroke-width="2.5" />
+                <path id="seal-arc-kcal" d="M17,50 a33,33 0 0 1 66,0" fill="none" />
+                <text class="font-body" fill="#faf5e8" font-size="8.5" font-weight="800" letter-spacing="1.4" text-anchor="middle"><textPath href="#seal-arc-kcal" startOffset="50%">kcal</textPath></text>
+                <text class="font-display" x="50" y="58" fill="#faf5e8" font-size="22" font-weight="800" text-anchor="middle">~200</text>
+                <path id="seal-underarc-kcal" d="M22,50 a28,28 0 0 0 56,0" fill="none" />
+                <text class="font-body" fill="#a4d65e" font-size="7.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><textPath href="#seal-underarc-kcal" startOffset="50%">per bag</textPath></text>
+                <circle cx="22" cy="52" r="2" fill="#a4d65e" /><circle cx="78" cy="52" r="2" fill="#a4d65e" />
+              </svg>
+            </li>
           </ul>
           <p class="mt-4 hidden text-sm font-extrabold lowercase text-forest-deep/90 md:block">from €19.99 · secure checkout · 14-day money-back guarantee</p>
         </div>
@@ -136,7 +172,7 @@
     </section>
 
     <!-- rolling brand strip: the first scroll moment -->
-    <div class="relative z-10 mx-auto mt-8 w-full max-w-6xl px-4 sm:mt-10 md:-mt-10 md:px-6">
+    <div class="relative z-10 mx-auto mt-8 w-full max-w-6xl px-4 sm:mt-10 md:mt-6 md:px-6">
       <div class="marquee-wrap reveal -rotate-1">
         <div class="marquee">
           <div class="marquee-group">
@@ -605,6 +641,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260813a" defer></script>
+  <script src="js/main.js?v=20260813b" defer></script>
 </body>
 </html>
