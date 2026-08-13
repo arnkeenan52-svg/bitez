@@ -23,8 +23,10 @@
 
   <link rel="preload" href="fonts/baloo2-4a324dde.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/nunito-798ec6b6.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="fonts/fonts.css?v=20260810j" />
-  <link rel="stylesheet" href="css/styles.css?v=20260810j" />
+  <link rel="preload" as="image" type="image/webp" media="(max-width: 767px)" href="assets/hero-banner-m-768.webp" />
+  <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)" imagesrcset="assets/hero-banner-1280.webp 1280w, assets/hero-banner-1920.webp 1920w" imagesizes="100vw" />
+  <link rel="stylesheet" href="fonts/fonts.css?v=20260810k" />
+  <link rel="stylesheet" href="css/styles.css?v=20260810k" />
   <link rel="prefetch" href="green-apple.html" />
 
   <script type="application/ld+json">
@@ -86,84 +88,28 @@
       <svg viewBox="0 0 120 140" class="absolute left-[5%] top-[84%] size-5 rotate-6 text-mango opacity-35"><use href="#gummy-bear" /></svg>
     </div>
     <!-- ============ hero ============ -->
-    <section class="relative isolate overflow-hidden" aria-labelledby="hero-heading">
-      <div class="pointer-events-none absolute inset-0 -z-10 flex flex-col" aria-hidden="true">
-        <div class="flex-1 bg-apple/25"></div>
-        <svg class="block w-full shrink-0 rotate-180 text-apple/25" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0,42 C180,70 360,10 620,26 C880,42 1080,70 1260,52 C1350,43 1400,36 1440,30 L1440,70 L0,70 Z" /></svg>
-      </div>
-      <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-6 lg:pb-24 lg:pt-14">
-        <div class="relative z-10">
-          <h1 id="hero-heading" class="text-[clamp(3.3rem,12vw,6.2rem)] lowercase">
-            candy that<br />counts<span class="text-apple">.</span>
+    <section class="relative isolate flex min-h-[76vh] items-start overflow-hidden md:min-h-[82vh] md:items-center" aria-labelledby="hero-heading">
+      <!-- full-bleed hero banner: portrait art on phones, wide art on desktop -->
+      <picture>
+        <source media="(max-width: 767px)" type="image/webp" srcset="assets/hero-banner-m-768.webp" />
+        <source media="(max-width: 767px)" srcset="assets/hero-banner-m-768.jpg" />
+        <source type="image/webp" srcset="assets/hero-banner-1280.webp 1280w, assets/hero-banner-1920.webp 1920w" sizes="100vw" />
+        <img src="assets/hero-banner-1600.jpg" alt="a bitez green apple protein gummies bag surrounded by flying gummy bears and fresh apple slices on an apple-green background" class="absolute inset-0 -z-10 h-full w-full object-cover object-bottom md:object-[62%_center]" width="1920" height="1076" fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="mx-auto w-full max-w-6xl px-4 pb-16 pt-8 sm:px-6 md:py-20">
+        <div class="max-w-xl">
+          <span class="sticker -rotate-2">pre-orders open · first drop</span>
+          <h1 id="hero-heading" class="mt-4 text-[clamp(3.2rem,11vw,5.6rem)] lowercase leading-[0.95]">
+            candy that counts<span class="text-white">.</span>
           </h1>
-          <p class="mt-5 max-w-md text-lg font-semibold leading-relaxed sm:text-xl">
-            vegan protein gummies that taste like actual candy. 20g protein per bag. every batch lab tested.
+          <p class="mt-4 max-w-sm text-lg font-bold leading-snug sm:text-xl">
+            20g protein per bag. ~8g sugar. tastes like the candy you actually want.
           </p>
-
-          <!-- pre-order CTAs -->
-          <div id="cta" class="mt-8 grid max-w-md grid-cols-2 items-center gap-3 scroll-mt-28">
-            <a href="green-apple.html" class="btn btn-primary min-h-[56px] whitespace-nowrap px-3 text-base lowercase sm:px-4 sm:text-lg">pre-order now</a>
-            <a href="#flavors" class="btn btn-ghost min-h-[56px] whitespace-nowrap px-3 text-base lowercase sm:px-4 sm:text-lg">see the flavors</a>
+          <div id="cta" class="mt-7 flex scroll-mt-28 flex-wrap items-center gap-3">
+            <a href="green-apple.html" class="btn btn-primary min-h-[58px] px-7 text-lg lowercase">pre-order now</a>
+            <a href="#flavors" class="btn min-h-[58px] border-[2.5px] border-forest/50 bg-white/55 px-6 text-lg lowercase text-forest">see the flavors</a>
           </div>
-          <p class="mt-3 text-sm font-semibold text-forest-soft">first drop ships in 8–12 weeks. secure checkout, 14-day money-back guarantee.</p>
-
-          <!-- trust emblems -->
-          <ul class="mt-7 flex gap-6 sm:gap-8" role="list">
-            <li class="reveal flex flex-col items-center gap-2 text-center">
-              <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
-                <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
-                <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18C6 10.5 10.5 6 18.5 5.5 18 13.5 13.5 18 6 18Z" /><path d="M6 18c2.5-4.5 5.5-7.5 9-9.5" /></svg>
-              </span>
-              <span class="text-xs font-extrabold lowercase leading-tight">100% vegan</span>
-            </li>
-            <li class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.1s">
-              <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
-                <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
-                <svg viewBox="0 0 120 140" class="w-7" aria-hidden="true"><use href="#gummy-bear" /></svg>
-              </span>
-              <span class="text-xs font-extrabold lowercase leading-tight">no gelatin</span>
-            </li>
-            <li class="reveal flex flex-col items-center gap-2 text-center" style="--reveal-delay:0.2s">
-              <span class="relative grid size-16 place-items-center rounded-full bg-forest text-cream">
-                <span class="absolute inset-[5px] rounded-full border-2 border-dashed border-cream/45" aria-hidden="true"></span>
-                <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6" /><path d="M10.5 3v5.5L5.8 17.8a1.9 1.9 0 0 0 1.7 2.7h9a1.9 1.9 0 0 0 1.7-2.7L13.5 8.5V3" /><path d="M7.7 14.8h8.6" /></svg>
-              </span>
-              <span class="text-xs font-extrabold lowercase leading-tight">lab tested</span>
-            </li>
-          </ul>
-
-          <a href="https://www.instagram.com/bitezgummies" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 font-bold lowercase text-forest no-underline hover:underline hover:underline-offset-4">
-            <svg class="size-5" aria-hidden="true"><use href="#icon-instagram" /></svg>
-            follow @bitezgummies
-          </a>
-        </div>
-
-        <!-- hero product media: all three flavors, transparent cutout -->
-        <div class="asset-frame relative mx-auto w-full max-w-md sm:max-w-lg lg:max-w-xl">
-          <picture>
-            <source type="image/webp" srcset="assets/hero-trio-550.webp 550w, assets/hero-trio.webp 1089w" sizes="(min-width: 1024px) 576px, 92vw" />
-            <img src="assets/hero-trio-550.png" srcset="assets/hero-trio-550.png 550w" sizes="(min-width: 1024px) 576px, 92vw" alt="the three bitez flavors side by side: strawberry, green apple and pineapple protein gummy bags" class="float-slower relative z-10 w-full drop-shadow-[0_24px_26px_rgba(34,94,48,0.28)]" width="1089" height="603" fetchpriority="high" decoding="async" />
-          </picture>
-          <div class="asset-fallback relative aspect-square w-full">
-            <div class="absolute inset-[6%] rounded-[45%_55%_52%_48%/48%_45%_55%_52%] bg-tint-apple" aria-hidden="true"></div>
-            <svg viewBox="0 0 120 140" class="float-slow absolute left-1/2 top-1/2 z-10 w-[52%] -translate-x-1/2 -translate-y-[54%] text-apple" style="--tilt:-3deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
-            <svg viewBox="0 0 120 140" class="float-slower absolute left-[10%] top-[62%] w-[20%] text-apple" style="--tilt:-16deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
-            <svg viewBox="0 0 120 140" class="float-slow absolute right-[6%] top-[38%] w-[16%] text-apple" style="--tilt:22deg" aria-hidden="true"><use href="#gummy-bear" /></svg>
-            <span class="sr-only">green apple bitez: translucent green protein gummy bears (product photo coming soon)</span>
-
-            <!-- protein sticker (placeholder state only; the real pack shot has its own badge) -->
-            <div class="absolute right-2 top-2 z-20 grid size-28 place-items-center sm:size-32" aria-hidden="true">
-              <svg viewBox="0 0 100 100" class="sticker-spin absolute inset-0 size-full">
-                <circle cx="50" cy="50" r="48" fill="#225e30" />
-                <circle cx="50" cy="50" r="41" fill="none" stroke="#faf5e8" stroke-width="2" stroke-dasharray="1 3" stroke-linecap="round" />
-                <path id="sticker-arc" d="M50,50 m-33,0 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0" fill="none" />
-                <text class="font-body" fill="#faf5e8" font-size="10.5" font-weight="800" letter-spacing="2.5">
-                  <textPath href="#sticker-arc">20g protein · per bag ·</textPath>
-                </text>
-              </svg>
-              <span class="relative font-display text-2xl font-extrabold text-cream sm:text-[1.7rem]">20g</span>
-            </div>
-          </div>
+          <p class="mt-4 hidden max-w-md text-sm font-bold text-forest/85 md:block">ships in 8–12 weeks · secure checkout · 14-day money-back guarantee</p>
         </div>
       </div>
     </section>
@@ -640,6 +586,6 @@
     </defs>
   </svg>
 
-  <script src="js/main.js?v=20260810j" defer></script>
+  <script src="js/main.js?v=20260810k" defer></script>
 </body>
 </html>
