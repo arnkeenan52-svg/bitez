@@ -170,11 +170,13 @@
 
   /* ---------- wordmark: white bubble letters + forest outline, like the packaging ---------- */
   .wordmark {
+    /* exactly like the bag print: white chubby letters + solid forest drop
+       shadow, no outline ring */
     @apply relative inline-block font-display font-extrabold lowercase leading-none text-white;
     letter-spacing: -0.015em;
-    -webkit-text-stroke: 0.055em var(--color-forest);
-    paint-order: stroke fill;
-    text-shadow: 0.055em 0.07em 0 var(--color-forest);
+    text-shadow:
+      0.06em 0.08em 0 var(--color-forest),
+      0.03em 0.04em 0 var(--color-forest);
     padding-right: 0.5em; /* room for the action lines */
   }
   /* the three radiating action lines off the "z", as on the bags */
@@ -647,10 +649,12 @@
   /* headline set like the wordmark: white bubble letters, deep-forest outline +
      downward offset shadow so it lifts off the apple field */
   .hero-title {
+    /* same treatment as the wordmark/bag logo: white fill + solid forest drop */
     @apply font-display font-extrabold lowercase text-white;
-    -webkit-text-stroke: 0.04em var(--color-forest-deep);
-    paint-order: stroke fill;
-    text-shadow: 0.05em 0.07em 0 var(--color-forest-deep);
+    letter-spacing: -0.015em;
+    text-shadow:
+      0.055em 0.075em 0 var(--color-forest-deep),
+      0.028em 0.038em 0 var(--color-forest-deep);
   }
   /* single hero CTA: white pill, forest text, hard offset shadow that presses in */
   .btn-hero {
