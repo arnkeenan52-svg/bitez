@@ -381,3 +381,36 @@ initChooser();
 initFlavorVotes();
 initGallery();
 initStickyCta();
+
+/* ---------- number ticker: count-up on scroll into view ---------- */
+/* adapted from the 21st.dev "number ticker" pattern */
+(() => {
+  const els = document.querySelectorAll(".js-tick");
+  if (!els.length || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        io.unobserve(entry.target);
+        const el = entry.target;
+        const m = el.textContent.match(/^(\D*?)(\d+)([\s\S]*)$/);
+        if (!m) continue;
+        const pre = m[1];
+        const target = parseInt(m[2], 10);
+        const post = m[3];
+        const dur = 900;
+        const t0 = performance.now();
+        const step = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = pre + Math.round(target * eased) + post;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    },
+    { threshold: 0.6 }
+  );
+  els.forEach((el) => io.observe(el));
+})();

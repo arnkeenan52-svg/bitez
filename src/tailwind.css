@@ -671,6 +671,60 @@
     transition-duration: 80ms;
   }
 
+  /* ---------- micro-interactions (adapted from 21st.dev patterns) ---------- */
+  /* shimmer sweep on primary CTAs — background-position animation clipped by
+     border-radius: inherit, so the cart badge never gets cut off */
+  .btn-primary,
+  .btn-hero {
+    position: relative;
+  }
+  .btn-primary::after,
+  .btn-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.32) 50%, transparent 58%);
+    background-size: 260% 100%;
+    background-position: 190% 0;
+    background-repeat: no-repeat;
+    animation: btn-sheen 5.2s ease-in-out infinite;
+  }
+  .btn-hero::after {
+    background: linear-gradient(105deg, transparent 42%, rgba(164, 214, 94, 0.4) 50%, transparent 58%);
+    background-size: 260% 100%;
+    background-repeat: no-repeat;
+  }
+  @keyframes btn-sheen {
+    0%,
+    68% {
+      background-position: 190% 0;
+    }
+    92%,
+    100% {
+      background-position: -90% 0;
+    }
+  }
+  /* marquee pauses while hovered, like the 21st.dev marquees */
+  .marquee-wrap:hover .marquee {
+    animation-play-state: paused;
+  }
+  /* soft lift on the why-bitez cards (independent translate, composes with rotate) */
+  .why-card {
+    transition: translate 0.25s var(--ease-spring);
+  }
+  .why-card:hover {
+    translate: 0 -4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary::after,
+    .btn-hero::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
   /* ---------- checkout (ck-*) — Shopify-style anatomy, bitez skin ----------
      Sections are FLAT on the page (no cards) — only inputs carry borders,
      exactly like Shopify's checkout. */
